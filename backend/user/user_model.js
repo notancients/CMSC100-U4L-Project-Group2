@@ -7,8 +7,7 @@ const User = mongoose.model('User',
       "lname":String,
       "userType":String,
       "email":String,
-      "password":String,
-      "cartID":ObjectId
+      "password":String
     }, 'userData'
 )
 
