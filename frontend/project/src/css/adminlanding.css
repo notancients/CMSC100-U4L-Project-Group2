@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.admin-page {
+    background-image: url('../images/adminlp_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    overflow: hidden; 
+}
+  .logo {
+    position: absolute; 
+    top: 2px;;
+    left: 10px; 
+  }
+  .logo img {
+    width: 350px; 
+  height: auto;
+  }
+
+  .text-center {
+    color: #E5F2AD;
+    font-size: 13px;
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+    z-index: 2;
+  }
+
+  
+  .menu1, .menu2{
+  display: flex;
+  flex-direction: column;
+}
+
+.menu1 img{
+    margin-left: 600px;
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+
+.menu2 img{
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+  .listing{
+    width: 80%;
+    margin-top: 70px;
+
+  }
+  .accounts img{
+    width: 80%;
+  }
+  .pending img{
+    width: 80%;
+  }
+  .sales img{
+    width: 80%;
+  }
+ 
+  
