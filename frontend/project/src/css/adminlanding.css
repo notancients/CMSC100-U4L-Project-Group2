@@ -44,28 +44,41 @@
     margin-left: 600px;
     width: 200px;
     margin-right: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+   
+}
+
+.menu1 img:hover{
+    box-shadow: 0 0 10px #E5F2AD; 
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.08);
+
 }
 
 
 .menu2 img{
     width: 200px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.menu2 img:hover{
+    box-shadow: 0 0 10px #E5F2AD; 
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.08);
+
 }
 
   .listing{
     width: 80%;
-    margin-top: 70px;
+    margin-top: 100px;
+  }
+  .pending{
+    width: 80%;
+    margin-top: 20px;
+  }
 
-  }
-  .accounts img{
-    width: 80%;
-  }
-  .pending img{
-    width: 80%;
-  }
-  .sales img{
-    width: 80%;
-  }
- 
   
