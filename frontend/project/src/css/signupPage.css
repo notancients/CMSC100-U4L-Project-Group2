@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.signup-page {
+    background-image: url('../images/signup_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    cursor: none;
+
+  }
+
+  .custom-cursor {
+    position: fixed;
+    pointer-events: none; 
+    z-index: 9999; 
+  }
+  
+  .custom-cursor img {
+    width: 32px; 
+    height: 32px;
+    display: block;
+    pointer-events: none; 
+  }
+
+  
+
+  .bokeh-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bokeh {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #e5f2ad40 1%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    animation: moveBokeh 40s infinite linear;
+    pointer-events: none; 
+}
+
+.bokeh:nth-child(1) {
+    top: 10%;
+    left: 20%;
+}
+
+.bokeh:nth-child(2) {
+    top: 40%;
+    left: 80%;
+}
+
+.bokeh:nth-child(3) {
+    top: 50%;
+    left: 40%;
+}
+
+
+@keyframes moveBokeh {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(-10vw, 10vh) scale(1.2);
+    }
+    50% {
+        transform: translate(20vw, -15vh) scale(0.8);
+    }
+    75% {
+        transform: translate(-15vw, -10vh) scale(1.3);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.bokeh:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.bokeh:nth-child(2) {
+  animation-delay: -5s; 
+}
+
+.bokeh:nth-child(3) {
+  animation-delay: -10s; 
+}
+
+.bokeh:nth-child(4) {
+  animation-delay: -15s; 
+}
+
+.bokeh:nth-child(5) {
+  animation-delay: -20s; 
+}
+  
+  .logo {
+    position: absolute; 
+    top: 2px;;
+    left: 10px; }
+  
+  .logo img {
+    width: 350px; 
+  height: auto;
+  }
+
+  .text-center-signup {
+    color: #E5F2AD;
+    font-size: 13px;
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+
+  }
+  
+  .box-signup {
+    position: absolute;
+    left: 76.5%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    padding: 20px 20px;
+    margin-top: 70px;
+    width: 220px;
+  }
+  
+  .input-container-signup {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex; 
+    cursor: none;
+
+  }
+  
+  .input-container-signup input {
+    flex: 1;
+  border: 0;
+  border-bottom: 1px solid #E5F2AD;
+  background: transparent;
+  padding: 8px 0 5px 0; 
+  font-size: 13px;
+  font-family: 'Montserrat';
+  color: #fff;
+  cursor: none;
+
+  }
+  
+  .input-container-signup .input-icon {
+    margin-left: 10px; 
+    color: #fff;
+    cursor: pointer;
+    align-self: center; 
+    position: absolute; 
+    top: 50%; 
+    right: 0;
+    transform: translateY(-50%); 
+    margin-right: 10px;}
+  
+  .input-container-signup label {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 16px;
+    color: #E5F2AD;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+    font-family: 'Montserrat';
+  }
+
+  .input-container-signup input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #E5F2AD;
+  }
+  
+  .input-container-signup input:focus ~ label,
+.input-container-signup input:valid ~ label,
+.input-container-signup input:invalid ~ label {
+    top: -12px;
+    font-size: 12px;
+}
+
+
+  
+  .btn-container-signup {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; 
+  }
+  .btn {
+    color: #323d08;
+    background-color: #E5F2AD;
+    outline: none;
+    border: 0;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    border-radius: 20px;
+    cursor: none;
+    position: relative;
+    font-family: 'Montserrat';
+    font-weight: 550;
+  }
+  
+  .btn:hover {
+    background-color: #133d08;
+    color: #E5F2AD;
+    box-shadow: 0 0 10px #E5F2AD; 
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .signin-link {
+    color: #E5F2AD;
+  }
+
+  .signin-link:hover {
+    color: #fff;
+    cursor: none;
+  }
