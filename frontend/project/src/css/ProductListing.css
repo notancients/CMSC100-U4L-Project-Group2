@@ -1,0 +1,104 @@
+body {
+    background-color: #5A5302;
+}
+
+.product-listing-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 25px;
+    padding-right: 20px;
+    color: #E5F2AD;
+    height: 70px;
+    align-items: center;
+}
+
+a {
+    color: #E5F2AD;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+li:hover {
+    
+}
+  
+.navlink {
+    display: flex;
+    list-style-type: none;
+    margin: 5px;
+    padding: 25px 15px;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.product-listing {
+    display: flex;
+    margin-top: 20px;
+}
+
+.products-title {
+    display: flex;
+    color: #E5F2AD;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+  }
+    
+  .item {
+    margin: 20px;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    padding: 10px;
+    width: 300px;
+  }
+    
+  img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    
+  .name {
+    margin-top: 8px;
+    color: #E5F2AD;
+    font-size: 18px;
+    opacity: 1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .desc {
+    margin-top: 8px;
+    padding: 8px;
+    color: #E5F2AD;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+    
+  button {
+    padding: 8px 16px;
+    background-color: #E5F2AD;
+    color: #5A5302;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+    
+  button:hover {
+    
+  }
