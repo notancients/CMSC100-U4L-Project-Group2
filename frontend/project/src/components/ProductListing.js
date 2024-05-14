@@ -17,10 +17,10 @@ function ProductListing() {
     return(
         <div className="product-listing-page">
             <div className="navbar">
-                <Link to="/orders" className="navlink">ORDERS</Link>
+                <Link to="/users" className="navlink">USERS</Link>
                 <Link to="/products" className="navlink">PRODUCTS</Link>
-                <Link to="/cart" className="navlink">CART</Link>
-                <Link to="/about-us" className="navlink">ABOUT US</Link>
+                <Link to="/orders" className="navlink">ORDERS</Link>
+                <Link to="/sales" className="navlink">SALES</Link>
             </div>
             <div className="products-title">Our Products</div>
             <div className="product-list">
