@@ -169,11 +169,13 @@ body {
 
 .button-container {
   margin-top: 30px;
+  margin-left: 35px;
 }
 
 .user-button {
   transition: transform 0.3s ease-in-out;
   margin-right: 70px;
+  width: 37%;
 }
 
 .user-button:hover {

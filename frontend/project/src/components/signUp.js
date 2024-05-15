@@ -56,8 +56,6 @@ function SignUpPage() {
     };
   }, []);
 
-
-
   return (
     <div className="signup-page">
     <div className="custom-cursor" style={{ cursor: 'none' }}>
