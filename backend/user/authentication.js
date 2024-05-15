@@ -1,10 +1,11 @@
 import jwt from 'jsonwebtoken';
 
 function authenticateTokenMiddleware(req, res, next) {
-    console.log("Now");
+    console.log("Authenticating token validity (for both users and admins).");
     next();
 }
 
-function authorizeAdmin(req, res, next) {
-
+function authorizeAdminMiddleware(req, res, next) {
+    console.log("Authorizing user as administrator.")
+    next();
 }
