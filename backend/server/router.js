@@ -9,6 +9,7 @@ import {
 
 
 import { populateUserDataAPI } from "../sample_data/populate_database.js";
+import { getAllProductsAPI } from "./product_api_controller.js";
 
 
 
@@ -36,7 +37,7 @@ router.get("/api/populate-user-database", populateUserDataAPI);
 
 
 // PRODUCT API
-router.get("/api/get-all-products",);
+router.get("/api/get-all-products", getAllProductsAPI);
 
 
 // SHOPPING CART API
