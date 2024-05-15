@@ -95,8 +95,45 @@ async function updateProduct({product_id, product_name, product_description, pro
     }
 }
 
+async function reduceProductQuantity({product_id, amount_consumed}) {
+    console.log("A product is being updated.");
+
+    try {
+
+        const existing_product = await ProductModel.findOne({ "_id":product_id });
+        if(!existing_product) {
+            return {
+                "success": false,
+                "data": null,
+                "message": "The product id given does not exist."
+            }
+        };
+
+        const updated_product = await ProductModel.findOneAndUpdate(
+            {"_id":product_id},
+            {
+                "product_quantity": existing_product.product_quantity-amount_consumed
+            }
+        );
+
+        return {
+            "success": true,
+            "data":updated_product,
+            "message": "The product's quantity has been reduced successfully."
+        };
+    } catch(err) {
+        console.log('Error: ', err);
+        return {
+            success: false, 
+            data: null, 
+            message:['An error occured while updating a product',err]
+        };
+    }
+}
+
 export {
     getAllProducts,
     addProduct,
-    updateProduct
+    updateProduct,
+    reduceProductQuantity
 }

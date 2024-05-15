@@ -1,4 +1,9 @@
-import { addProduct, getAllProducts, updateProduct } from "../product/product_controller.js";
+import { 
+    addProduct, 
+    getAllProducts, 
+    updateProduct, 
+    reduceProductQuantity 
+} from "../product/product_controller.js";
 
 async function createProductAPI(req, res) {
     console.log("Create product API has been called.");
@@ -36,8 +41,21 @@ async function updateProductAPI(req, res) {
     }
 }
 
+async function reduceProductQuantityAPI(req, res) {
+    console.log("Reduce product quantity api has been called.");
+
+    const reduceQuantity_result = await reduceProductQuantity(req.body);
+    
+    if(reduceQuantity_result.success) {
+        res.status(200).json(reduceQuantity_result);
+    } else {
+        res.status(500).json(reduceQuantity_result);
+    }
+}
+
 export {
     getAllProductsAPI,
     createProductAPI,
-    updateProductAPI
+    updateProductAPI,
+    reduceProductQuantityAPI
 }

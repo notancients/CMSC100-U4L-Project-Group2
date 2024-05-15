@@ -13,7 +13,8 @@ import { populateUserDataAPI, populateProductAPI } from "../sample_data/populate
 import { 
     createProductAPI, 
     getAllProductsAPI, 
-    updateProductAPI 
+    updateProductAPI,
+    reduceProductQuantityAPI
 } from "./product_api_controller.js";
 
 
@@ -45,6 +46,7 @@ router.get("/api/populate-user-database", populateUserDataAPI);
 router.post("/api/create-product", createProductAPI);
 router.get("/api/get-all-products", getAllProductsAPI);
 router.put("/api/update-product-details", updateProductAPI);
+router.patch("/api/reduce-product-quantity", reduceProductQuantityAPI);
 
 // USER POPULATE API
 
