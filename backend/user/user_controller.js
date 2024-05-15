@@ -83,6 +83,7 @@ async function logIn({email, password}) {
         }
 
         const isPasswordValid = await bcrypt.compare(password, existing_user.password)
+        
         if(!isPasswordValid) {
             return {
                 "success": false,
