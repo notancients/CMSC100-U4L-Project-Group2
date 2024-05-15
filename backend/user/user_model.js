@@ -10,7 +10,4 @@ const userSchema = new mongoose.Schema({
   user_type: {type: String, required: true, enum: ["User", "Admin"]},
 });
 
-const UserModel = new mongoose.Model('Users', userSchema);
-
-
-export default UserModel;
+export default mongoose.model('users',userSchema);

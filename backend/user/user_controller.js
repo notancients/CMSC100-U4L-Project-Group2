@@ -1,12 +1,12 @@
 import { Model } from 'mongoose';
 import bcrypt from 'bcrypt';
-import UserModel from './user_model';
+import UserModel from './user_model.js';
 
 const SALT = 10;
 
 async function registerNewUser({first_name, middle_name, last_name, email, password}) {
     console.log("Registering a new user.");
-    
+    console.log(first_name, middle_name, last_name, email, password);
     const existing_user_response = {
         "success": false,
         "data": null,
@@ -15,13 +15,14 @@ async function registerNewUser({first_name, middle_name, last_name, email, passw
 
 
     try{
-        const existing_user = await User.findOne({ email: user.email });
-
+        const existing_user = await UserModel.findOne({ email: email });
+        console.log(existing_user);
         if (existing_user) {
             return existing_user_response;
         }
 
-        const encryptedPassword = bcrypt.hash(password, SALT);
+        const encryptedPassword = await bcrypt.hash(password, SALT);
+        console.log(encryptedPassword);
 
         const newUser = await UserModel(
             {
@@ -34,7 +35,7 @@ async function registerNewUser({first_name, middle_name, last_name, email, passw
             }
         )
 
-        const created_account = await UserModel.save(newUser);
+        const created_account = await newUser.save();
 
         return {
             success: true, 
@@ -70,4 +71,13 @@ async function deleteUser() {
 
 async function getUser() {
 
+}
+
+export {
+    registerNewUser,
+    createAdmin,
+    getAllUsers,
+    logIn,
+    deleteUser,
+    getUser
 }
