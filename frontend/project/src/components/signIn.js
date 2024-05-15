@@ -75,14 +75,14 @@ function LoginPage({ userType }) {
           <label>Email</label>
           <i className="fas fa-envelope input-icon"></i>
         </div>
-        <div className="input-container">
+        <div className="input-container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <input type="password" id="password" name="password" required/>
           <label htmlFor="password">Password</label>
           <i className="fas fa-lock input-icon"></i>
         </div>
         <div className="btn-container"  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <Link to="/loginlanding">
-          <button type="submit" className="btn">Login</button>
+          <button type="submit" className="btn" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Login</button>
         </Link>
         </div>    
         <div className="signup-link">

@@ -33,6 +33,31 @@ function SignUpPage() {
     setCursorImage(customCursorImage);
   };
 
+  useEffect(() => {
+    const updateCursor = (e) => {
+      const cursor = document.querySelector('.custom-cursor');
+      cursor.style.top = e.clientY + 'px';
+      cursor.style.left = e.clientX + 'px';
+  
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      ripple.style.top = e.clientY - 10 + 'px'; 
+      ripple.style.left = e.clientX - 10 + 'px'; 
+      document.body.appendChild(ripple);
+      setTimeout(() => {
+        ripple.remove();
+      }, 1000); 
+    };
+  
+    document.addEventListener('mousemove', updateCursor);
+  
+    return () => {
+      document.removeEventListener('mousemove', updateCursor);
+    };
+  }, []);
+
+
+
   return (
     <div className="signup-page">
     <div className="custom-cursor" style={{ cursor: 'none' }}>
