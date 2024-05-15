@@ -8,8 +8,13 @@ import {
 
 import { authenticateTokenMiddleware } from "../user/authentication.js";
 
-import { populateUserDataAPI } from "../sample_data/populate_database.js";
-import { createProductAPI, getAllProductsAPI } from "./product_api_controller.js";
+import { populateUserDataAPI, populateProductAPI } from "../sample_data/populate_database.js";
+
+import { 
+    createProductAPI, 
+    getAllProductsAPI, 
+    updateProductAPI 
+} from "./product_api_controller.js";
 
 
 
@@ -39,6 +44,11 @@ router.get("/api/populate-user-database", populateUserDataAPI);
 // PRODUCT API
 router.post("/api/create-product", createProductAPI);
 router.get("/api/get-all-products", getAllProductsAPI);
+router.put("/api/update-product-details", updateProductAPI);
+
+// USER POPULATE API
+
+router.get("/api/populate-product-database", populateProductAPI);
 
 
 // SHOPPING CART API
