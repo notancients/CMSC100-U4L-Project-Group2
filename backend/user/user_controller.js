@@ -78,7 +78,7 @@ async function getAllUsers() {
     } catch(err) {
 
         console.log('Error: ', err);
-        
+
         return {
             "success": false, 
             "data": null, 
@@ -114,14 +114,20 @@ async function logIn({email, password}) {
         }
 
         const token = jwt.sign(
-            { userId: existing_user._id },
+            { 
+                userId: existing_user._id,
+                user_type: existing_user.user_type 
+            },
             SECRET_KEY, 
             { expiresIn: '1hr' }
         )
         
         return {
             "success": true,
-            "data": token,
+            "data": {
+                "user_type": existing_user.user_type,
+                "token": token
+            },
             "message": "Successfully logged in."
         };
 

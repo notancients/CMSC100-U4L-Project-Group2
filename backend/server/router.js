@@ -1,5 +1,12 @@
 import express from "express";
-import { createNewUserAPI, getAllUsersAPI, loginAPI } from "./user_api_controller.js";
+
+import { 
+    createNewUserAPI, 
+    getAllUsersAPI, 
+    loginAPI 
+} from "./user_api_controller.js";
+
+import { populateUserDataAPI } from "../sample_data/populate_database.js";
 
 
 
@@ -20,6 +27,11 @@ router.get("/", (req, res) => {
 router.get("/api/get-all-users", getAllUsersAPI);
 router.post("/api/create-user", createNewUserAPI);
 router.post("/api/login", loginAPI);
+
+// USER POPULATE API
+
+router.get("/api/populate-user-database", populateUserDataAPI);
+
 
 // PRODUCT API
 router.get("/api/get-all-products",);
