@@ -9,3 +9,8 @@ function authorizeAdminMiddleware(req, res, next) {
     console.log("Authorizing user as administrator.")
     next();
 }
+
+export {
+    authenticateTokenMiddleware,
+    authorizeAdminMiddleware
+}
