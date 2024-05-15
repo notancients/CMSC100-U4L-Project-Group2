@@ -1,5 +1,5 @@
 import express from "express";
-import { createNewUserAPI, loginAPI } from "./user_api_controller.js";
+import { createNewUserAPI, getAllUsersAPI, loginAPI } from "./user_api_controller.js";
 
 
 
@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
 // USER API
 
-router.get("/api/get-all-users",);
+router.get("/api/get-all-users", getAllUsersAPI);
 router.post("/api/create-user", createNewUserAPI);
 router.post("/api/login", loginAPI);
 

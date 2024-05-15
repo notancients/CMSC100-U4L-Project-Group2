@@ -63,7 +63,28 @@ async function createAdmin({fname, mname, lname, email, password}) {
 }
 
 async function getAllUsers() {
+    console.log("Getting all users.");
 
+    try {
+
+        const all_users = await UserModel.find().select('-password');
+
+        return {
+            "success": true, 
+            "data": all_users, 
+            "message": "Succesfully fetched all users."
+        };
+
+    } catch(err) {
+
+        console.log('Error: ', err);
+        
+        return {
+            "success": false, 
+            "data": null, 
+            "message":['An error occured while fetching all users.', err]
+        };
+    }
 }
 
 async function logIn({email, password}) {

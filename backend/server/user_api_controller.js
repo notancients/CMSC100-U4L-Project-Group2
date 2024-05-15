@@ -1,4 +1,5 @@
 import {
+    getAllUsers,
     logIn,
     registerNewUser
 } from "../user/user_controller.js";
@@ -25,7 +26,18 @@ async function loginAPI(req, res) {
     res.send(login_result);
 }
 
+async function getAllUsersAPI(req, res) {
+    console.log("Get All Users API has been called.");
+    
+    const getAllUsers_result = await getAllUsers();
+
+    console.log(getAllUsers_result);
+    
+    res.send(getAllUsers_result);
+}
+
 export {
     createNewUserAPI,
-    loginAPI
+    loginAPI,
+    getAllUsersAPI
 }
