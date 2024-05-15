@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import OrderFulfillment from './components/OrderFulfillment';
 import './App.css';
-import Menu from './components/Menu';
-import Footer from './components/Footer';
-
-const menus = [
-  { name: "Pending", url: "#", id: 1 },
-  { name: "Confirmed", url: "#", id: 2 },
-];
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <h1>Order Fulfillment</h1>
-        <Menu menus={menus} />
-      </header>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<OrderFulfillment />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

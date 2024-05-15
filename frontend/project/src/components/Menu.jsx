@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Menu = ({ menus }) => {
+const Menu = ({ menus, setCurrentTab }) => {
   return (
     <nav>
       <ul className="menu">
         {menus.map(menu => (
-          <li key={menu.id}><a href={menu.url}>{menu.name}</a></li>
+          <li key={menu.id}><a href={menu.url} onClick={() => setCurrentTab(menu.id)}>{menu.name}</a></li>
         ))}
         <li className="search-bar">
           <input type="text" placeholder="Search..." />
