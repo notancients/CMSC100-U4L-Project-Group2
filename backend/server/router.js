@@ -6,7 +6,7 @@ import {
     loginAPI 
 } from "./user_api_controller.js";
 
-
+import { authenticateTokenMiddleware } from "../user/authentication.js";
 
 import { populateUserDataAPI } from "../sample_data/populate_database.js";
 
