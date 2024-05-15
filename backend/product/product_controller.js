@@ -21,6 +21,41 @@ async function getAllProducts() {
 
 }
 
+async function addProduct({product_name, product_description, product_type, product_quantity, price}) {
+    console.log("Adding a new product.");
+
+    try{
+
+        const newProduct = await ProductModel(
+            {
+                "product_name": product_name,
+                "product_description": product_description,
+                "product_type": product_type,
+                "product_quantity": product_quantity,
+                "price": price
+            }
+        )
+
+        const created_product = await newProduct.save();
+
+        return {
+            success: true, 
+            data: created_product, 
+            message:[]
+        }
+
+    } catch (err) {
+        console.log('Error: ', err);
+        return {
+            success: false, 
+            data: null, 
+            message:['An error occured while creating a product',err]
+        };
+    }
+
+}
+
 export {
-    getAllProducts
+    getAllProducts,
+    addProduct
 }

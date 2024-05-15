@@ -10,8 +10,8 @@ const productSchema = new mongoose.Schema({
     product_name: {type: String, required: true},
     product_description: {type: String, required: true},
     product_type: {type: String, required: true, enum: PRODUCT_TYPES},
-    product_quantity: {type: Integer, required: true},
-    price: {type: Integer, required: true}
+    product_quantity: {type: Number, required: true},
+    price: {type: Number, required: true}
 });
 
 export default mongoose.model('products', productSchema);

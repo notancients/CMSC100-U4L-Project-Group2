@@ -6,10 +6,10 @@ import {
     loginAPI 
 } from "./user_api_controller.js";
 
-
+import { authenticateTokenMiddleware } from "../user/authentication.js";
 
 import { populateUserDataAPI } from "../sample_data/populate_database.js";
-import { getAllProductsAPI } from "./product_api_controller.js";
+import { createProductAPI, getAllProductsAPI } from "./product_api_controller.js";
 
 
 
@@ -37,6 +37,7 @@ router.get("/api/populate-user-database", populateUserDataAPI);
 
 
 // PRODUCT API
+router.post("/api/create-product", createProductAPI);
 router.get("/api/get-all-products", getAllProductsAPI);
 
 
