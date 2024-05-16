@@ -4,15 +4,10 @@ import logo from '../images/Logo.png';
 import customCursorImage from '../images/corn_cursor.png'; 
 import customCursorHoverImage from '../images/corn_cursor_hover.png';
 import userIcon from '../images/user_icon.png';
-import '../css/userlanding.css';
-import img1 from '../images/img1.jpg';
-import img2 from '../images/img2.jpg';
-import img3 from '../images/img3.jpg';
-import img4 from '../images/img4.jpg';
-import img5 from '../images/img5.jpg';
+import '../css/user_orders.css';
 
 
-function UserLandingPage() {
+function UserOrdersPage() {
 
   const [cursorImage, setCursorImage] = useState(customCursorImage);
 
@@ -64,7 +59,7 @@ function UserLandingPage() {
   }, []);
 
   return (
-    <div className="user-page">
+    <div className="user-orders-page">
        <div className="custom-cursor" style={{ cursor: 'none' }}>
         <img src={cursorImage} alt="Custom Cursor" />
       </div>
@@ -82,15 +77,8 @@ function UserLandingPage() {
         <img src={userIcon} alt="User icon" className="user-icon" />
       </Link>
     </div>
-    <div className='userlp-images'>
-      <img src = {img1} alt="" className='img1'/>
-      <img src = {img2} alt="" className='img2'/>
-      <img src = {img3} alt="" className='img3'/>
-      <img src = {img4} alt="" className='img4'/>
-      <img src = {img5} alt="" className='img5'/>
-    </div>
 </div>
   );
 }
 
-export default UserLandingPage;
+export default UserOrdersPage;
