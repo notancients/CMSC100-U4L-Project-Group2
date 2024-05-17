@@ -1,14 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/ProductListing.css';
+import { PRODUCT_SAMPLE_DATA } from './ProductSample';
 
 function ProductListing() {
-    const products = [
-        { id: 1, name: "CAULIFLOWER", desc: "Locally sourced. Versatile. Nutrient-rich. Elevate your dishes with our farm-fresh cauliflower.", img: "", price: 89.00 },
-        { id: 2, name: "CAULIFLOWER", desc: "Locally sourced. Versatile. Nutrient-rich. Elevate your dishes with our farm-fresh cauliflower.", img: "", price: 89.00 },
-        { id: 3, name: "CAULIFLOWER", desc: "Locally sourced. Versatile. Nutrient-rich. Elevate your dishes with our farm-fresh cauliflower.", img: "", price: 89.00 },
-        { id: 4, name: "CAULIFLOWER", desc: "Locally sourced. Versatile. Nutrient-rich. Elevate your dishes with our farm-fresh cauliflower.", img: "", price: 89.00 }
-    ];
 
     const handleAddToCart = (item) => {
         console.log(`Added ${item} to cart`);
@@ -17,19 +12,32 @@ function ProductListing() {
     return(
         <div className="product-listing-page">
             <div className="navbar">
+                <Link to="/user" className="logo">
+                    <img src="" alt="Farm2Table logo"/>
+                </Link>
                 <Link to="/orders" className="navlink">ORDERS</Link>
                 <Link to="/products" className="navlink">PRODUCTS</Link>
                 <Link to="/cart" className="navlink">CART</Link>
                 <Link to="/about-us" className="navlink">ABOUT US</Link>
+                <Link to="/profile">
+                    <img src="" alt="Icon" className="profile-icon"/>
+                </Link>
             </div>
             <div className="products-title">Our Products</div>
+            <div className="sort-by-group">
+                <p className="sort">SORT BY: </p>
+                <p className="sort">NAME </p>
+                <p className="sort">TYPE </p>
+                <p className="sort">PRICE </p>
+                <p className="sort">QUANTITY </p>
+            </div>
             <div className="product-list">
-                {products.map(product => (
-                <div key={product.id} className="item">
-                    <img src={product.img} alt={product.name}/>
-                    <p className="name">{product.name}</p>
-                    <p className="desc">{product.desc}</p>
-                    <button onClick={() => handleAddToCart(product.name)}>{product.price}</button>
+                {PRODUCT_SAMPLE_DATA.map(PRODUCT_SAMPLE_DATA => (
+                <div key={PRODUCT_SAMPLE_DATA.id} className="item">
+                    <img src={PRODUCT_SAMPLE_DATA.img} alt={PRODUCT_SAMPLE_DATA.productName}/>
+                    <p className="name">{PRODUCT_SAMPLE_DATA.productName}</p>
+                    <p className="desc">{PRODUCT_SAMPLE_DATA.productDescription}</p>
+                    <button onClick={() => handleAddToCart(PRODUCT_SAMPLE_DATA.productName)}>PHP {PRODUCT_SAMPLE_DATA.price}</button>
                 </div>
                 ))}
             </div>
