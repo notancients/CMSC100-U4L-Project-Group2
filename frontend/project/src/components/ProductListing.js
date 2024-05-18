@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../css/ProductListing.css';
 import { PRODUCT_SAMPLE_DATA } from './ProductSample';
 
-//issues: accurately updating stock, displaying quantity
+//issue: accurately updating stock
 
 function ProductListing() {
 
