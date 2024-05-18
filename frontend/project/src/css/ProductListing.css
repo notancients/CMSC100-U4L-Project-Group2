@@ -88,6 +88,10 @@ a {
     padding: 10px;
     width: 300px;
 }
+
+.content {
+    flex: 1;
+}
     
 img {
       width: 270px;
@@ -112,7 +116,14 @@ img {
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-    
+
+
+.stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 button {
     display: flex;
     padding: 8px 20px;
@@ -122,8 +133,13 @@ button {
     border-radius: 20px;
     font-size: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+}
     
 button:hover {
     
-  }
+}
+
+.quantity {
+    display: flex;
+    color: #E5F2AD;
+}

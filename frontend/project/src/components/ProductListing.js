@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../css/ProductListing.css';
 import { PRODUCT_SAMPLE_DATA } from './ProductSample';
 
+//issue: displaying product quantity
+
 function ProductListing() {
 
     const handleAddToCart = (item) => {
@@ -32,12 +34,17 @@ function ProductListing() {
                 <p className="sort">QUANTITY </p>
             </div>
             <div className="product-list">
-                {PRODUCT_SAMPLE_DATA.map(PRODUCT_SAMPLE_DATA => (
-                <div key={PRODUCT_SAMPLE_DATA.id} className="item">
-                    <img src={PRODUCT_SAMPLE_DATA.img} alt={PRODUCT_SAMPLE_DATA.productName}/>
-                    <p className="name">{PRODUCT_SAMPLE_DATA.productName}</p>
-                    <p className="desc">{PRODUCT_SAMPLE_DATA.productDescription}</p>
-                    <button onClick={() => handleAddToCart(PRODUCT_SAMPLE_DATA.productName)}>PHP {PRODUCT_SAMPLE_DATA.price}</button>
+                {PRODUCT_SAMPLE_DATA.map((item) => (
+                <div key={item.productId} className="item">
+                    <div className="content">
+                    <img src={item.img} alt={item.productName}/>
+                    <p className="name">{item.productName}</p>
+                    <p className="desc">{item.productDescription}</p>
+                    </div>
+                    <div className="stock">
+                        <button onClick={() => handleAddToCart(item.productId)}>PHP {item.price}</button>
+                        <p className="quantity">Stock: {item.productQuantity}</p>
+                    </div>
                 </div>
                 ))}
             </div>
