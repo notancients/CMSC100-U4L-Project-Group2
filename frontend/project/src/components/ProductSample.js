@@ -13,7 +13,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bacon",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": 2,
-        "product_quantity": 59,
+        "productQuantity": 59,
         "price": "357.00",
         "img": ""
     },
@@ -22,7 +22,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bike",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": 1,
-        "product_quantity": 692,
+        "productQuantity": 692,
         "price": "883.00",
         "img": ""
     },
@@ -31,7 +31,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Gloves",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": "Vegetables",
-        "product_quantity": 295,
+        "productQuantity": 295,
         "price": "977.00",
         "img": ""
     },
@@ -40,7 +40,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chair",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": "Baked Goods",
-        "product_quantity": 352,
+        "productQuantity": 352,
         "price": "488.00",
         "img": ""
     },
@@ -49,7 +49,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Shirt",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": 1,
-        "product_quantity": 679,
+        "productQuantity": 679,
         "price": "249.00",
         "img": ""
     },
@@ -58,7 +58,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Towels",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": 1,
-        "product_quantity": 570,
+        "productQuantity": 570,
         "price": "540.00",
         "img": ""
     },
@@ -67,7 +67,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Towels",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": 1,
-        "product_quantity": 137,
+        "productQuantity": 137,
         "price": "503.00",
         "img": ""
     },
@@ -76,7 +76,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Hat",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": "Processed Meats",
-        "product_quantity": 727,
+        "productQuantity": 727,
         "price": "317.00",
         "img": ""
     },
@@ -85,7 +85,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Keyboard",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": "Baked Goods",
-        "product_quantity": 868,
+        "productQuantity": 868,
         "price": "864.00",
         "img": ""
     },
@@ -94,7 +94,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Pizza",
         "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
         "productType": "Others",
-        "product_quantity": 775,
+        "productQuantity": 775,
         "price": "771.00",
         "img": ""
     },
@@ -103,7 +103,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Processed Meats",
-        "product_quantity": 108,
+        "productQuantity": 108,
         "price": "499.00",
         "img": ""
     },
@@ -112,7 +112,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bacon",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": 1,
-        "product_quantity": 950,
+        "productQuantity": 950,
         "price": "110.00",
         "img": ""
     },
@@ -121,7 +121,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Mouse",
         "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
         "productType": "Flowers",
-        "product_quantity": 563,
+        "productQuantity": 563,
         "price": "411.00",
         "img": ""
     },
@@ -130,7 +130,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Ball",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Decorative Plants",
-        "product_quantity": 797,
+        "productQuantity": 797,
         "price": "606.00",
         "img": ""
     },
@@ -139,7 +139,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Beef",
-        "product_quantity": 192,
+        "productQuantity": 192,
         "price": "995.00",
         "img": ""
     },
@@ -148,7 +148,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Mouse",
         "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
         "productType": "Vegetables",
-        "product_quantity": 647,
+        "productQuantity": 647,
         "price": "692.00",
         "img": ""
     },
@@ -157,7 +157,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Table",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Eggs",
-        "product_quantity": 427,
+        "productQuantity": 427,
         "price": "309.00",
         "img": ""
     },
@@ -166,7 +166,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bike",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": 1,
-        "product_quantity": 389,
+        "productQuantity": 389,
         "price": "885.00",
         "img": ""
     },
@@ -175,7 +175,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Towels",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": 1,
-        "product_quantity": 234,
+        "productQuantity": 234,
         "price": "258.00",
         "img": ""
     },
@@ -184,7 +184,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Keyboard",
         "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
         "productType": "Vegetables",
-        "product_quantity": 761,
+        "productQuantity": 761,
         "price": "340.00",
         "img": ""
     },
@@ -193,7 +193,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Towels",
         "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
         "productType": "Decorative Plants",
-        "product_quantity": 988,
+        "productQuantity": 988,
         "price": "819.00",
         "img": ""
     },
@@ -202,7 +202,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bike",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": "Pork",
-        "product_quantity": 675,
+        "productQuantity": 675,
         "price": "171.00",
         "img": ""
     },
@@ -211,7 +211,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Tuna",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": "Juices",
-        "product_quantity": 99,
+        "productQuantity": 99,
         "price": "68.00",
         "img": ""
     },
@@ -220,7 +220,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chips",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Processed Meats",
-        "product_quantity": 689,
+        "productQuantity": 689,
         "price": "3.00",
         "img": ""
     },
@@ -229,7 +229,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Beef",
-        "product_quantity": 501,
+        "productQuantity": 501,
         "price": "744.00",
         "img": ""
     },
@@ -238,7 +238,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
         "productType": "Vegetables",
-        "product_quantity": 500,
+        "productQuantity": 500,
         "price": "202.00",
         "img": ""
     },
@@ -247,7 +247,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Pants",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": "Beef",
-        "product_quantity": 993,
+        "productQuantity": 993,
         "price": "733.00",
         "img": ""
     },
@@ -256,7 +256,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chair",
         "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
         "productType": "Chicken",
-        "product_quantity": 812,
+        "productQuantity": 812,
         "price": "2.00",
         "img": ""
     },
@@ -265,7 +265,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Car",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": 1,
-        "product_quantity": 933,
+        "productQuantity": 933,
         "price": "788.00",
         "img": ""
     },
@@ -274,7 +274,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Flowers",
-        "product_quantity": 681,
+        "productQuantity": 681,
         "price": "254.00",
         "img": ""
     },
@@ -283,7 +283,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bacon",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": "Flowers",
-        "product_quantity": 116,
+        "productQuantity": 116,
         "price": "536.00",
         "img": ""
     },
@@ -292,7 +292,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Car",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Flowers",
-        "product_quantity": 741,
+        "productQuantity": 741,
         "price": "965.00",
         "img": ""
     },
@@ -301,7 +301,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Gloves",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": "Pork",
-        "product_quantity": 789,
+        "productQuantity": 789,
         "price": "71.00",
         "img": ""
     },
@@ -310,7 +310,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Car",
         "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
         "productType": "Decorative Plants",
-        "product_quantity": 224,
+        "productQuantity": 224,
         "price": "104.00",
         "img": ""
     },
@@ -319,7 +319,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Hat",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": "Processed Meats",
-        "product_quantity": 41,
+        "productQuantity": 41,
         "price": "906.00",
         "img": ""
     },
@@ -328,7 +328,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chicken",
         "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
         "productType": "Arts and Crafts",
-        "product_quantity": 167,
+        "productQuantity": 167,
         "price": "923.00",
         "img": ""
     },
@@ -337,7 +337,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bacon",
         "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
         "productType": "Juices",
-        "product_quantity": 137,
+        "productQuantity": 137,
         "price": "125.00",
         "img": ""
     },
@@ -346,7 +346,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Pants",
         "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
         "productType": "Baked Goods",
-        "product_quantity": 231,
+        "productQuantity": 231,
         "price": "231.00",
         "img": ""
     },
@@ -355,7 +355,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Pants",
         "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
         "productType": "Vegetables",
-        "product_quantity": 973,
+        "productQuantity": 973,
         "price": "225.00",
         "img": ""
     },
@@ -364,7 +364,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": "Pork",
-        "product_quantity": 209,
+        "productQuantity": 209,
         "price": "93.00",
         "img": ""
     },
@@ -373,7 +373,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Car",
         "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
         "productType": 2,
-        "product_quantity": 468,
+        "productQuantity": 468,
         "price": "686.00",
         "img": ""
     },
@@ -382,7 +382,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Beef",
-        "product_quantity": 351,
+        "productQuantity": 351,
         "price": "216.00",
         "img": ""
     },
@@ -391,7 +391,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Sausages",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Eggs",
-        "product_quantity": 987,
+        "productQuantity": 987,
         "price": "72.00",
         "img": ""
     },
@@ -400,7 +400,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Soap",
         "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
         "productType": "Pork",
-        "product_quantity": 49,
+        "productQuantity": 49,
         "price": "492.00",
         "img": ""
     },
@@ -409,7 +409,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": "Pork",
-        "product_quantity": 396,
+        "productQuantity": 396,
         "price": "779.00",
         "img": ""
     },
@@ -418,7 +418,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chair",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Pork",
-        "product_quantity": 152,
+        "productQuantity": 152,
         "price": "110.00",
         "img": ""
     },
@@ -427,7 +427,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
         "productType": 1,
-        "product_quantity": 513,
+        "productQuantity": 513,
         "price": "534.00",
         "img": ""
     },
@@ -436,7 +436,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chips",
         "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
         "productType": "Pork",
-        "product_quantity": 101,
+        "productQuantity": 101,
         "price": "359.00",
         "img": ""
     },
@@ -445,7 +445,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Ball",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Decorative Plants",
-        "product_quantity": 841,
+        "productQuantity": 841,
         "price": "66.00",
         "img": ""
     },
@@ -454,7 +454,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Fish",
         "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
         "productType": "Chicken",
-        "product_quantity": 354,
+        "productQuantity": 354,
         "price": "959.00",
         "img": ""
     },
@@ -463,7 +463,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": 1,
-        "product_quantity": 682,
+        "productQuantity": 682,
         "price": "541.00",
         "img": ""
     },
@@ -472,7 +472,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": "Decorative Plants",
-        "product_quantity": 607,
+        "productQuantity": 607,
         "price": "441.00",
         "img": ""
     },
@@ -481,7 +481,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Fish",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": 1,
-        "product_quantity": 572,
+        "productQuantity": 572,
         "price": "435.00",
         "img": ""
     },
@@ -490,7 +490,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Shirt",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": "Vegetables",
-        "product_quantity": 767,
+        "productQuantity": 767,
         "price": "47.00",
         "img": ""
     },
@@ -499,7 +499,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bacon",
         "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
         "productType": "Pork",
-        "product_quantity": 67,
+        "productQuantity": 67,
         "price": "309.00",
         "img": ""
     },
@@ -508,7 +508,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Table",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": "Baked Goods",
-        "product_quantity": 608,
+        "productQuantity": 608,
         "price": "574.00",
         "img": ""
     },
@@ -517,7 +517,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Shirt",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Arts and Crafts",
-        "product_quantity": 468,
+        "productQuantity": 468,
         "price": "745.00",
         "img": ""
     },
@@ -526,7 +526,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Sausages",
         "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
         "productType": "Vegetables",
-        "product_quantity": 483,
+        "productQuantity": 483,
         "price": "404.00",
         "img": ""
     },
@@ -535,7 +535,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Towels",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": 1,
-        "product_quantity": 746,
+        "productQuantity": 746,
         "price": "18.00",
         "img": ""
     },
@@ -544,7 +544,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chips",
         "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
         "productType": 1,
-        "product_quantity": 993,
+        "productQuantity": 993,
         "price": "612.00",
         "img": ""
     },
@@ -553,7 +553,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Soap",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": "Vegetables",
-        "product_quantity": 620,
+        "productQuantity": 620,
         "price": "670.00",
         "img": ""
     },
@@ -562,7 +562,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Table",
         "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
         "productType": "Processed Meats",
-        "product_quantity": 659,
+        "productQuantity": 659,
         "price": "589.00",
         "img": ""
     },
@@ -571,7 +571,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Vegetables",
-        "product_quantity": 66,
+        "productQuantity": 66,
         "price": "533.00",
         "img": ""
     },
@@ -580,7 +580,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Hat",
         "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
         "productType": "Juices",
-        "product_quantity": 22,
+        "productQuantity": 22,
         "price": "298.00",
         "img": ""
     },
@@ -589,7 +589,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bacon",
         "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
         "productType": "Arts and Crafts",
-        "product_quantity": 37,
+        "productQuantity": 37,
         "price": "82.00",
         "img": ""
     },
@@ -598,7 +598,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Bacon",
         "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
         "productType": 1,
-        "product_quantity": 31,
+        "productQuantity": 31,
         "price": "375.00",
         "img": ""
     },
@@ -607,7 +607,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Shoes",
         "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
         "productType": "Baked Goods",
-        "product_quantity": 792,
+        "productQuantity": 792,
         "price": "371.00",
         "img": ""
     },
@@ -616,7 +616,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Computer",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": 1,
-        "product_quantity": 333,
+        "productQuantity": 333,
         "price": "990.00",
         "img": ""
     },
@@ -625,7 +625,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Shoes",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": 1,
-        "product_quantity": 365,
+        "productQuantity": 365,
         "price": "759.00",
         "img": ""
     },
@@ -634,7 +634,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Tuna",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": "Chicken",
-        "product_quantity": 473,
+        "productQuantity": 473,
         "price": "675.00",
         "img": ""
     },
@@ -643,7 +643,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chicken",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": "Decorative Plants",
-        "product_quantity": 443,
+        "productQuantity": 443,
         "price": "729.00",
         "img": ""
     },
@@ -652,7 +652,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Sausages",
         "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
         "productType": "Chicken",
-        "product_quantity": 757,
+        "productQuantity": 757,
         "price": "231.00",
         "img": ""
     },
@@ -661,7 +661,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Car",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Juices",
-        "product_quantity": 610,
+        "productQuantity": 610,
         "price": "171.00",
         "img": ""
     },
@@ -670,7 +670,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Fish",
         "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
         "productType": 1,
-        "product_quantity": 979,
+        "productQuantity": 979,
         "price": "250.00",
         "img": ""
     },
@@ -679,7 +679,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Pants",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": "Baked Goods",
-        "product_quantity": 348,
+        "productQuantity": 348,
         "price": "295.00",
         "img": ""
     },
@@ -688,7 +688,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Sausages",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": 1,
-        "product_quantity": 128,
+        "productQuantity": 128,
         "price": "748.00",
         "img": ""
     },
@@ -697,7 +697,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Sausages",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": "Beef",
-        "product_quantity": 175,
+        "productQuantity": 175,
         "price": "260.00",
         "img": ""
     },
@@ -706,7 +706,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Keyboard",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": "Juices",
-        "product_quantity": 697,
+        "productQuantity": 697,
         "price": "43.00",
         "img": ""
     },
@@ -715,7 +715,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
         "productType": "Decorative Plants",
-        "product_quantity": 333,
+        "productQuantity": 333,
         "price": "471.00",
         "img": ""
     },
@@ -724,7 +724,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Fish",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": "Flowers",
-        "product_quantity": 387,
+        "productQuantity": 387,
         "price": "686.00",
         "img": ""
     },
@@ -733,7 +733,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Pants",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": "Baked Goods",
-        "product_quantity": 158,
+        "productQuantity": 158,
         "price": "854.00",
         "img": ""
     },
@@ -742,7 +742,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Salad",
         "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
         "productType": "Others",
-        "product_quantity": 840,
+        "productQuantity": 840,
         "price": "221.00",
         "img": ""
     },
@@ -751,7 +751,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chips",
         "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
         "productType": "Vegetables",
-        "product_quantity": 747,
+        "productQuantity": 747,
         "price": "267.00",
         "img": ""
     },
@@ -760,7 +760,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Shoes",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": "Baked Goods",
-        "product_quantity": 420,
+        "productQuantity": 420,
         "price": "842.00",
         "img": ""
     },
@@ -769,7 +769,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Mouse",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Pork",
-        "product_quantity": 825,
+        "productQuantity": 825,
         "price": "383.00",
         "img": ""
     },
@@ -778,7 +778,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": "Flowers",
-        "product_quantity": 861,
+        "productQuantity": 861,
         "price": "981.00",
         "img": ""
     },
@@ -787,7 +787,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Towels",
         "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
         "productType": "Decorative Plants",
-        "product_quantity": 423,
+        "productQuantity": 423,
         "price": "648.00",
         "img": ""
     },
@@ -796,7 +796,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Ball",
         "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
         "productType": "Eggs",
-        "product_quantity": 924,
+        "productQuantity": 924,
         "price": "930.00",
         "img": ""
     },
@@ -805,7 +805,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Cheese",
         "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
         "productType": "Beef",
-        "product_quantity": 782,
+        "productQuantity": 782,
         "price": "954.00",
         "img": ""
     },
@@ -814,7 +814,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chair",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Processed Meats",
-        "product_quantity": 438,
+        "productQuantity": 438,
         "price": "542.00",
         "img": ""
     },
@@ -823,7 +823,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Tuna",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": 2,
-        "product_quantity": 749,
+        "productQuantity": 749,
         "price": "49.00",
         "img": ""
     },
@@ -832,7 +832,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Ball",
         "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
         "productType": "Pork",
-        "product_quantity": 247,
+        "productQuantity": 247,
         "price": "491.00",
         "img": ""
     },
@@ -841,7 +841,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Hat",
         "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
         "productType": 1,
-        "product_quantity": 216,
+        "productQuantity": 216,
         "price": "581.00",
         "img": ""
     },
@@ -850,7 +850,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chips",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": 2,
-        "product_quantity": 593,
+        "productQuantity": 593,
         "price": "941.00",
         "img": ""
     },
@@ -859,7 +859,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chair",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": "Baked Goods",
-        "product_quantity": 623,
+        "productQuantity": 623,
         "price": "892.00",
         "img": ""
     },
@@ -868,7 +868,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Car",
         "productDescription": "The Football Is Good For Training And Recreational Purposes",
         "productType": "Flowers",
-        "product_quantity": 99,
+        "productQuantity": 99,
         "price": "499.00",
         "img": ""
     },
@@ -877,7 +877,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Chicken",
         "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
         "productType": 1,
-        "product_quantity": 570,
+        "productQuantity": 570,
         "price": "140.00",
         "img": ""
     },
@@ -886,7 +886,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Hat",
         "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
         "productType": "Vegetables",
-        "product_quantity": 37,
+        "productQuantity": 37,
         "price": "102.00",
         "img": ""
     },
@@ -895,7 +895,7 @@ const PRODUCT_SAMPLE_DATA = [
         "productName": "Keyboard",
         "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
         "productType": "Processed Meats",
-        "product_quantity": 696,
+        "productQuantity": 696,
         "price": "280.00",
         "img": ""
     }

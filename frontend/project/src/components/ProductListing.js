@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import '../css/ProductListing.css';
 import { PRODUCT_SAMPLE_DATA } from './ProductSample';
 
-//issue: displaying product quantity
-
 function ProductListing() {
 
     const handleAddToCart = (item) => {
