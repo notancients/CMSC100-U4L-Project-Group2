@@ -7,7 +7,7 @@ import {
 async function getAllProductsInCartAPI(req, res) {
     console.log("Get all products in cart API has been called.");
 
-    const cartProducts_result = await updateProduct(req.query);
+    const cartProducts_result = await getAllProductsInCart(req.query);
 
     if(cartProducts_result.success) {
         res.status(200).json(cartProducts_result);
