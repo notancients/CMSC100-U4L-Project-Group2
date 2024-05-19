@@ -9,6 +9,7 @@ import { router } from "./server/router.js";
 dotenv.config();
 
 try {
+    console.log("Connecting to MongoDB Atlas instance, please wait...");
     await mongoose.connect(process.env.MONGODB_URI);
     console.log("Successfully connected to the remote database.");
 } catch (e) {

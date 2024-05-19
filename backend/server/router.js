@@ -18,6 +18,7 @@ import {
 } from "./product_api_controller.js";
 
 import {
+    addProductToCartAPI,
     getAllProductsInCartAPI
 } from "./shoppingcart_api_controller.js"
 
@@ -58,8 +59,9 @@ router.get("/api/populate-product-database", populateProductAPI);
 
 
 // SHOPPING CART API
+router.post("/api/add-to-cart", addProductToCartAPI);
 router.get("/api/get-all-products-in-cart", getAllProductsInCartAPI);
-router.post("/api/confirm-order",);
+// router.post("/api/confirm-order", );
 
 
 

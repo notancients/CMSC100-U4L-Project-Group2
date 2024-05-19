@@ -1,5 +1,6 @@
 import {
-    getAllProductsInCart
+    getAllProductsInCart,
+    addProductToCart
 } from "../shoppingcart/shoppingcart_controller.js";
 
 
@@ -15,7 +16,20 @@ async function getAllProductsInCartAPI(req, res) {
     }
 }
 
+async function addProductToCartAPI(req, res) {
+    console.log("Add product to cart API has been called.");
+
+    const addProduct_result = await addProductToCart(req.body);
+
+    if(addProduct_result.success) {
+        res.status(200).json(addProduct_result);
+    } else {
+        res.status(500).json(addProduct_result);
+    }
+}
+
 
 export {
-    getAllProductsInCartAPI
+    getAllProductsInCartAPI,
+    addProductToCartAPI
 }
