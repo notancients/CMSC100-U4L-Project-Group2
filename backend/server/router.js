@@ -17,6 +17,10 @@ import {
     reduceProductQuantityAPI
 } from "./product_api_controller.js";
 
+import {
+    getAllProductsInCartAPI
+} from "./shoppingcart_api_controller.js"
+
 
 
 
@@ -54,7 +58,7 @@ router.get("/api/populate-product-database", populateProductAPI);
 
 
 // SHOPPING CART API
-router.get("/api/get-all-products-in-cart",);
+router.get("/api/get-all-products-in-cart", getAllProductsInCartAPI);
 router.post("/api/confirm-order",);
 
 
