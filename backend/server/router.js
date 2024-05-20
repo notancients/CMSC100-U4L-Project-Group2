@@ -14,13 +14,14 @@ import {
     createProductAPI, 
     getAllProductsAPI, 
     updateProductAPI,
-    reduceProductQuantityAPI
+    updateCartQuantityAPI
 } from "./product_api_controller.js";
 
 import {
     addProductToCartAPI,
     getAllProductsInCartAPI,
-    checkoutAPI
+    checkoutAPI,
+    reductCartProductAPI
 } from "./shoppingcart_api_controller.js"
 
 
@@ -52,7 +53,7 @@ router.get("/api/populate-user-database", populateUserDataAPI);
 router.post("/api/create-product", createProductAPI);
 router.get("/api/get-all-products", getAllProductsAPI);
 router.put("/api/update-product-details", updateProductAPI);
-router.patch("/api/reduce-product-quantity", reduceProductQuantityAPI);
+router.patch("/api/update-cart-quantity", updateCartQuantityAPI);
 
 // USER POPULATE API
 
@@ -63,6 +64,8 @@ router.get("/api/populate-product-database", populateProductAPI);
 router.post("/api/add-to-cart", addProductToCartAPI);
 router.get("/api/get-all-products-in-cart", getAllProductsInCartAPI);
 router.post("/api/checkout", checkoutAPI);
+router.post("/api/reduce-cart-product", reducteCartProductAPI);
+
 
 
 

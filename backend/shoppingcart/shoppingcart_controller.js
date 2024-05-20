@@ -128,8 +128,13 @@ async function checkout({user_id, products}) {
     }
 }
 
+async function updateCartQuantity({user_id, product_id, quantity}) {
+
+}
+
 export {
     addProductToCart,
     getAllProductsInCart,
-    checkout
+    checkout,
+    updateCartQuantity
 }

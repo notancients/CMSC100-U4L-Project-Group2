@@ -1,7 +1,8 @@
 import {
     getAllProductsInCart,
     addProductToCart,
-    checkout
+    checkout,
+    updateCartQuantity
 } from "../shoppingcart/shoppingcart_controller.js";
 
 
@@ -42,8 +43,21 @@ async function checkoutAPI(req, res) {
     }
 }
 
+async function updateCartQuantityAPI(req, res) {
+    console.log("Reduce cart product API has been called.");
+
+    const updateCartQuantity_result = await updateCartQuantity(req.body);
+
+    if(reduceCartProduct_result.success) {
+        res.status(200).json(updateCartQuantity_result);
+    } else {
+        res.status(500).json(updateCartQuantity_result);
+    }
+}
+
 export {
     getAllProductsInCartAPI,
     addProductToCartAPI,
-    checkoutAPI
+    checkoutAPI,
+    updateCartQuantityAPI
 }
