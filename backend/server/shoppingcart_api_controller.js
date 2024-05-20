@@ -44,7 +44,7 @@ async function checkoutAPI(req, res) {
 }
 
 async function updateCartQuantityAPI(req, res) {
-    console.log("Reduce cart product API has been called.");
+    console.log("Update cart product API has been called.");
 
     const updateCartQuantity_result = await updateCartQuantity(req.body);
 
