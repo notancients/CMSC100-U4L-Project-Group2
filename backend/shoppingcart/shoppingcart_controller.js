@@ -1,4 +1,5 @@
 import ShoppingCart from "./shoppingcart_model.js";
+import OrderTransaction from "../order_transaction/order_transaction_model.js";
 
 
 async function addProductToCart({user_id, product_id, quantity}) {
@@ -70,18 +71,24 @@ async function getAllProductsInCart({user_id}) {
 }
 
 
-
+// products here is an array of product id
 async function confirmOrder({user_id, products}) {
     // 
     console.log("Confirming prodcuts in user's cart.");
 
     try {
-        const user_shoppingcart = await CartModel.find({ "user_id":user_id });
+        const user_shoppingcart = await ShoppingCart.find({ 
+            "user_id":user_id, 
+            "cart.product_id" : { $in : products}
+        });
+        
+
+        
 
         return {
             "success": true,
             "data": user_shoppingcart,
-            "message": "Successfully retrieved a user's shopping cart."
+            "message": "Successfully confirmed a user's order."
         };
 
     } catch (err) {

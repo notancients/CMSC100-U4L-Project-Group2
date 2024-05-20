@@ -1,6 +1,7 @@
 import {
     getAllProductsInCart,
-    addProductToCart
+    addProductToCart,
+    confirmOrder
 } from "../shoppingcart/shoppingcart_controller.js";
 
 
@@ -29,7 +30,20 @@ async function addProductToCartAPI(req, res) {
 }
 
 
+async function confirmOrderAPI(req, res) {
+    console.log("Confirm order API has been called.");
+
+    const confirmOrder_result = await confirmOrder(req.body);
+
+    if(confirmOrder_result.success) {
+        res.status(200).json(confirmOrder_result);
+    } else {
+        res.status(500).json(confirmOrder_result);
+    }
+}
+
 export {
     getAllProductsInCartAPI,
-    addProductToCartAPI
+    addProductToCartAPI,
+    confirmOrderAPI
 }
