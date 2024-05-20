@@ -23,7 +23,15 @@ import {
     updateCartQuantityAPI
 } from "./shoppingcart_api_controller.js"
 
-
+import {
+    getAllUserTransaction,
+    adminGetAllTransaction,
+    userCancelOrder,
+    adminValidateOrder,
+    monthlySalesReport,
+    weeklySalesReport,
+    yearlySalesReport
+} from "./transaction_api_controller.js"
 
 
 const router = express.Router();
@@ -68,10 +76,14 @@ router.patch("/api/update-cart-product", updateCartQuantityAPI);
 
 
 // TRANSACTION API
-
-router.get("/api/get-all-transactions",);
-router.post("/api/complete-transaction",);
-
+    
+router.get("/api/get-all-user-transactions", getAllUserTransactionAPI);
+router.post("/api/get-all-transactions", adminGetAllTransactionAPI);
+router.patch("/api/user-cancel-order", userCancelOrderAPI);
+router.patch("/api/admin-validate-order", adminValidateOrderAPI);
+router.get("/api/monthly-sales-report", monthlySalesReportAPI);
+router.get("/api/weekly-sales-report", weeklySalesReportAPI);
+router.get("/api/yearly-sales-report", yearlySalesReportAPI);
 export {
     router
 }
