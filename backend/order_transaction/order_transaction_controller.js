@@ -30,12 +30,52 @@ async function getAllUserTransaction({user_id}) {
         }
 
     } catch (err) {
+        console.log(["There was an error: ", err]);
 
+        return {
+            "success": false,
+            "data": err,
+            "message": "There was an error getting all transactions made by the user."
+        }
     }
 }
 
 async function adminGetAllTransaction() {
+    console.log("Getting all transactions for all users.");
 
+    try {
+
+        const pending_orders = await OrderTransaction.find(
+            { "order_status" : "Pending" }
+        );
+
+        const completed_orders = await OrderTransaction.find(
+            { "order_status" : "Completed" }
+        );
+
+        const cancelled_orders = await OrderTransaction.find(
+            { "order_status" : "Cancelled" }
+        );
+        
+        return {
+            "success": true,
+            "data" : {
+                "pending": pending_orders,
+                "completed": completed_orders,
+                "cancelled": cancelled_orders
+            },
+            "message": "Successfully returned all orders by the user."
+        }
+
+    } catch (err) {
+        console.log(["There was an error: ", err]);
+
+        return {
+            "success": false,
+            "data": err,
+            "message": "There was an error getting all transactions made by the user."
+        }
+    }
 }
 
 async function userCancelOrder() {
