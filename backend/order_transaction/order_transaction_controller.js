@@ -73,17 +73,63 @@ async function adminGetAllTransaction() {
         return {
             "success": false,
             "data": err,
-            "message": "There was an error getting all transactions made by the user."
+            "message": "There was an error getting all transactions made by all users."
         }
     }
 }
 
-async function userCancelOrder() {
+async function userCancelOrder({order_id}) {
+    console.log("Marking a user's order as cancelled.");
 
+    try {
+
+        const cancel_order = await OrderTransaction.findOneAndUpdate(
+            {"_id": order_id},
+            {"order_status" : "Cancelled"}
+        );
+        
+        return {
+            "success": true,
+            "data" : cancel_order,
+            "message": "Successfully cancelled an order by the user."
+        }
+
+    } catch (err) {
+        console.log(["There was an error: ", err]);
+
+        return {
+            "success": false,
+            "data": err,
+            "message": "There was an error cancelling an order for the user."
+        }
+    }
 }
 
-async function adminValidateOrder() {
+async function adminValidateOrder({order_id, order_status}) {
+    console.log("Marking a user's order as cancelled.");
 
+    try {
+
+        const validated_order = await OrderTransaction.findOneAndUpdate(
+            {"_id": order_id},
+            {"order_status" : order_status}
+        );
+        
+        return {
+            "success": true,
+            "data" : validated_order,
+            "message": "Successfully validated an order for a user."
+        }
+
+    } catch (err) {
+        console.log(["There was an error: ", err]);
+
+        return {
+            "success": false,
+            "data": err,
+            "message": "There was an error validating an order for a user."
+        }
+    }
 }
 
 // returns the monthly sales report for products for the last 12 months
