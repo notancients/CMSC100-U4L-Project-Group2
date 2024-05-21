@@ -114,10 +114,27 @@ async function adminValidateOrder({order_id, order_status}) {
             {"_id": order_id},
             {"order_status" : order_status}
         );
+    
+        const updated_order = await OrderTransaction.findOne({"_id": order_id});
+    
+        if (order_status == "Completed") {
+            updated_order["order"].map( async (element) => {
+
+                let record_transaction = await TransactionHistory.create({
+                    "user_id": updated_order["user_id"],
+                    "product_id": element["product_id"],
+                    "date_sold" : updated_order["updatedAt"],
+                    "quantity_sold": element["product_quantity"]
+                })
+
+                console.log(record_transaction);
+            })
+        }
+        
         
         return {
             "success": true,
-            "data" : validated_order,
+            "data" : updated_order,
             "message": "Successfully validated an order for a user."
         }
 
