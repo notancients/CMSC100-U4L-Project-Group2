@@ -78,7 +78,7 @@ async function checkout({user_id, products}) {
 
     try {
         const user_shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
-        
+        console.log(user_shoppingcart)
         let cart = user_shoppingcart.cart;
         cart = cart.map( (element) => {
             // reduce the product's quantity if

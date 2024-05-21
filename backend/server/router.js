@@ -24,13 +24,13 @@ import {
 } from "./shoppingcart_api_controller.js"
 
 import {
-    getAllUserTransaction,
-    adminGetAllTransaction,
-    userCancelOrder,
-    adminValidateOrder,
-    monthlySalesReport,
-    weeklySalesReport,
-    yearlySalesReport
+    getAllUserTransactionAPI,
+    adminGetAllTransactionAPI,
+    userCancelOrderAPI,
+    adminValidateOrderAPI,
+    monthlySalesReportAPI,
+    weeklySalesReportAPI,
+    yearlySalesReportAPI
 } from "./transaction_api_controller.js"
 
 
@@ -51,9 +51,10 @@ router.get("/api/get-all-users", authenticateTokenMiddleware, getAllUsersAPI);
 router.post("/api/create-user", createNewUserAPI);
 router.post("/api/login", loginAPI);
 
-// USER POPULATE API
-
+// POPULATE API
 router.get("/api/populate-user-database", populateUserDataAPI);
+router.get("/api/populate-product-database", populateProductAPI);
+
 
 
 // PRODUCT API
@@ -61,9 +62,6 @@ router.post("/api/create-product", createProductAPI);
 router.get("/api/get-all-products", getAllProductsAPI);
 router.put("/api/update-product-details", updateProductAPI);
 
-// USER POPULATE API
-
-router.get("/api/populate-product-database", populateProductAPI);
 
 
 // SHOPPING CART API
@@ -76,7 +74,6 @@ router.patch("/api/update-cart-product", updateCartQuantityAPI);
 
 
 // TRANSACTION API
-    
 router.get("/api/get-all-user-transactions", getAllUserTransactionAPI);
 router.post("/api/get-all-transactions", adminGetAllTransactionAPI);
 router.patch("/api/user-cancel-order", userCancelOrderAPI);

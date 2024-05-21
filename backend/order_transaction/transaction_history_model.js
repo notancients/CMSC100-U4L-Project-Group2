@@ -7,8 +7,7 @@ const transactionHistorySchema = new mongoose.Schema(
         "user_id": {type: mongoose.Schema.ObjectId, required: true},
         "product_id": {type: mongoose.Schema.ObjectId, required: true},
         "date_sold" : {type: Date, required: true},
-        "quantity_sold": {type: Number, required: true},
-        "price_total": {type: Number, required: true}
+        "quantity_sold": {type: Number, required: true}
     }
 );
 
