@@ -28,9 +28,7 @@ import {
     adminGetAllTransactionAPI,
     userCancelOrderAPI,
     adminValidateOrderAPI,
-    monthlySalesReportAPI,
-    weeklySalesReportAPI,
-    yearlySalesReportAPI
+    salesReportAPI
 } from "./transaction_api_controller.js"
 
 
@@ -78,9 +76,7 @@ router.get("/api/get-all-user-transactions", getAllUserTransactionAPI);
 router.get("/api/get-all-transactions", adminGetAllTransactionAPI);
 router.patch("/api/user-cancel-order", userCancelOrderAPI);
 router.patch("/api/admin-validate-order", adminValidateOrderAPI);
-router.get("/api/monthly-sales-report", monthlySalesReportAPI);
-router.get("/api/weekly-sales-report", weeklySalesReportAPI);
-router.get("/api/yearly-sales-report", yearlySalesReportAPI);
+router.get("/api/sales-report", salesReportAPI);
 
 export {
     router

@@ -131,7 +131,6 @@ async function adminValidateOrder({order_id, order_status}) {
             })
         }
         
-        
         return {
             "success": true,
             "data" : updated_order,
@@ -149,27 +148,53 @@ async function adminValidateOrder({order_id, order_status}) {
     }
 }
 
-// returns the monthly sales report for products for the last 12 months
-async function monthlySalesReport() {
-
-}
-
 // returns the weekly sales report for products for the last 52 weeks
-async function weeklySalesReport() {
+async function salesReport({time_period}) {
+    console.log("Retrieving the sales report.");
 
-}
+    let time_limiter;
+    switch (time_period) {
+        case "Week": time_limiter = new Date(new Date() - 7 * 24 * 60 * 60 * 1000); break;
+        case "Month": time_limiter = new Date(new Date() - 31 * 24 * 60 * 60 * 1000); break;
+        case "Year": time_limiter = new Date(new Date() - 365 * 24 * 60 * 60 * 1000); break;
+        // 5Minutes is for testing purposes
+        case "5Minutes" : time_limiter = new Date(new Date() - 5 * 60 * 1000); break;
+    }
 
-// return the sales for products for the last 5 years
-async function yearlySalesReport() {
+    const sales_report = await TransactionHistory.aggregate([
+        { $match: {date_sold: { $gte: time_limiter }} },
+        { $group: 
+            {
+                _id: {
+                    product_id: '$product_id',
+                    day: { $dayOfYear: '$date_sold' }
+                },
+                totalQuantitySold: { $sum: "$quantity_sold" }
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                product_id: '$_id',
+                totalQuantitySold: 1
+            }
+        }
+    ]);
 
-}
+
+
+      return {
+        "success": true,
+        "data": sales_report,
+        "message": "Successfully returned the sale report."
+    }
+
+} 
 
 export {
     getAllUserTransaction,
     adminGetAllTransaction,
     userCancelOrder,
     adminValidateOrder,
-    monthlySalesReport,
-    weeklySalesReport,
-    yearlySalesReport
+    salesReport
 }

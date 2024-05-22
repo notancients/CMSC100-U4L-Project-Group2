@@ -3,9 +3,7 @@ import {
     adminGetAllTransaction,
     userCancelOrder,
     adminValidateOrder,
-    monthlySalesReport,
-    weeklySalesReport,
-    yearlySalesReport
+    salesReport
 } from "../order_transaction/order_transaction_controller.js";
 
 async function getAllUserTransactionAPI(req, res) {
@@ -56,48 +54,24 @@ async function adminValidateOrderAPI(req, res) {
     }
 }
 
-async function monthlySalesReportAPI(req, res) {
-    console.log("Monthly sales report API has been called.");
 
-    const monthlySalesReport_result = await monthlySalesReport();
+async function salesReportAPI(req, res) {
+    console.log("Sales report API has been called.");
 
-    if(monthlySalesReport_result.success) {
-        res.status(200).json(monthlySalesReport_result);
+    const salesReport_result = await salesReport(req.query);
+
+    if(salesReport_result.success) {
+        res.status(200).json(salesReport_result);
     } else {
-        res.status(500).json(monthlySalesReport_result);
+        res.status(500).json(salesReport_result);
     }
 }
 
-async function weeklySalesReportAPI(req, res) {
-    console.log("Weekly sales report API has been called.");
-
-    const weeklySalesReport_result = await weeklySalesReport();
-
-    if(weeklySalesReport_result.success) {
-        res.status(200).json(weeklySalesReport_result);
-    } else {
-        res.status(500).json(weeklySalesReport_result);
-    }
-}
-
-async function yearlySalesReportAPI(req, res) {
-    console.log("Yearly sales report API has been called.");
-
-    const yearlySalesReport_result = await yearlySalesReport();
-
-    if(yearlySalesReport_result.success) {
-        res.status(200).json(yearlySalesReport_result);
-    } else {
-        res.status(500).json(yearlySalesReport_result);
-    }
-}
 
 export {
     getAllUserTransactionAPI,
     adminGetAllTransactionAPI,
     userCancelOrderAPI,
     adminValidateOrderAPI,
-    monthlySalesReportAPI,
-    weeklySalesReportAPI,
-    yearlySalesReportAPI
+    salesReportAPI
 }
