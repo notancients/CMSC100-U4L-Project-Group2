@@ -47,10 +47,10 @@ function ProductListing() {
                 <Link to="/user" className="logo">
                     <img src="" alt="Farm2Table logo"/>
                 </Link>
-                <Link to="/orders" className="navlink">ORDERS</Link>
+                <Link to="/orders" className="navlink">USERS</Link>
                 <Link to="/products" className="navlink">PRODUCTS</Link>
-                <Link to="/cart" className="navlink">CART</Link>
-                <Link to="/about-us" className="navlink">ABOUT US</Link>
+                <Link to="/cart" className="navlink">ORDERS</Link>
+                <Link to="/about-us" className="navlink">SALES</Link>
                 <Link to="/profile">
                     <img src="" alt="Icon" className="profile-icon"/>
                 </Link>
