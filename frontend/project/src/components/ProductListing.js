@@ -9,10 +9,6 @@ function ProductListing() {
 
     const [product, setProduct] = useState(PRODUCT_SAMPLE_DATA);
 
-    const handleAddToCart = (item) => {
-        console.log(`Added ${item} to cart`);
-    };
-
     const handleDecreaseStock = (productId) => {
         for(let i=0; i<product.length; i++) {
             if(product[i].productId === productId) {
