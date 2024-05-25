@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import Menu from './Menu';
-import OrderList from './OrderList';
+import UserOrdersList from './UserOrdersList';
+import { sampleOrders } from './SampleOrders';
 
 const menus = [
-  { name: "Active", url: "#active", id: 1 },
+  { name: "Pending", url: "#pending", id: 1 },
   { name: "Completed", url: "#completed", id: 2 },
   { name: "Cancelled", url: "#cancelled", id: 3 },
-  { name: "Fulfillment", url: "/", id: 4 },
 ];
 
-const UserOrders = ({ orders, updateOrders }) => {
+function UserOrders() {
+  const [orders, setOrders] = useState(sampleOrders);
   const [currentTab, setCurrentTab] = useState(1);
 
-  const filteredOrders = orders.filter(order =>
-    (currentTab === 1 && order.orderStatus === 1) || // Active orders
-    (currentTab === 2 && order.orderStatus === 3) || // Completed orders (no data yet)
-    (currentTab === 3 && order.orderStatus === 2)    // Cancelled orders
+  const handleCancel = (transactionId) => {
+    setOrders(prevOrders =>
+      prevOrders.map(order =>
+        order.transactionId === transactionId ? { ...order, orderStatus: "Cancelled" } : order
+      )
+    );
+  };
+
+  const filteredOrders = orders.filter(order => 
+    (currentTab === 1 && order.orderStatus === "Pending") || 
+    (currentTab === 2 && order.orderStatus === "Completed") || 
+    (currentTab === 3 && order.orderStatus === "Cancelled")
   );
 
   return (
@@ -25,10 +34,10 @@ const UserOrders = ({ orders, updateOrders }) => {
         <Menu menus={menus} setCurrentTab={setCurrentTab} />
       </header>
       <main>
-        <OrderList orders={filteredOrders} handleConfirm={() => {}} handleCancel={() => {}} />
+        <UserOrdersList orders={filteredOrders} handleCancel={handleCancel} currentTab={currentTab} />
       </main>
     </div>
   );
-};
+}
 
 export default UserOrders;

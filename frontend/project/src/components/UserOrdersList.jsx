@@ -1,9 +1,9 @@
 import React from 'react';
 
-const OrderList = ({ orders, handleConfirm, handleCancel }) => {
+const UserOrdersList = ({ orders, handleCancel, currentTab }) => {
   return (
     <div className="order-list">
-      <h2>Orders</h2>
+      <h2>{currentTab === 1 ? "Pending Orders" : currentTab === 2 ? "Completed Orders" : "Cancelled Orders"}</h2>
       <table>
         <thead>
           <tr>
@@ -14,7 +14,7 @@ const OrderList = ({ orders, handleConfirm, handleCancel }) => {
             <th>Email</th>
             <th>Date Ordered</th>
             <th>Time</th>
-            <th>Action</th>
+            {currentTab === 1 && <th>Action</th>}
           </tr>
         </thead>
         <tbody>
@@ -23,18 +23,15 @@ const OrderList = ({ orders, handleConfirm, handleCancel }) => {
               <td>{order.transactionId}</td>
               <td>{order.productId}</td>
               <td>{order.orderQuantity}</td>
-              <td>{order.orderStatus === 0 ? 'Pending' : order.orderStatus === 1 ? 'Confirmed' : 'Canceled'}</td>
+              <td>{order.orderStatus}</td>
               <td>{order.email}</td>
               <td>{order.dateOrdered}</td>
               <td>{order.time}</td>
-              <td>
-                {order.orderStatus === 0 && (
-                  <>
-                    <button onClick={() => handleConfirm(order.transactionId)}>Confirm</button>
-                    <button onClick={() => handleCancel(order.transactionId)}>Cancel</button>
-                  </>
-                )}
-              </td>
+              {currentTab === 1 && (
+                <td>
+                  <button onClick={() => handleCancel(order.transactionId)}>Cancel</button>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
@@ -43,4 +40,4 @@ const OrderList = ({ orders, handleConfirm, handleCancel }) => {
   );
 }
 
-export default OrderList;
+export default UserOrdersList;
