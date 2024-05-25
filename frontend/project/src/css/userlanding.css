@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.user-page {
+    background-image: url('../images/userlp_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    overflow: hidden; 
+    cursor: none;
+}
+
+.nav-bar-user{
+    cursor: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 0px;
+}
+
+.nav-link:hover {
+    cursor: none;
+  }
+
+  .user-icon:hover {
+    cursor: none;
+  }
+
+
+  .logo {
+    position: absolute; 
+    top: 2px;;
+    left: 10px; 
+  }
+  .logo img {
+    width: 350px; 
+  height: auto;
+  }
+
+  .logo img:hover {
+    cursor: none;
+  }
+
+  .userlp-images{
+    direction: initial;
+  }
+
+  .userlp-images img{
+    width: 250px;
+    border-radius: 50px;
+    margin-left: 25px;
+    margin-right: 32px;
+    margin-top: 350px;
+  }
+
+  .userlp-images img:hover{
+    box-shadow: 0 0 10px #E5F2AD; 
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.08);
+  }
+
+  .img1, .img3, .img5 {
+    margin-bottom: 50px;
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #E5F2AD;
+    pointer-events: none;
+    animation: rippleEffect 1s linear infinite;
+  }
+  
+  @keyframes rippleEffect {
+    0% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+
+  
+  
+  

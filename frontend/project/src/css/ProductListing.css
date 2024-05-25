@@ -1,0 +1,152 @@
+body {
+    background-color: #5A5302;
+}
+
+.product-listing-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #E5F2AD;
+    height: 100px;
+    align-items: center;
+}
+
+.logo {
+    position: relative;
+    width: 500px;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+}
+
+a {
+    color: #E5F2AD;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+.navlink {
+    display: flex;
+    list-style-type: none;
+    margin: 5px;
+    padding: 25px 15px;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navlink:hover {
+    
+}
+
+.profile-icon {
+    
+}
+
+.products-title {
+    display: flex;
+    color: #E5F2AD;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sort-by-group {
+    display: inline-flex;
+    justify-content: flex-start;
+}
+
+.sort {
+    padding-left: 80px;
+    color: #E5F2AD;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+ 
+.item {
+    margin: 20px;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+    
+img {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+    
+.name {
+    margin-top: 8px;
+    color: #E5F2AD;
+    font-size: 18px;
+    opacity: 1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+.desc {
+    margin-top: 5px;
+    padding: 3px;
+    color: #E5F2AD;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+.price {
+    display: flex;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: #E5F2AD;
+    color: #5A5302;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 90px;
+}
+
+.stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity {
+    display: flex;
+    color: #E5F2AD;
+}
+
+.stock-upd {
+    display: flex;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: #E5F2AD;
+    color: #5A5302;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 40px;
+}
