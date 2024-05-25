@@ -8,6 +8,8 @@ import UserLandingPage from './components/user_landing';
 import UserProductsPage from './components/user_products'; 
 import UserOrdersPage from './components/orders'; 
 import ShoppingCartPage from './components/shoppingCart'; 
+import ProductListing from './components/ProductListing';
+import PRODUCT_SAMPLE_DATA from './components/ProductSample';
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Route path="/userproducts" element={<UserProductsPage />} /> 
         <Route path="/userorders" element={<UserOrdersPage />} /> 
         <Route path="/shoppingcart" element={<ShoppingCartPage />} /> 
+        <Route path="/productlisting" element={<ProductListing />} /> 
 
       </Routes>
     </Router>
