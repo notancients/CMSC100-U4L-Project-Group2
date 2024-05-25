@@ -10,7 +10,8 @@ import UserOrdersPage from './components/orders';
 import ShoppingCartPage from './components/shoppingCart'; 
 import ProductListing from './components/ProductListing';
 import PRODUCT_SAMPLE_DATA from './components/ProductSample';
-
+import './App.css';
+import UserList from './components/UserList';
 
 function App() {
   return (
@@ -25,8 +26,13 @@ function App() {
         <Route path="/userorders" element={<UserOrdersPage />} /> 
         <Route path="/shoppingcart" element={<ShoppingCartPage />} /> 
         <Route path="/productlisting" element={<ProductListing />} /> 
-
+        <Route path="/" element={<UserList />} />
       </Routes>
+      <div className="App">
+        <header>
+          <h1>User Information</h1>
+        </header>
+      </div>
     </Router>
   );
 }
