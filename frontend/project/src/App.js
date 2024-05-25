@@ -12,6 +12,8 @@ import ProductListing from './components/ProductListing';
 import './App.css';
 import UserList from './components/UserList';
 import OrderFulfillment from './components/OrderFulfillment';
+import SalesPage from './components/SalesPage';
+
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/productlisting" element={<ProductListing />} /> 
         <Route path="/orderfulfillment" element={<OrderFulfillment />} /> 
         <Route path="/userList" element={<UserList />} />
+        <Route path="/sales" element={<SalesPage />} />
+
       </Routes>
     </Router>
   );

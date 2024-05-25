@@ -58,7 +58,7 @@ const UserList = () => {
         </Link>
       </div>
       <div className="title-container">
-        <h1>Accounts Page</h1>
+        <h1>Registered Users</h1>
       </div>
       <div className="sort-user-count-container">
         <div className="sort-container">

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 .product-listing-page {
-    background-image: url('../images/admin_prod_bg.png');
+    background-image: url('../images/admin_pf_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
@@ -32,7 +32,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-top: 190px;
+    padding-top: 70px;
 }
 
 
