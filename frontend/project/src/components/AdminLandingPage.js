@@ -28,7 +28,7 @@ function AdminLandingPage() {
         <Link to="/productlisting">
         <img src={listingMenu} alt="Listing" className="listing" />
         </Link>
-        <Link to="/accounts">
+        <Link to="/userList">
         <img src={accountsMenu} alt="Accounts" className="accounts" />
         </Link>
       </div>

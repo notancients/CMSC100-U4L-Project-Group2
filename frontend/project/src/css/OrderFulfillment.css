@@ -67,9 +67,9 @@
 }
 
 .order-list {
-    display: flex; /* Change to flex */
-    flex-wrap: wrap; /* Allow wrapping if necessary */
-    justify-content: center; /* Align items in the center */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
     gap: 20px;
     
   }
@@ -85,10 +85,10 @@
 .action-buttons {
     margin-left: 30px;
     display: flex;
-    flex-direction: column; /* Change to vertical arrangement */
+    flex-direction: column; 
     gap: 10px;
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
+    align-items: center;
+    justify-content: center; 
 
 }
 
@@ -142,13 +142,13 @@ h1 {
     color: #E5F2AD;
     width: 100%;
     text-align: center;
-    padding: 10px 0; /* Optional: Add padding */
+    padding: 10px 0;
     z-index: 10;
 }
 
 .menu-container {
-    position: relative; /* Add relative positioning */
-    margin-top: 100px; /* Adjust spacing between menu and order list */
+    position: relative; 
+    margin-top: 100px; 
 }
 
 .menu li.active a {

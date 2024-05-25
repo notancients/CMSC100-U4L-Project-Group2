@@ -54,7 +54,7 @@ function OrderFulfillment() {
                 </Link>
             </div> 
             <div className="nav-bar">
-                <Link to="/orders" className="nav-link">USERS</Link>
+                <Link to="/userList" className="nav-link">USERS</Link>
                 <Link to="/productlisting" className="nav-link">PRODUCTS</Link>
                 <Link to="/orderfulfillment" className="nav-link">ORDERS</Link>
                 <Link to="/about-us" className="nav-link">SALES</Link>

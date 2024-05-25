@@ -8,7 +8,7 @@ function ProductListing() {
     const [products, setProducts] = useState(PRODUCT_SAMPLE_DATA);
     const [sortCriteria, setSortCriteria] = useState('');
     const [sortDirection, setSortDirection] = useState('asc');
-    const [selectedType, setSelectedType] = useState('All'); // Default to 'All'
+    const [selectedType, setSelectedType] = useState('All'); 
 
     const handleDecreaseStock = (productId) => {
         setProducts(prevProducts =>
@@ -78,7 +78,7 @@ function ProductListing() {
                 </Link>
             </div> 
             <div className="nav-bar">
-                <Link to="/order" className="nav-link">USERS</Link>
+                <Link to="/userList" className="nav-link">USERS</Link>
                 <Link to="/productlisting" className="nav-link">PRODUCTS</Link>
                 <Link to="/orderfulfillment" className="nav-link">ORDERS</Link>
                 <Link to="/about-us" className="nav-link">SALES</Link>

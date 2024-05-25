@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Menu = ({ menus, setCurrentTab, currentTab }) => {
-  console.log("Current Tab:", currentTab); // Add this line to check currentTab value
   return (
     <nav>
       <ul className="menu">
