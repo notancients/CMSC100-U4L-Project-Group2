@@ -7,7 +7,7 @@ import AdminLandingPage from './components/AdminLandingPage';
 import UserLandingPage from './components/user_landing'; 
 import UserProductsPage from './components/user_products'; 
 import UserOrdersPage from './components/orders'; 
-import ShoppingCartPage from './components/shoppingCart'; 
+import ShoppingCart from './components/shopping_cart'; 
 import ProductListing from './components/ProductListing';
 import './App.css';
 import UserList from './components/UserList';
@@ -16,6 +16,10 @@ import SalesPage from './components/SalesPage';
 
 
 function App() {
+
+
+  const [cart, setCart] = useState([]);
+
   return (
     <Router>
       <Routes>
@@ -24,10 +28,9 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/admin" element={<AdminLandingPage />} /> 
         <Route path="/loginlanding" element={<UserLandingPage />} /> 
-        <Route path="/userproducts" element={<UserProductsPage />} /> 
+        <Route path="/userproducts" element={<UserProductsPage cart={cart} setCart={setCart} />} />
         <Route path="/userorders" element={<UserOrdersPage />} /> 
-        <Route path="/shoppingcart" element={<ShoppingCartPage />} /> 
-        <Route path="/productlisting" element={<ProductListing />} /> 
+        <Route path="/cart" element={<ShoppingCart cart={cart} setCart={setCart} />} />        <Route path="/productlisting" element={<ProductListing />} /> 
         <Route path="/orderfulfillment" element={<OrderFulfillment />} /> 
         <Route path="/userList" element={<UserList />} />
         <Route path="/sales" element={<SalesPage />} />
