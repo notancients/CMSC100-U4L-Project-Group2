@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/landingPage';
 import LoginPage from './components/signIn';
@@ -28,11 +28,6 @@ function App() {
         <Route path="/productlisting" element={<ProductListing />} /> 
         <Route path="/" element={<UserList />} />
       </Routes>
-      <div className="App">
-        <header>
-          <h1>User Information</h1>
-        </header>
-      </div>
     </Router>
   );
 }
