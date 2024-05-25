@@ -33,7 +33,7 @@ function AdminLandingPage() {
         </Link>
       </div>
       <div className="menu2">
-        <Link to="/pending">
+        <Link to="/orderfulfillment">
         <img src={pendingMenu} alt="Pending" className="pending" />
         </Link>
         <Link to="/sales">

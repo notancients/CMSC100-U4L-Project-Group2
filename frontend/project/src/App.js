@@ -9,9 +9,9 @@ import UserProductsPage from './components/user_products';
 import UserOrdersPage from './components/orders'; 
 import ShoppingCartPage from './components/shoppingCart'; 
 import ProductListing from './components/ProductListing';
-import PRODUCT_SAMPLE_DATA from './components/ProductSample';
 import './App.css';
 import UserList from './components/UserList';
+import OrderFulfillment from './components/OrderFulfillment';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Route path="/userorders" element={<UserOrdersPage />} /> 
         <Route path="/shoppingcart" element={<ShoppingCartPage />} /> 
         <Route path="/productlisting" element={<ProductListing />} /> 
+        <Route path="/orderfulfillment" element={<OrderFulfillment />} /> 
         <Route path="/" element={<UserList />} />
       </Routes>
     </Router>
