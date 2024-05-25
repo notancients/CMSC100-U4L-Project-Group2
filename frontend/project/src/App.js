@@ -3,10 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductListing from './components/ProductListing';
 
 function App() {
+
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ProductListing/>} />
+        <Route path="/" element={<ProductListing cart={cart} setCart={setCart} />} />
+        <Route path="/cart" element={<ShoppingCart cart={cart} setCart={setCart} />} />
       </Routes>
     </Router>
   );
