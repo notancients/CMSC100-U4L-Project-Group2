@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/landingPage';
 import LoginPage from './components/signIn';
@@ -10,7 +10,8 @@ import UserOrdersPage from './components/orders';
 import ShoppingCartPage from './components/shoppingCart'; 
 import ProductListing from './components/ProductListing';
 import PRODUCT_SAMPLE_DATA from './components/ProductSample';
-
+import './App.css';
+import UserList from './components/UserList';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path="/userorders" element={<UserOrdersPage />} /> 
         <Route path="/shoppingcart" element={<ShoppingCartPage />} /> 
         <Route path="/productlisting" element={<ProductListing />} /> 
-
+        <Route path="/" element={<UserList />} />
       </Routes>
     </Router>
   );
