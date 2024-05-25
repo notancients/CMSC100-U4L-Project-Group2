@@ -54,18 +54,20 @@ header {
   width: 80%;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table, th, td {
+.card {
   border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
-  padding: 10px;
-  text-align: left;
+.sales-details {
+  margin: 10px 0;
+}
+
+.totals {
+  margin-top: 20px;
 }
 
 button {

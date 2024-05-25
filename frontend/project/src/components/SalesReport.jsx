@@ -1,38 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { sampleSalesData } from './SampleSales';
 
-const SalesReport = ({ salesData, currentTab }) => {
-  const totalSales = salesData.reduce((total, item) => total + item.sales, 0);
-  const totalQuantitySold = salesData.reduce((total, item) => total + item.quantitySold, 0);
-
+const SalesReport = () => {
   return (
-    <div className="sales-report">
-      <h2>{currentTab === 1 ? "Weekly Sales" : currentTab === 2 ? "Monthly Sales" : "Annual Sales"}</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Quantity Sold</th>
-            <th>{currentTab === 1 ? "Weekly Sales" : currentTab === 2 ? "Monthly Sales" : "Annual Sales"}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {salesData.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.productName}</td>
-              <td>{item.quantitySold}</td>
-              <td>{item.sales}</td>
-            </tr>
+    <div>
+      <div className="navigation">
+        <h2>All Products</h2>
+        <div className="product-cards">
+          {sampleSalesData.map(product => (
+            <div key={product.id} className="card">
+              <h3>{product.productName}</h3>
+              <Link to={`/sales/${product.id}/weekly`} className="sales-link">Weekly Sales</Link>
+              <Link to={`/sales/${product.id}/monthly`} className="sales-link">Monthly Sales</Link>
+              <Link to={`/sales/${product.id}/annual`} className="sales-link">Annual Sales</Link>
+            </div>
           ))}
-          <tr>
-            <td><strong>Total</strong></td>
-            <td></td>
-            <td><strong>{totalQuantitySold}</strong></td>
-            <td><strong>{totalSales}</strong></td>
-          </tr>
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   );
 }
