@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
 import Menu from './Menu';
 import OrderList from './OrderList';
-import { useNavigate } from 'react-router-dom';
+import { sampleOrders } from './SampleOrders';
 
 const menus = [
-  { name: "Pending", url: "#pending", id: 1 },
-  { name: "Confirmed", url: "#confirmed", id: 2 },
-  { name: "Cancelled", url: "#cancelled", id: 3 },
-  { name: "Orders", url: "/orders", id: 4 },
+  { name: "Pending", url: "#pending", id: "Pending" },
+  { name: "Confirmed", url: "#confirmed", id: "Confirmed" },
+  { name: "Cancelled", url: "#cancelled", id: "Cancelled" },
 ];
 
-function OrderFulfillment({ orders, updateOrders }) {
-  const [currentTab, setCurrentTab] = useState(1);
-  const navigate = useNavigate();
+function OrderFulfillment() {
+  const [orders, setOrders] = useState(sampleOrders);
+  const [currentTab, setCurrentTab] = useState("Pending");
 
   const handleConfirm = (transactionId) => {
-    const updatedOrders = orders.map(order =>
-      order.transactionId === transactionId ? { ...order, orderStatus: 1 } : order
+    setOrders(prevOrders =>
+      prevOrders.map(order =>
+        order.transactionId === transactionId ? { ...order, orderStatus: "Confirmed" } : order
+      )
     );
-    updateOrders(updatedOrders);
   };
 
   const handleCancel = (transactionId) => {
-    const updatedOrders = orders.map(order =>
-      order.transactionId === transactionId ? { ...order, orderStatus: 2 } : order
+    setOrders(prevOrders =>
+      prevOrders.map(order =>
+        order.transactionId === transactionId ? { ...order, orderStatus: "Cancelled" } : order
+      )
     );
-    updateOrders(updatedOrders);
   };
 
-  const filteredOrders = orders.filter(order => 
-    (currentTab === 1 && order.orderStatus === 0) || 
-    (currentTab === 2 && order.orderStatus === 1) || 
-    (currentTab === 3 && order.orderStatus === 2)
-  );
+  const filteredOrders = orders.filter(order => order.orderStatus === currentTab);
 
   return (
     <div>

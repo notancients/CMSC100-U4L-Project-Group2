@@ -23,12 +23,12 @@ const OrderList = ({ orders, handleConfirm, handleCancel }) => {
               <td>{order.transactionId}</td>
               <td>{order.productId}</td>
               <td>{order.orderQuantity}</td>
-              <td>{order.orderStatus === 0 ? 'Pending' : order.orderStatus === 1 ? 'Confirmed' : 'Canceled'}</td>
+              <td>{order.orderStatus}</td>
               <td>{order.email}</td>
               <td>{order.dateOrdered}</td>
               <td>{order.time}</td>
               <td>
-                {order.orderStatus === 0 && (
+                {order.orderStatus === "Pending" && (
                   <>
                     <button onClick={() => handleConfirm(order.transactionId)}>Confirm</button>
                     <button onClick={() => handleCancel(order.transactionId)}>Cancel</button>
