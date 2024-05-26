@@ -9,11 +9,11 @@ const SalesReport = () => {
         <h2>All Products</h2>
         <div className="product-cards">
           {sampleSalesData.map(product => (
-            <div key={product.id} className="card">
-              <h3>{product.productName}</h3>
-              <Link to={`/sales/${product.id}/weekly`} className="sales-link">Weekly Sales</Link>
-              <Link to={`/sales/${product.id}/monthly`} className="sales-link">Monthly Sales</Link>
-              <Link to={`/sales/${product.id}/annual`} className="sales-link">Annual Sales</Link>
+            <div key={product._id} className="card">
+              <h3>{product.product_name}</h3>
+              <Link to={`/sales/${product._id}/weekly`} className="sales-link">Weekly Sales</Link>
+              <Link to={`/sales/${product._id}/monthly`} className="sales-link">Monthly Sales</Link>
+              <Link to={`/sales/${product._id}/annual`} className="sales-link">Annual Sales</Link>
             </div>
           ))}
         </div>

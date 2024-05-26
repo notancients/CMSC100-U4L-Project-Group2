@@ -5,8 +5,8 @@ const Menu = ({ menus, setCurrentTab }) => {
     <nav>
       <ul className="menu">
         {menus.map(menu => (
-          <li key={menu.id}>
-            <a href={menu.url} onClick={() => setCurrentTab(menu.id)}>{menu.name}</a>
+          <li key={menu._id}>
+            <a href={menu.url} onClick={() => setCurrentTab(menu._id)}>{menu.name}</a>
           </li>
         ))}
         <li className="search-bar">
