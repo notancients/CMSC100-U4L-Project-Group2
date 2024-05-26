@@ -19,19 +19,19 @@ const OrderList = ({ orders, handleConfirm, handleCancel }) => {
         </thead>
         <tbody>
           {orders.map(order => (
-            <tr key={order.transactionId}>
-              <td>{order.transactionId}</td>
-              <td>{order.productId}</td>
-              <td>{order.orderQuantity}</td>
-              <td>{order.orderStatus}</td>
+            <tr key={order.transaction_id}>
+              <td>{order.transaction_id}</td>
+              <td>{order._id}</td>
+              <td>{order.quantity_sold}</td>
+              <td>{order.order_status}</td>
               <td>{order.email}</td>
-              <td>{order.dateOrdered}</td>
+              <td>{order.date_sold}</td>
               <td>{order.time}</td>
               <td>
-                {order.orderStatus === "Pending" && (
+                {order.order_status === "Pending" && (
                   <>
-                    <button onClick={() => handleConfirm(order.transactionId)}>Confirm</button>
-                    <button onClick={() => handleCancel(order.transactionId)}>Cancel</button>
+                    <button onClick={() => handleConfirm(order.transaction_id)}>Confirm</button>
+                    <button onClick={() => handleCancel(order.transaction_id)}>Cancel</button>
                   </>
                 )}
               </td>

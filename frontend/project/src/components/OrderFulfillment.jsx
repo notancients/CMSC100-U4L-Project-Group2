@@ -13,23 +13,23 @@ function OrderFulfillment() {
   const [orders, setOrders] = useState(sampleOrders);
   const [currentTab, setCurrentTab] = useState("Pending");
 
-  const handleConfirm = (transactionId) => {
+  const handleConfirm = (transaction_id) => {
     setOrders(prevOrders =>
       prevOrders.map(order =>
-        order.transactionId === transactionId ? { ...order, orderStatus: "Confirmed" } : order
+        order.transaction_id === transaction_id ? { ...order, order_status: "Confirmed" } : order
       )
     );
   };
 
-  const handleCancel = (transactionId) => {
+  const handleCancel = (transaction_id) => {
     setOrders(prevOrders =>
       prevOrders.map(order =>
-        order.transactionId === transactionId ? { ...order, orderStatus: "Cancelled" } : order
+        order.transaction_id === transaction_id ? { ...order, order_status: "Cancelled" } : order
       )
     );
   };
 
-  const filteredOrders = orders.filter(order => order.orderStatus === currentTab);
+  const filteredOrders = orders.filter(order => order.order_status === currentTab);
 
   return (
     <div>
