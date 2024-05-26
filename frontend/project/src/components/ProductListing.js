@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/ProductListing.css';
 import { PRODUCT_SAMPLE_DATA } from './ProductSample';
+import axios from "axios";
 
 //issue: accurately updating stock
 
 function ProductListing() {
 
-    const [product, setProduct] = useState(PRODUCT_SAMPLE_DATA);
+    const [product, setProduct] = useState(null);
+
+    useEffect( () => {
+        const fetch_data = async () => {
+            try {
+                const response = await axios.get("http://localhost:3001/api/get-all-products");
+                console.log(response.data.data);
+                setProduct(response.data.data);
+            } catch (err) {
+                console.log(err);
+                setProduct(null);
+            }
+        }
+    
+        fetch_data();
+    }, []);
 
     const handleDecreaseStock = (productId) => {
         for(let i=0; i<product.length; i++) {
