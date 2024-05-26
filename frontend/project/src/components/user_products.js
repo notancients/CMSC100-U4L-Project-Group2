@@ -6,15 +6,18 @@ import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
 import ShoppingCart from './shopping_cart';
 
-function UserProductsPage({ cart, setCart }) {
+
+function UserProductsPage({ cart, setCart, cartQuantity }) {
     const [products, setProducts] = useState(PRODUCT_SAMPLE_DATA);
     const [sortCriteria, setSortCriteria] = useState('');
     const [sortDirection, setSortDirection] = useState('asc');
     const [selectedType, setSelectedType] = useState('All'); 
+    const [notification, setNotification] = useState({ message: '', visible: false });
+
 
     const handleAddToCart = (productToAdd) => {
         const existingItem = cart.find(item => item.productId === productToAdd.productId);
-      
+    
         if (existingItem) {
             const updatedCart = cart.map(item => {
                 if (item.productId === productToAdd.productId) {
@@ -27,7 +30,14 @@ function UserProductsPage({ cart, setCart }) {
         } else {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
         }
+    
+        setNotification({ message: `${productToAdd.productName} added to cart!`, visible: true });
+    
+        setTimeout(() => {
+            setNotification({ message: '', visible: false });
+        }, 3000);
     };
+    
     
 
     const handleSort = (criteria) => {
@@ -77,14 +87,22 @@ function UserProductsPage({ cart, setCart }) {
     
     return (
         <div className="user-products-page">
+            {notification.visible && (
+           <div className="notification">
+           <i className="fas fa-check notification-icon"></i>
+           <span className="notification-message">{notification.message}</span>
+       </div>
+       
+        
+        )}
             <div className="logo">
                 <Link to="/"> 
                     <img src={logo} alt="Logo Here" className="logo-img" />
                 </Link>
             </div> 
             <div className="nav-bar">
-                <Link to="/orders" className="nav-link">ORDERS</Link>
-                <Link to="/products" className="nav-link">PRODUCTS</Link>
+                <Link to="/userorders" className="nav-link">ORDERS</Link>
+                <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
                 <Link to="/cart" className="nav-link">CART ({computeTotalCartQuantity()})</Link>
                 <Link to="/about-us" className="nav-link">ABOUT US</Link>
                 <Link to="/profile" className="user-profile">
@@ -92,7 +110,7 @@ function UserProductsPage({ cart, setCart }) {
                 </Link>
             </div>
             <div className="title-container">
-              <h1>Products Listing</h1>
+              <h1>Our Products</h1>
             </div>
             <div className="sort-and-filter-container">
                 <div className="sort-by-group">

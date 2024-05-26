@@ -44,8 +44,8 @@ const computeTotalPrice = () => {
         </Link>
       </div>
       <div className="nav-bar">
-        <Link to="/orders" className="nav-link">ORDERS</Link>
-        <Link to="/products" className="nav-link">PRODUCTS</Link>
+      <Link to="/userorders" className="nav-link">ORDERS</Link>
+        <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
         <Link to="/cart" className="nav-link">CART ({computeTotalCartQuantity()})</Link>
         <Link to="/about-us" className="nav-link">ABOUT US</Link>
         <Link to="/profile" className="user-profile">
@@ -88,7 +88,7 @@ const computeTotalPrice = () => {
       </div>
       <div className="total-checkout-container">
         <div className="total-checkout">
-          <p className='total-p'> Total Price: PHP {computeTotalPrice()}</p>
+          <p className='total-p'> Total Price: PHP {computeTotalPrice()}.00</p>
           <button className='checkout' onClick={handleCheckOut}>Check Out</button>
         </div>
       </div>

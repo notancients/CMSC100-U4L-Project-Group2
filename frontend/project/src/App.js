@@ -6,7 +6,7 @@ import SignUpPage from './components/signUp';
 import AdminLandingPage from './components/AdminLandingPage'; 
 import UserLandingPage from './components/user_landing'; 
 import UserProductsPage from './components/user_products'; 
-import UserOrdersPage from './components/orders'; 
+import UserOrdersPage from './components/UserOrders'; 
 import ShoppingCart from './components/shopping_cart'; 
 import ProductListing from './components/ProductListing';
 import './App.css';
@@ -27,9 +27,9 @@ function App() {
         <Route path="/login/user" element={<LoginPage userType="user" />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/admin" element={<AdminLandingPage />} /> 
-        <Route path="/loginlanding" element={<UserLandingPage />} /> 
+        <Route path="/loginlanding" element={<UserLandingPage cart={cart} />} /> 
         <Route path="/userproducts" element={<UserProductsPage cart={cart} setCart={setCart} />} />
-        <Route path="/userorders" element={<UserOrdersPage />} /> 
+        <Route path="/userorders" element={<UserOrdersPage cart={cart}  />} /> 
         <Route path="/cart" element={<ShoppingCart cart={cart} setCart={setCart} />} />        <Route path="/productlisting" element={<ProductListing />} /> 
         <Route path="/orderfulfillment" element={<OrderFulfillment />} /> 
         <Route path="/userList" element={<UserList />} />
