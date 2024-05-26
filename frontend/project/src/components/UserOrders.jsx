@@ -13,18 +13,18 @@ function UserOrders() {
   const [orders, setOrders] = useState(sampleOrders);
   const [currentTab, setCurrentTab] = useState(1);
 
-  const handleCancel = (transactionId) => {
+  const handleCancel = (transaction_id) => {
     setOrders(prevOrders =>
       prevOrders.map(order =>
-        order.transactionId === transactionId ? { ...order, orderStatus: "Cancelled" } : order
+        order.transaction_id === transaction_id ? { ...order, order_status: "Cancelled" } : order
       )
     );
   };
 
   const filteredOrders = orders.filter(order => 
-    (currentTab === 1 && order.orderStatus === "Pending") || 
-    (currentTab === 2 && order.orderStatus === "Completed") || 
-    (currentTab === 3 && order.orderStatus === "Cancelled")
+    (currentTab === 1 && order.order_status === "Pending") || 
+    (currentTab === 2 && order.order_status === "Completed") || 
+    (currentTab === 3 && order.order_status === "Cancelled")
   );
 
   return (
