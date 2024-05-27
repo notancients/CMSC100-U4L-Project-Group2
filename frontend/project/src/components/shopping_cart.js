@@ -4,6 +4,8 @@ import '../css/shoppingCart.css';
 import { Link } from 'react-router-dom';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
+import CustomCursor from './customCursor';
+
 
 
 
@@ -38,6 +40,8 @@ const computeTotalPrice = () => {
 
   return (
     <div className="shopping-cart-page">
+                  <CustomCursor />
+
       <div className="logo">
         <Link to="/">
           <img src={logo} alt="Logo Here" className="logo-img" />

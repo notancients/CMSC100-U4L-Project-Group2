@@ -13,6 +13,9 @@ import './App.css';
 import UserList from './components/UserList';
 import OrderFulfillment from './components/OrderFulfillment';
 import SalesPage from './components/SalesPage';
+import WeeklySales from './components/WeeklySales';
+import MonthlySales from './components/MonthlySales';
+import AnnualSales from './components/AnnualSales';
 
 
 function App() {
@@ -34,7 +37,9 @@ function App() {
         <Route path="/orderfulfillment" element={<OrderFulfillment />} /> 
         <Route path="/userList" element={<UserList />} />
         <Route path="/sales" element={<SalesPage />} />
-
+        <Route path="/sales/:id/weekly" element={<WeeklySales />} />
+          <Route path="/sales/:id/monthly" element={<MonthlySales />} />
+          <Route path="/sales/:id/annual" element={<AnnualSales />} />
       </Routes>
     </Router>
   );

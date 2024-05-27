@@ -4,6 +4,11 @@ import '../css/ProductListing.css';
 import { PRODUCT_SAMPLE_DATA } from './ProductSample';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
+import CustomCursor from './customCursor';
+
+
+
+
 function ProductListing() {
     const [products, setProducts] = useState(PRODUCT_SAMPLE_DATA);
     const [sortCriteria, setSortCriteria] = useState('');
@@ -72,6 +77,7 @@ function ProductListing() {
     
     return (
         <div className="product-listing-page">
+        <CustomCursor />
             <div className="logo">
                 <Link to="/"> 
                     <img src={logo} alt="Logo Here" className="logo-img" />

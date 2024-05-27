@@ -4,7 +4,7 @@ import '../css/user_products.css';
 import { PRODUCT_SAMPLE_DATA } from './ProductSample';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
-import ShoppingCart from './shopping_cart';
+import CustomCursor from './customCursor';
 
 
 function UserProductsPage({ cart, setCart, cartQuantity }) {
@@ -87,6 +87,7 @@ function UserProductsPage({ cart, setCart, cartQuantity }) {
     
     return (
         <div className="user-products-page">
+            <CustomCursor />
             {notification.visible && (
            <div className="notification">
            <i className="fas fa-check notification-icon"></i>

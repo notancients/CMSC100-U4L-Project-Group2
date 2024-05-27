@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    cursor: none;
 }
 
 
@@ -33,6 +34,8 @@
     align-items: center;
     width: 90%;
     padding-top: 70px;
+    cursor: none;
+
 }
 
 
@@ -40,6 +43,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: none;
+
 }
 
 .type-filter{
@@ -49,8 +54,9 @@
     font-family: Montserrat;
     background: none; 
     border: none; 
-    cursor: pointer; 
     outline: none; 
+    cursor: none;
+
 }
 
 .custom-dropdown {
@@ -61,11 +67,10 @@
     background-color:  #E5F2AD; 
     font-size: 14px; 
     color: #5A5302;
-    cursor: pointer; 
     border: none;
     font-family: Montserrat;
     font-weight: 700;
-    
+    cursor: none;
 
 }
 
@@ -95,10 +100,6 @@ select.custom-dropdown::after {
     font-family: Montserrat;
 }
 
-
-
-    
-
 .sort {
     padding-left: 80px;
     color: #E5F2AD;
@@ -106,11 +107,17 @@ select.custom-dropdown::after {
     font-family: Montserrat;
     background: none; 
     border: none; 
-    cursor: pointer; 
     outline: none; 
+    cursor: none;
+    transition: all 0.3s ease;
 }
 
- 
+.sort:hover{
+    color:aliceblue
+
+}
+
+
 .item {
     margin: 20px;
     text-align: center;
@@ -199,6 +206,8 @@ select.custom-dropdown::after {
 .stock {
     display: flex;
     align-items: center;
+    cursor: none;
+
 }
 
 .stock-controls {
@@ -207,6 +216,8 @@ select.custom-dropdown::after {
     padding: 5px; 
     display: flex;
     align-items: center;
+    cursor: none;
+
 }
 
 .quantity {
@@ -227,5 +238,12 @@ select.custom-dropdown::after {
     width: 20px; 
     margin: 0 5px; 
     padding: 0; 
+    cursor: none;
+}
+
+.stock-upd:hover{
+    background-color: #5A5302;;
+    color: #E5F2AD;
+
 }
 

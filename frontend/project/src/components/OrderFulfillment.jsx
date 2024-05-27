@@ -5,6 +5,7 @@ import '../css/OrderFulfillment.css';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
 import { Link } from 'react-router-dom';
+import CustomCursor from './customCursor';
 
 
 const menus = [
@@ -48,6 +49,8 @@ function OrderFulfillment() {
 
   return (
     <div className="order-fulfillment-page">
+             <CustomCursor />
+
        <div className="logo">
                 <Link to="/"> 
                     <img src={logo} alt="Logo Here" className="logo-img" />

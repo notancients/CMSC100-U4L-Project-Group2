@@ -6,6 +6,8 @@ import '../css/user_orders.css';
 import { Link } from 'react-router-dom';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
+import CustomCursor from './customCursor';
+
 
 
 const menus = [
@@ -36,6 +38,7 @@ function UserOrdersPage({ cart}) {
 
   return (
     <div className="user-orders-page">
+       <CustomCursor />
        <div className="logo">
                 <Link to="/"> 
                     <img src={logo} alt="Logo Here" className="logo-img" />

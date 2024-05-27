@@ -14,7 +14,7 @@ const OrderList = ({ orders, handleConfirm, handleCancel }) => {
             <div><span className="label">Time:</span> {order.time}</div>
           </div>
           {order.orderStatus === 0 && (
-            <div className="action-buttons">
+            <div className="action-buttons" >
               <button className='confirm' onClick={() => handleConfirm(order.transactionId)}>Confirm</button>
               <button className='cancel' onClick={() => handleCancel(order.transactionId)}>Cancel</button>
             </div>

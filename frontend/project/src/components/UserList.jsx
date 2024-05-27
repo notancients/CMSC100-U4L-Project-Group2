@@ -5,6 +5,8 @@ import '../css/UserList.css';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
 import { Link } from 'react-router-dom';
+import CustomCursor from './customCursor';
+
 
 const UserList = () => {
 
@@ -43,6 +45,7 @@ const UserList = () => {
 
   return (
     <div className="user-list-page">
+      <CustomCursor />
       <div className="logo">
         <Link to="/"> 
           <img src={logo} alt="Logo Here" className="logo-img" />

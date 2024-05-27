@@ -14,6 +14,8 @@
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    cursor: none;
+
   }
   
   .users {
@@ -84,7 +86,7 @@
     color: #E5F2AD;
     font-family: Montserrat;
     margin-bottom: 5px;
-
+    cursor: none;
   }
   
   .sort-container {
@@ -97,8 +99,7 @@
     font-size: 16px;
     font-weight: 400;
     font-family: Montserrat;
-
-
+    cursor: none;
   }
   .sort-container select {
     padding: 5px;
@@ -109,6 +110,8 @@
     color:#485026;
     background-color: #E5F2AD;
     border-color: none;
+    cursor: none;
+
 
   }
   
