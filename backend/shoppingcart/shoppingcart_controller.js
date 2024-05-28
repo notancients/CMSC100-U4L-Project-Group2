@@ -84,7 +84,7 @@ async function checkout({user_id, products}) {
             // reduce the product's quantity if
             element.product_quantity -= (products[element.product_id] ? products[element.product_id] : 0);
             return element;
-        })
+        });
 
         // update the shoppping cart with the new modified cart
         user_shoppingcart.cart = cart;
