@@ -45,7 +45,7 @@ router.get("/", (req, res) => {
 
 // USER API
 
-router.get("/api/get-all-users", authenticateTokenMiddleware, getAllUsersAPI);
+router.get("/api/get-all-users", getAllUsersAPI);
 router.post("/api/create-user", createNewUserAPI);
 router.post("/api/login", loginAPI);
 
