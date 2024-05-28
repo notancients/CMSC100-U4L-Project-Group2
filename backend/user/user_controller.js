@@ -1,8 +1,13 @@
 import { Model } from 'mongoose';
 import bcrypt from 'bcrypt';
+import dotenv from "dotenv";
 import UserModel from './user_model.js';
+import jwt from "jsonwebtoken";
+
+dotenv.config();
 
 const SALT = 10;
+const SECRET_KEY = process.env.SECRET_KEY;
 
 async function registerNewUser({first_name, middle_name, last_name, email, password}) {
     console.log("Registering a new user.");
@@ -44,11 +49,11 @@ async function registerNewUser({first_name, middle_name, last_name, email, passw
         }
 
     } catch (err) {
-        console.log('error: ', err);
+        console.log('Error: ', err);
         return {
             success: false, 
             data: null, 
-            message:['An error occured while creating a cause',err]
+            message:['An error occured while creating a user',err]
         };
     }
 }
@@ -58,11 +63,84 @@ async function createAdmin({fname, mname, lname, email, password}) {
 }
 
 async function getAllUsers() {
+    console.log("Getting all users.");
 
+    try {
+
+        const all_users = await UserModel.find().select('-password');
+
+        return {
+            "success": true, 
+            "data": all_users, 
+            "message": "Succesfully fetched all users."
+        };
+
+    } catch(err) {
+
+        console.log('Error: ', err);
+
+        return {
+            "success": false, 
+            "data": null, 
+            "message":['An error occured while fetching all users.', err]
+        };
+    }
 }
 
 async function logIn({email, password}) {
-    console.log("User is logging in.")
+    console.log("User is logging in.");
+
+    const non_existing_user_response = {
+        "success": false,
+        "data": null,
+        "message": "A user does not exist for that email."
+    };
+
+    try {
+        const existing_user = await UserModel.findOne({ email: email });
+
+        if (!existing_user) {
+            return non_existing_user_response;
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, existing_user.password)
+        
+        if(!isPasswordValid) {
+            return {
+                "success": false,
+                "data": null,
+                "message": "Invalid password."
+            };
+        }
+
+        const token = jwt.sign(
+            { 
+                userId: existing_user._id,
+                user_type: existing_user.user_type 
+            },
+            SECRET_KEY, 
+            { expiresIn: '1hr' }
+        )
+        
+        return {
+            "success": true,
+            "data": {
+                "user_type": existing_user.user_type,
+                "token": token
+            },
+            "message": "Successfully logged in."
+        };
+
+    } catch (err) {
+
+        console.log('Error: ', err);
+
+        return {
+            success: false, 
+            data: null, 
+            message:['An error occured while creating a user',err]
+        };
+    }
 }
 
 async function deleteUser() {

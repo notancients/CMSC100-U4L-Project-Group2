@@ -1,14 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
+
 import bodyParser from "body-parser";
 import { router } from "./server/router.js";
-import cors from "cors";
-import bodyParser from "body-parser";
 
 dotenv.config();
 
 try {
+    console.log("Connecting to MongoDB Atlas instance, please wait...");
     await mongoose.connect(process.env.MONGODB_URI);
     console.log("Successfully connected to the remote database.");
 } catch (e) {
