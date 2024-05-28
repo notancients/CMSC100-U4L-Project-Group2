@@ -12,7 +12,8 @@ import img4 from '../images/img4.jpg';
 import img5 from '../images/img5.jpg';
 
 
-function UserLandingPage() {
+function UserLandingPage({ cart}) {
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   const [cursorImage, setCursorImage] = useState(customCursorImage);
 
@@ -76,7 +77,7 @@ function UserLandingPage() {
     <div className="nav-bar-user" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Link to="/userorders" className="nav-link">ORDERS</Link>
       <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
-      <Link to="/shoppingcart" className="nav-link">CART</Link>
+      <Link to="/cart" className="nav-link">CART ({cartItemCount})</Link>
       <Link to="/about" className="nav-link">ABOUT US</Link>
       <Link to="/user-profile" className="user-profile">
         <img src={userIcon} alt="User icon" className="user-icon" />

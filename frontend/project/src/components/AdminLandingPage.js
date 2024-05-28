@@ -7,10 +7,14 @@ import listingMenu from '../images/listing.png';
 import accountsMenu from '../images/accounts.png';
 import pendingMenu from '../images/pending.png';
 import salesMenu from '../images/sales.png';
+import CustomCursor from './customCursor';
+
 
 function AdminLandingPage() {
   return (
     <div className="admin-page">
+                   <CustomCursor />
+
       <div className="logo">
       <Link to="/"> 
           <img src={logo} alt="Logo Here" className="logo-img" />
@@ -28,12 +32,12 @@ function AdminLandingPage() {
         <Link to="/productlisting">
         <img src={listingMenu} alt="Listing" className="listing" />
         </Link>
-        <Link to="/accounts">
+        <Link to="/userList">
         <img src={accountsMenu} alt="Accounts" className="accounts" />
         </Link>
       </div>
       <div className="menu2">
-        <Link to="/pending">
+        <Link to="/orderfulfillment">
         <img src={pendingMenu} alt="Pending" className="pending" />
         </Link>
         <Link to="/sales">

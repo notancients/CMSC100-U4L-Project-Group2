@@ -1,906 +1,173 @@
 const PRODUCT_SAMPLE_DATA = [
     {
         "productId": "0001",
-        "productName": "Gloves",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": 1,
-        "productQuantity": 661,
-        "price": "921.00",
-        "img": ""
+        "productName": "Okra",
+        "productDescription": "Fresh okra harvested from our farm. Okra is a nutritious vegetable rich in vitamins, minerals, and fiber. Enjoy it in soups, stews, or stir-fries.",
+        "productType": "Vegetables",
+        "productQuantity": 100,
+        "price": "50.00",
+        "img": "https://plus.unsplash.com/premium_photo-1666877059056-f42ada662ccc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b2tyYXxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
         "productId": "0002",
-        "productName": "Bacon",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": 2,
-        "productQuantity": 59,
-        "price": "357.00",
-        "img": ""
+        "productName": "Cauliflower",
+        "productDescription": "Organically grown cauliflower, perfect for healthy meals. Cauliflower is versatile and can be roasted, mashed, or used in salads and curries.",
+        "productType": "Vegetables",
+        "productQuantity": 50,
+        "price": "60.00",
+        "img": "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F1bGlmbG93ZXJ8ZW58MHx8MHx8fDA%3D"
     },
     {
         "productId": "0003",
-        "productName": "Bike",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": 1,
-        "productQuantity": 692,
-        "price": "883.00",
-        "img": ""
+        "productName": "Tomato",
+        "productDescription": "Fresh tomatoes picked ripe from the vine. Tomatoes are juicy and flavorful, ideal for salads, sandwiches, and sauces.",
+        "productType": "Vegetables",
+        "productQuantity": 80,
+        "price": "35.00",
+        "img": "https://media.istockphoto.com/id/671192338/photo/tomato-fruit-with-water-drop-and-sunlight.jpg?s=612x612&w=0&k=20&c=0ypX6P103BgpDTOpPm1Ju_nFzWdmEtiEnvNrZPZZQUE="
     },
     {
         "productId": "0004",
-        "productName": "Gloves",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+        "productName": "Carrots",
+        "productDescription": "Sweet and crunchy carrots, straight from the garden. Carrots are packed with beta-carotene and are great for snacking, juicing, or adding to dishes.",
         "productType": "Vegetables",
-        "productQuantity": 295,
-        "price": "977.00",
-        "img": ""
+        "productQuantity": 120,
+        "price": "40.00",
+        "img": "https://plus.unsplash.com/premium_photo-1675366073398-d9030d9455d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2Fycm90c3xlbnwwfHwwfHx8MA%3D%3D"
     },
     {
         "productId": "0005",
-        "productName": "Chair",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": "Baked Goods",
-        "productQuantity": 352,
-        "price": "488.00",
-        "img": ""
+        "productName": "Corn",
+        "productDescription": "Juicy and flavorful corn, freshly harvested. Corn is a staple in many cuisines and can be boiled, grilled, or added to salads and soups.",
+        "productType": "Vegetables",
+        "productQuantity": 70,
+        "price": "30.00",
+        "img": "https://images.unsplash.com/photo-1634467524884-897d0af5e104?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29ybnxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
         "productId": "0006",
-        "productName": "Shirt",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": 1,
-        "productQuantity": 679,
-        "price": "249.00",
-        "img": ""
+        "productName": "Lettuce",
+        "productDescription": "Crisp and refreshing lettuce, perfect for salads. Lettuce is low in calories and high in water content, making it an excellent choice for weight management.",
+        "productType": "Vegetables",
+        "productQuantity": 90,
+        "price": "45.00",
+        "img": "https://images.unsplash.com/photo-1533321942807-08e4008b2025?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxldHR1Y2V8ZW58MHx8MHx8fDA%3D"
     },
     {
         "productId": "0007",
-        "productName": "Towels",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": 1,
-        "productQuantity": 570,
-        "price": "540.00",
-        "img": ""
+        "productName": "Potatoes",
+        "productDescription": "Farm-fresh potatoes, ideal for mashing, roasting, or frying. Potatoes are a versatile ingredient that can be used in countless dishes.",
+        "productType": "Vegetables",
+        "productQuantity": 60,
+        "price": "55.00",
+        "img": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90YXRvfGVufDB8fDB8fHww"
     },
     {
         "productId": "0008",
-        "productName": "Towels",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": 1,
-        "productQuantity": 137,
-        "price": "503.00",
-        "img": ""
+        "productName": "Bell Pepper",
+        "productDescription": "Colorful bell peppers grown with care on our farm. Bell peppers are rich in antioxidants and can be used in salads, stir-fries, or stuffed with delicious fillings.",
+        "productType": "Vegetables",
+        "productQuantity": 100,
+        "price": "50.00",
+        "img": "https://images.unsplash.com/photo-1592548868664-f8b4e4b1cfb7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmVsbCUyMHBlcHBlcnxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
         "productId": "0009",
-        "productName": "Hat",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": "Processed Meats",
-        "productQuantity": 727,
-        "price": "317.00",
-        "img": ""
+        "productName": "Apple",
+        "productDescription": "Crisp and juicy apples, picked fresh from the orchard. Apples are a delicious and nutritious snack, perfect for any time of day.",
+        "productType": "Fruits",
+        "productQuantity": 150,
+        "price": "25.00",
+        "img": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXBwbGV8ZW58MHx8MHx8fDA%3D"
     },
     {
         "productId": "0010",
-        "productName": "Keyboard",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": "Baked Goods",
-        "productQuantity": 868,
-        "price": "864.00",
-        "img": ""
+        "productName": "Banana",
+        "productDescription": "Sweet and creamy bananas, packed with potassium and other essential nutrients. Bananas make a convenient and healthy snack.",
+        "productType": "Fruits",
+        "productQuantity": 120,
+        "price": "20.00",
+        "img": "https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmFuYW5hfGVufDB8fDB8fHww"
     },
     {
         "productId": "0011",
-        "productName": "Pizza",
-        "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "productType": "Others",
-        "productQuantity": 775,
-        "price": "771.00",
-        "img": ""
+        "productName": "Orange",
+        "productDescription": "Juicy and tangy oranges, bursting with vitamin C. Oranges are refreshing and can be enjoyed as a snack or used in various recipes.",
+        "productType": "Fruits",
+        "productQuantity": 100,
+        "price": "30.00",
+        "img": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b3JhbmdlfGVufDB8fDB8fHww"
     },
     {
         "productId": "0012",
-        "productName": "Computer",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Processed Meats",
-        "productQuantity": 108,
-        "price": "499.00",
-        "img": ""
-    },
+        "productName": "Grapes",
+        "productDescription": "Plump and sweet grapes, perfect for snacking or adding to fruit salads. Grapes are rich in antioxidants and provide various health benefits.",
+        "productType": "Fruits",
+        "productQuantity": 80,
+        "price": "35.00",
+        "img": "https://images.unsplash.com/photo-1631299106224-aae61c217164?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdyYXBlc3xlbnwwfHwwfHx8MA%3D%3D"
+    }, 
     {
         "productId": "0013",
-        "productName": "Bacon",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": 1,
-        "productQuantity": 950,
-        "price": "110.00",
-        "img": ""
+        "productName": "Whole Chicken",
+        "productDescription": "Fresh whole chicken, raised on our farm with care. Perfect for roasting, grilling, or making hearty soups and stews.",
+        "productType": "Poultry",
+        "productQuantity": 70,
+        "price": "60.00",
+        "img": "https://plus.unsplash.com/premium_photo-1664391666682-7e84a1736bd4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdob2xlJTIwY2hpY2tlbnxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
         "productId": "0014",
-        "productName": "Mouse",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": "Flowers",
-        "productQuantity": 563,
-        "price": "411.00",
-        "img": ""
+        "productName": "Pork Belly",
+        "productDescription": "Juicy and flavorful pork belly, sourced from locally raised pigs. Pork belly is perfect for braising, roasting, or making crispy pork belly dishes.",
+        "productType": "Meat",
+        "productQuantity": 50,
+        "price": "45.00",
+        "img": "https://images.unsplash.com/photo-1560781290-7dc94c0f8f4f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZyZXNoJTIwcG9yayUyMGJlbGx5fGVufDB8fDB8fHww"
     },
     {
         "productId": "0015",
-        "productName": "Ball",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Decorative Plants",
-        "productQuantity": 797,
-        "price": "606.00",
-        "img": ""
+        "productName": "Lamb Chop",
+        "productDescription": "Tender and succulent lamb chop, sourced from pasture-raised lambs. Lamb chops are perfect for grilling, pan-searing, or roasting with herbs.",
+        "productType": "Meat",
+        "productQuantity": 40,
+        "price": "75.00",
+        "img": "https://images.unsplash.com/photo-1619711667542-c049700dd9e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFtYiUyMGNob3B8ZW58MHx8MHx8fDA%3D"
     },
     {
         "productId": "0016",
-        "productName": "Computer",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Beef",
-        "productQuantity": 192,
-        "price": "995.00",
-        "img": ""
+        "productName": "Duck Breast",
+        "productDescription": "Rich and flavorful duck breast, raised on our farm with natural feeds. Duck breast is perfect for pan-searing or roasting with a crispy skin.",
+        "productType": "Poultry",
+        "productQuantity": 30,
+        "price": "85.00",
+        "img": "https://images.unsplash.com/photo-1577271141104-b6bd7b76b8e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZHVjayUyMGJyZWFzdHxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
         "productId": "0017",
-        "productName": "Mouse",
-        "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "productType": "Vegetables",
-        "productQuantity": 647,
-        "price": "692.00",
-        "img": ""
+        "productName": "Turkey",
+        "productDescription": "Fresh whole turkey, raised ethically on open pastures. Turkey is a versatile meat, perfect for holiday feasts or everyday meals.",
+        "productType": "Poultry",
+        "productQuantity": 25,
+        "price": "100.00",
+        "img": "https://images.unsplash.com/photo-1577271141104-b6bd7b76b8e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZHVjayUyMGJyZWFzdHxlbnwwfHwwfHx8MA%3D%3D"
     },
     {
         "productId": "0018",
-        "productName": "Table",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Eggs",
-        "productQuantity": 427,
-        "price": "309.00",
-        "img": ""
-    },
-    {
-        "productId": "0019",
-        "productName": "Bike",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": 1,
-        "productQuantity": 389,
-        "price": "885.00",
-        "img": ""
-    },
-    {
-        "productId": "0020",
-        "productName": "Towels",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": 1,
-        "productQuantity": 234,
-        "price": "258.00",
-        "img": ""
-    },
-    {
-        "productId": "0021",
-        "productName": "Keyboard",
-        "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "productType": "Vegetables",
-        "productQuantity": 761,
-        "price": "340.00",
-        "img": ""
-    },
-    {
-        "productId": "0022",
-        "productName": "Towels",
-        "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "productType": "Decorative Plants",
-        "productQuantity": 988,
-        "price": "819.00",
-        "img": ""
-    },
-    {
-        "productId": "0023",
-        "productName": "Bike",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": "Pork",
-        "productQuantity": 675,
-        "price": "171.00",
-        "img": ""
-    },
-    {
-        "productId": "0024",
-        "productName": "Tuna",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": "Juices",
-        "productQuantity": 99,
-        "price": "68.00",
-        "img": ""
-    },
-    {
-        "productId": "0025",
-        "productName": "Chips",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Processed Meats",
-        "productQuantity": 689,
-        "price": "3.00",
-        "img": ""
-    },
-    {
-        "productId": "0026",
-        "productName": "Computer",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Beef",
-        "productQuantity": 501,
-        "price": "744.00",
-        "img": ""
-    },
-    {
-        "productId": "0027",
-        "productName": "Computer",
-        "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-        "productType": "Vegetables",
-        "productQuantity": 500,
-        "price": "202.00",
-        "img": ""
-    },
-    {
-        "productId": "0028",
-        "productName": "Pants",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": "Beef",
-        "productQuantity": 993,
-        "price": "733.00",
-        "img": ""
-    },
-    {
-        "productId": "0029",
-        "productName": "Chair",
-        "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "productType": "Chicken",
-        "productQuantity": 812,
-        "price": "2.00",
-        "img": ""
-    },
-    {
-        "productId": "0030",
-        "productName": "Car",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": 1,
-        "productQuantity": 933,
-        "price": "788.00",
-        "img": ""
-    },
-    {
-        "productId": "0031",
-        "productName": "Cheese",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Flowers",
-        "productQuantity": 681,
-        "price": "254.00",
-        "img": ""
-    },
-    {
-        "productId": "0032",
-        "productName": "Bacon",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": "Flowers",
-        "productQuantity": 116,
-        "price": "536.00",
-        "img": ""
-    },
-    {
-        "productId": "0033",
-        "productName": "Car",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Flowers",
-        "productQuantity": 741,
-        "price": "965.00",
-        "img": ""
-    },
-    {
-        "productId": "0034",
-        "productName": "Gloves",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": "Pork",
-        "productQuantity": 789,
-        "price": "71.00",
-        "img": ""
-    },
-    {
-        "productId": "0035",
-        "productName": "Car",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": "Decorative Plants",
-        "productQuantity": 224,
-        "price": "104.00",
-        "img": ""
-    },
-    {
-        "productId": "0036",
-        "productName": "Hat",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": "Processed Meats",
-        "productQuantity": 41,
-        "price": "906.00",
-        "img": ""
-    },
-    {
-        "productId": "0037",
-        "productName": "Chicken",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": "Arts and Crafts",
-        "productQuantity": 167,
-        "price": "923.00",
-        "img": ""
-    },
-    {
-        "productId": "0038",
-        "productName": "Bacon",
-        "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-        "productType": "Juices",
-        "productQuantity": 137,
-        "price": "125.00",
-        "img": ""
-    },
-    {
-        "productId": "0039",
-        "productName": "Pants",
-        "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "productType": "Baked Goods",
-        "productQuantity": 231,
-        "price": "231.00",
-        "img": ""
-    },
-    {
-        "productId": "0040",
-        "productName": "Pants",
-        "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "productType": "Vegetables",
-        "productQuantity": 973,
-        "price": "225.00",
-        "img": ""
-    },
-    {
-        "productId": "0041",
-        "productName": "Cheese",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": "Pork",
-        "productQuantity": 209,
-        "price": "93.00",
-        "img": ""
-    },
-    {
-        "productId": "0042",
-        "productName": "Car",
-        "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "productType": 2,
-        "productQuantity": 468,
-        "price": "686.00",
-        "img": ""
-    },
-    {
-        "productId": "0043",
-        "productName": "Cheese",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Beef",
-        "productQuantity": 351,
-        "price": "216.00",
-        "img": ""
-    },
-    {
-        "productId": "0044",
-        "productName": "Sausages",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Eggs",
-        "productQuantity": 987,
-        "price": "72.00",
-        "img": ""
-    },
-    {
-        "productId": "0045",
-        "productName": "Soap",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": "Pork",
-        "productQuantity": 49,
-        "price": "492.00",
-        "img": ""
-    },
-    {
-        "productId": "0046",
-        "productName": "Cheese",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": "Pork",
-        "productQuantity": 396,
-        "price": "779.00",
-        "img": ""
-    },
-    {
-        "productId": "0047",
-        "productName": "Chair",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Pork",
-        "productQuantity": 152,
-        "price": "110.00",
-        "img": ""
-    },
-    {
-        "productId": "0048",
-        "productName": "Computer",
-        "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "productType": 1,
-        "productQuantity": 513,
-        "price": "534.00",
-        "img": ""
-    },
-    {
-        "productId": "0049",
-        "productName": "Chips",
-        "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "productType": "Pork",
-        "productQuantity": 101,
-        "price": "359.00",
-        "img": ""
-    },
-    {
-        "productId": "0050",
-        "productName": "Ball",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Decorative Plants",
-        "productQuantity": 841,
-        "price": "66.00",
-        "img": ""
-    },
-    {
-        "productId": "0051",
-        "productName": "Fish",
-        "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "productType": "Chicken",
-        "productQuantity": 354,
-        "price": "959.00",
-        "img": ""
-    },
-    {
-        "productId": "0052",
-        "productName": "Computer",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": 1,
-        "productQuantity": 682,
-        "price": "541.00",
-        "img": ""
-    },
-    {
-        "productId": "0053",
-        "productName": "Computer",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": "Decorative Plants",
-        "productQuantity": 607,
-        "price": "441.00",
-        "img": ""
-    },
-    {
-        "productId": "0054",
-        "productName": "Fish",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": 1,
-        "productQuantity": 572,
-        "price": "435.00",
-        "img": ""
-    },
-    {
-        "productId": "0055",
-        "productName": "Shirt",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": "Vegetables",
-        "productQuantity": 767,
-        "price": "47.00",
-        "img": ""
-    },
-    {
-        "productId": "0056",
-        "productName": "Bacon",
-        "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-        "productType": "Pork",
-        "productQuantity": 67,
-        "price": "309.00",
-        "img": ""
-    },
-    {
-        "productId": "0057",
-        "productName": "Table",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": "Baked Goods",
-        "productQuantity": 608,
-        "price": "574.00",
-        "img": ""
-    },
-    {
-        "productId": "0058",
-        "productName": "Shirt",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Arts and Crafts",
-        "productQuantity": 468,
-        "price": "745.00",
-        "img": ""
-    },
-    {
-        "productId": "0059",
-        "productName": "Sausages",
-        "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "productType": "Vegetables",
-        "productQuantity": 483,
-        "price": "404.00",
-        "img": ""
-    },
-    {
-        "productId": "0060",
-        "productName": "Towels",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": 1,
-        "productQuantity": 746,
-        "price": "18.00",
-        "img": ""
-    },
-    {
-        "productId": "0061",
-        "productName": "Chips",
-        "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "productType": 1,
-        "productQuantity": 993,
-        "price": "612.00",
-        "img": ""
-    },
-    {
-        "productId": "0062",
-        "productName": "Soap",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": "Vegetables",
-        "productQuantity": 620,
-        "price": "670.00",
-        "img": ""
-    },
-    {
-        "productId": "0063",
-        "productName": "Table",
-        "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "productType": "Processed Meats",
-        "productQuantity": 659,
-        "price": "589.00",
-        "img": ""
-    },
-    {
-        "productId": "0064",
-        "productName": "Cheese",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Vegetables",
-        "productQuantity": 66,
-        "price": "533.00",
-        "img": ""
-    },
-    {
-        "productId": "0065",
-        "productName": "Hat",
-        "productDescription": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "productType": "Juices",
-        "productQuantity": 22,
-        "price": "298.00",
-        "img": ""
-    },
-    {
-        "productId": "0066",
-        "productName": "Bacon",
-        "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-        "productType": "Arts and Crafts",
-        "productQuantity": 37,
-        "price": "82.00",
-        "img": ""
-    },
-    {
-        "productId": "0067",
-        "productName": "Bacon",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": 1,
-        "productQuantity": 31,
-        "price": "375.00",
-        "img": ""
-    },
-    {
-        "productId": "0068",
-        "productName": "Shoes",
-        "productDescription": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "productType": "Baked Goods",
-        "productQuantity": 792,
-        "price": "371.00",
-        "img": ""
-    },
-    {
-        "productId": "0069",
-        "productName": "Computer",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": 1,
-        "productQuantity": 333,
-        "price": "990.00",
-        "img": ""
-    },
-    {
-        "productId": "0070",
-        "productName": "Shoes",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": 1,
-        "productQuantity": 365,
-        "price": "759.00",
-        "img": ""
-    },
-    {
-        "productId": "0071",
-        "productName": "Tuna",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": "Chicken",
-        "productQuantity": 473,
-        "price": "675.00",
-        "img": ""
-    },
-    {
-        "productId": "0072",
-        "productName": "Chicken",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": "Decorative Plants",
-        "productQuantity": 443,
-        "price": "729.00",
-        "img": ""
-    },
-    {
-        "productId": "0073",
-        "productName": "Sausages",
-        "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "productType": "Chicken",
-        "productQuantity": 757,
-        "price": "231.00",
-        "img": ""
-    },
-    {
-        "productId": "0074",
-        "productName": "Car",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Juices",
-        "productQuantity": 610,
-        "price": "171.00",
-        "img": ""
-    },
-    {
-        "productId": "0075",
-        "productName": "Fish",
-        "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "productType": 1,
-        "productQuantity": 979,
-        "price": "250.00",
-        "img": ""
-    },
-    {
-        "productId": "0076",
-        "productName": "Pants",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": "Baked Goods",
-        "productQuantity": 348,
-        "price": "295.00",
-        "img": ""
-    },
-    {
-        "productId": "0077",
-        "productName": "Sausages",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": 1,
-        "productQuantity": 128,
-        "price": "748.00",
-        "img": ""
-    },
-    {
-        "productId": "0078",
-        "productName": "Sausages",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": "Beef",
-        "productQuantity": 175,
-        "price": "260.00",
-        "img": ""
-    },
-    {
-        "productId": "0079",
-        "productName": "Keyboard",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": "Juices",
-        "productQuantity": 697,
-        "price": "43.00",
-        "img": ""
-    },
-    {
-        "productId": "0080",
-        "productName": "Cheese",
-        "productDescription": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "productType": "Decorative Plants",
-        "productQuantity": 333,
-        "price": "471.00",
-        "img": ""
-    },
-    {
-        "productId": "0081",
-        "productName": "Fish",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": "Flowers",
-        "productQuantity": 387,
-        "price": "686.00",
-        "img": ""
-    },
-    {
-        "productId": "0082",
-        "productName": "Pants",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": "Baked Goods",
-        "productQuantity": 158,
-        "price": "854.00",
-        "img": ""
-    },
-    {
-        "productId": "0083",
-        "productName": "Salad",
-        "productDescription": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "productType": "Others",
-        "productQuantity": 840,
-        "price": "221.00",
-        "img": ""
-    },
-    {
-        "productId": "0084",
-        "productName": "Chips",
-        "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "productType": "Vegetables",
-        "productQuantity": 747,
-        "price": "267.00",
-        "img": ""
-    },
-    {
-        "productId": "0085",
-        "productName": "Shoes",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": "Baked Goods",
-        "productQuantity": 420,
-        "price": "842.00",
-        "img": ""
-    },
-    {
-        "productId": "0086",
-        "productName": "Mouse",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Pork",
-        "productQuantity": 825,
-        "price": "383.00",
-        "img": ""
-    },
-    {
-        "productId": "0087",
-        "productName": "Cheese",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": "Flowers",
-        "productQuantity": 861,
-        "price": "981.00",
-        "img": ""
-    },
-    {
-        "productId": "0088",
-        "productName": "Towels",
-        "productDescription": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "productType": "Decorative Plants",
-        "productQuantity": 423,
-        "price": "648.00",
-        "img": ""
-    },
-    {
-        "productId": "0089",
-        "productName": "Ball",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": "Eggs",
-        "productQuantity": 924,
-        "price": "930.00",
-        "img": ""
-    },
-    {
-        "productId": "0090",
-        "productName": "Cheese",
-        "productDescription": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-        "productType": "Beef",
-        "productQuantity": 782,
-        "price": "954.00",
-        "img": ""
-    },
-    {
-        "productId": "0091",
-        "productName": "Chair",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Processed Meats",
-        "productQuantity": 438,
-        "price": "542.00",
-        "img": ""
-    },
-    {
-        "productId": "0092",
-        "productName": "Tuna",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": 2,
-        "productQuantity": 749,
-        "price": "49.00",
-        "img": ""
-    },
-    {
-        "productId": "0093",
-        "productName": "Ball",
-        "productDescription": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "productType": "Pork",
-        "productQuantity": 247,
-        "price": "491.00",
-        "img": ""
-    },
-    {
-        "productId": "0094",
-        "productName": "Hat",
-        "productDescription": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "productType": 1,
-        "productQuantity": 216,
-        "price": "581.00",
-        "img": ""
-    },
-    {
-        "productId": "0095",
-        "productName": "Chips",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": 2,
-        "productQuantity": 593,
-        "price": "941.00",
-        "img": ""
-    },
-    {
-        "productId": "0096",
-        "productName": "Chair",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": "Baked Goods",
-        "productQuantity": 623,
-        "price": "892.00",
-        "img": ""
-    },
-    {
-        "productId": "0097",
-        "productName": "Car",
-        "productDescription": "The Football Is Good For Training And Recreational Purposes",
-        "productType": "Flowers",
-        "productQuantity": 99,
-        "price": "499.00",
-        "img": ""
-    },
-    {
-        "productId": "0098",
-        "productName": "Chicken",
-        "productDescription": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "productType": 1,
-        "productQuantity": 570,
-        "price": "140.00",
-        "img": ""
-    },
-    {
-        "productId": "0099",
-        "productName": "Hat",
-        "productDescription": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "productType": "Vegetables",
-        "productQuantity": 37,
-        "price": "102.00",
-        "img": ""
-    },
-    {
-        "productId": "0100",
-        "productName": "Keyboard",
-        "productDescription": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "productType": "Processed Meats",
-        "productQuantity": 696,
-        "price": "280.00",
-        "img": ""
+        "productName": "Beef Ribeye Steak",
+        "productDescription": "Juicy and marbled beef ribeye steak, sourced from grass-fed cattle. Ribeye steak is known for its rich flavor and tenderness.",
+        "productType": "Meat",
+        "productQuantity": 35,
+        "price": "95.00",
+        "img": "https://images.unsplash.com/photo-1690983322025-aab4f95a0269?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJlZWYlMjByaWJleWUlMjBzdGVha3xlbnwwfHwwfHx8MA%3D%3D"
     }
-]
+    
+    
+    
+    
+    
+];
 
 export {
     PRODUCT_SAMPLE_DATA
-}
+};

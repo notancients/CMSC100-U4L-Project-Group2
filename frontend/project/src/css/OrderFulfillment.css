@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+.order-fulfillment-page {
+    background-image: url('../images/admin_pf_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    cursor: none;
+
+}
+
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    z-index: 10;
+}
+
+.menu li {
+    margin: 0 35px;
+}
+
+.menu li a {
+    color: #E5F2AD;
+    text-decoration: none;
+    cursor: none;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: #D4E157;
+}
+
+.order-card {
+    background-color: #485026;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    align-items:center;
+    color: #E5F2AD;
+    font-weight: 100;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: Montserrat;
+
+}
+
+.order-card:hover {
+    background-color: #e5f2ad52;
+    transform: scale(1.05); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.order-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px;
+    
+  }
+   
+.order-info {
+    flex-grow: 1;
+}
+
+.label {
+    font-weight:400;
+}
+
+.action-buttons {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    align-items: center;
+    justify-content: center; 
+
+}
+
+.action-buttons button {
+    border: none;
+    border-radius: 20px;
+    cursor: none;
+    font-family: Montserrat;
+    font-weight: 800;
+}
+
+.confirm {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: none;
+    background-color: #E5F2AD;
+    color: #485026;
+    font-family: Montserrat;
+    font-weight: 800;
+}
+
+.cancel {
+    padding: 8px 17px;
+    border: none;
+    border-radius: 20px;
+    cursor: none;
+    background-color: #34391d;
+    color: #E5F2AD;
+    font-family: Montserrat;
+    font-weight: 800;
+}
+
+.confirm:hover {
+    background-color: #D4E157;
+}
+
+.cancel:hover {
+    background-color: #96a133;
+}
+
+
+.title-container {
+    position: relative; 
+    top: 90px;
+}
+
+h1 {
+    font-family: Vollkorn;
+    font-size: 40px;
+    color: #E5F2AD;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.menu-container {
+    position: relative; 
+    margin-top: 100px; 
+}
+
+.menu li.active a {
+    color: #485026;
+    position: relative; 
+    background-color: #E5F2AD;
+    padding: 8px 17px;
+    border: none;
+    border-radius: 20px;
+
+  }
+
+  
+  
+
+
+

@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
 .user-products-page {
-    background-image: url('../images/products_bg.png');
+    background-image: url('../images/user_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
@@ -9,66 +10,188 @@
     left: 0;
     height: 100vh;
     width: 100vw;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    cursor: none;
+}
+
+.user-product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    max-height: calc(100vh - 160px);
+    padding-top: 20px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.price-and-stock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cur_stock {
+    color: #E5F2AD;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    margin: 0;
+    font-style: italic;
+}
+
+.user-price {
+  color: #E5F2AD;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin: 0;
+
+}
+
+.addtocart {
+    background-color: #1F2603;
+    color: #E5F2AD;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addtocart:hover {
+    background-color: #808d44;
+}
+
+.item {
+    margin: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.137);
+    backdrop-filter: blur(7px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; 
-    overflow: hidden; 
-    cursor: none;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.nav-bar-user{
-    cursor: none;
-    position: absolute;
-    top: 20px;
+.product-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    flex: 1;
+}
+
+.name {
+    margin-top: 8px;
+    color: #E5F2AD;
+    font-size: 18px;
+    opacity: 1;
+    font-family: Montserrat;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1;
+}
+
+.desc {
+    margin-top: 0px;
+    padding: 0px;
+    color: #E5F2AD;
+    font-size: 13px;
+    font-family: Montserrat;
+    font-weight: 150;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.notification {
+    position: fixed;
+    top: 90px;
     right: 20px;
+    background-color: #1F2603;
+    color: #E5F2AD;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     display: flex;
-    gap: 0px;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    animation: slideInRight 0.5s ease, fadeOut 0.5s ease forwards 3s;
 }
 
-.nav-link:hover {
-    cursor: none;
-  }
-
-  .user-icon:hover {
-    cursor: none;
-  }
-
-
-  .logo {
-    position: absolute; 
-    top: 2px;;
-    left: 10px; 
-  }
-  .logo img {
-    width: 350px; 
-  height: auto;
-  }
-
-  .logo img:hover {
-    cursor: none;
-  }
-
-
-  .ripple {
-    position: absolute;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: #E5F2AD;
-    pointer-events: none;
-    animation: rippleEffect 1s linear infinite;
-  }
-  
-  @keyframes rippleEffect {
-    0% {
-      transform: scale(1);
-      opacity: 0.2;
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
     }
-    100% {
-      transform: scale(3);
-      opacity: 0;
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
-  }
-  
-  
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.notification-icon {
+    font-size: 18px; /* Adjust the size as needed */
+}
+
+.notification-message {
+    flex: 1;
+}
+
+
+
+
+

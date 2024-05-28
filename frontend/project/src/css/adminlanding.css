@@ -14,6 +14,8 @@
     align-items: center;
     position: relative; 
     overflow: hidden; 
+    cursor: none;
+
 }
   .logo {
     position: absolute; 
@@ -32,12 +34,20 @@
     text-align: center;
     font-family: 'Montserrat';
     z-index: 2;
+    cursor: none;
+
   }
 
   
   .menu1, .menu2{
   display: flex;
   flex-direction: column;
+  cursor: none;
+}
+
+.product-listing{
+  cursor: none;
+
 }
 
 .menu1 img{
@@ -61,6 +71,8 @@
 .menu2 img{
     width: 200px;
     margin-bottom: 20px;
+    cursor: none;
+
 }
 
 .menu2 img:hover{
@@ -69,16 +81,23 @@
     border-radius: 30px;
     transition: transform 0.3s ease-in-out;
     transform: scale(1.08);
-
+    cursor: none;
 }
-
   .listing{
     width: 80%;
     margin-top: 100px;
+    cursor: none;
+
   }
   .pending{
     width: 80%;
     margin-top: 20px;
+    cursor: none;
+
+  }
+
+  .sales, .accounts{
+    cursor: none;
   }
 
   
