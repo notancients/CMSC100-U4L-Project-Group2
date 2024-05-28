@@ -59,6 +59,12 @@ async function adminGetAllTransaction() {
         const cancelled_orders = await OrderTransaction.find(
             { "order_status" : "Cancelled" }
         );
+
+        // pending = pending.map( async (element) => {
+        //     element["order"].forEach(async product => {
+        //         product["product_name"] = (await ProductModel.find({product_id: product["product_id"]})).product_name;
+        //     });
+        // })
         
         return {
             "success": true,
@@ -207,7 +213,7 @@ async function salesReport({product_id, time_period}) {
 
     let report_for_product = {
         "product_id" : product_id,
-        "total_sold:" : total,
+        "total_sold" : total,
         "total_sales": total*price,
         "price": price,
         "time_period": time_period

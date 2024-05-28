@@ -42,6 +42,11 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post("/auth-test", authenticateTokenMiddleware, (req, res) => {
+    console.log("You have managed to pass the authentication test.");
+    console.log(req.user);
+})
+
 
 // USER API
 
