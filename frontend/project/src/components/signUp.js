@@ -16,7 +16,7 @@ function SignUpPage() {
 
   const handleSignUp = async () => {
     try {
-      const response = await axios.post('/api/create-user', {
+      const response = await axios.post('http://localhost:3001/api/create-user', {
         first_name: firstName,
         middle_name: middleName,
         last_name: lastName,

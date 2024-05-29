@@ -175,7 +175,7 @@ function UserProductsPage({ cart, setCart }) {
                         <div className="details">
                             <div className='price-and-stock'>
                             <p className="user-price">₱ {item.price}</p>
-                            <p className="cur_stock">Stock: {item.quantity}</p>
+                            <p className="cur_stock">Stock: {item.product_quantity}</p>
                             </div>
                             <button className='addtocart' onClick={() => handleAddToCart(item)}>Add to cart</button>
                         </div>
