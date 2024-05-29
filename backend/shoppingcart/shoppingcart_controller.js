@@ -69,19 +69,21 @@ async function addProductToCart({user_id, product_id, quantity}) {
 async function getAllProductsInCart({user_id}) {
     console.log("Getting all products in user's cart.");
 
-   
-        try {
-            const user_shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
-    
-            if(!user_shoppingcart) {
-                console.log("User does not have a shopping cart.", user_shoppingcart);
-                return {
-                    success:false,
-                    data: null,
-                    message: "The user does not have a shopping cart yet."
-                }
+    try {
+        const user_shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
+
+        if(!user_shoppingcart) {
+            console.log("User does not have a shopping cart.", user_shoppingcart);
+            return {
+                success:false,
+                data: null,
+                message: "The user does not have a shopping cart yet."
             }
-        let cart = user_shoppingcart[0].cart;
+        }
+        
+
+
+        let cart = user_shoppingcart.cart;
 
         // console.log(user_shoppingcart);
         let modified_cart = [];
@@ -112,16 +114,6 @@ async function getAllProductsInCart({user_id}) {
                 }
             })
         );
-
-        // for(var element in cart) {
-        //     console.log(cart[element]);
-        //     let product = cart[element];
-        //     let product_details = await ProductModel.findOne({ _id: product["product_id"] });
-        //     // console.log("DETAILS: ", product_details);
-        // }
-
-        // console.log(modified_cart);
-
 
         return {
             "success": true,

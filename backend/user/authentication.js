@@ -32,8 +32,6 @@ function authenticateTokenMiddleware(req, res, next) {
             message: 'Invalid token' 
         });
     }
-
-    next();
 }
 
 function authorizeAdminMiddleware(req, res, next) {
