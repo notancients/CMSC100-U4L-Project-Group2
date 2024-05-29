@@ -18,7 +18,15 @@ function UserProductsPage({ cart, setCart }) {
         console.log("Fetching products data.");
         const fetch_data = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/get-all-products");
+                const response = await axios.get(
+                    "http://localhost:3001/api/get-all-products", {
+                        headers: {
+                            'authorization': `Bearer ${localStorage.getItem("token")}`
+                        }
+                    }
+                );
+                
+                console.log(response);
                 console.log(response.data.data);
                 setProducts(response.data.data);
             } catch (err) {

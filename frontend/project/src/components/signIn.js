@@ -18,8 +18,10 @@ function LoginPage({ userType }) {
       const response = await axios.post('http://localhost:3001/api/login', { email, password });
       const { success, data, message } = response.data;
   
+      console.log(data);
       if (success) {
         localStorage.setItem('token', data.token);
+        localStorage.setItem('user_id', data.user_id);
   
         if (userType === 'Admin' && data.user_type !== 'Admin') {
           setModalMessage('Sorry, you are not an admin.');
