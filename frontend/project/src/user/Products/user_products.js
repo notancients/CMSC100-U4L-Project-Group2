@@ -5,6 +5,7 @@ import logo from '../../images/Logo.png';
 import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 import axios from "axios";
+import { LogoutPrompt } from '../../frontend_network/authentication';
 
 
 function UserProductsPage({ cart, setCart }) {
@@ -148,6 +149,7 @@ function UserProductsPage({ cart, setCart }) {
                 <Link to="/profile" className="user-profile">
                     <img src={userIcon} alt="Icon" className="user-icon"/>
                 </Link>
+                <LogoutPrompt/>
             </div>
             <div className="title-container">
                 <h1>Our Products</h1>
