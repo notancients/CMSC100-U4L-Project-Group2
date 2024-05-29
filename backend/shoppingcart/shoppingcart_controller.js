@@ -69,8 +69,18 @@ async function addProductToCart({user_id, product_id, quantity}) {
 async function getAllProductsInCart({user_id}) {
     console.log("Getting all products in user's cart.");
 
-    try {
-        const user_shoppingcart = await ShoppingCart.find({ "user_id":user_id });
+   
+        try {
+            const user_shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
+    
+            if(!user_shoppingcart) {
+                console.log("User does not have a shopping cart.", user_shoppingcart);
+                return {
+                    success:false,
+                    data: null,
+                    message: "The user does not have a shopping cart yet."
+                }
+            }
         let cart = user_shoppingcart[0].cart;
 
         // console.log(user_shoppingcart);

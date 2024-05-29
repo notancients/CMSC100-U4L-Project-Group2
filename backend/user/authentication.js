@@ -23,6 +23,7 @@ function authenticateTokenMiddleware(req, res, next) {
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
         req.user = decoded; // Attach decoded user data to request object
+        console.log("Valid token");
         next(); // Allow request to proceed
     } catch (error) {
         return res.status(403).json({

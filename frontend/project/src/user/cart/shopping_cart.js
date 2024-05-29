@@ -33,11 +33,25 @@ function ShoppingCart({ }) {
 }, []);
 
 
-  const handleRemove = (item) => {
-    const removeItem = cart.filter((remItem) => remItem.product_id !== item.product_id);
-    setCart(removeItem);
-    setSelectedItems(selectedItems.filter((selItem) => selItem.product_id !== item.product_id));
-  };
+const handleRemove = async (item) => {
+  const updatedCart = cart.filter(cartItem => cartItem.product_id !== item.product_id);
+
+  try {
+      await axios.delete(`http://localhost:3001/api/remove-from-cart`, {
+          data: {
+              user_id: localStorage.getItem("user_id"),
+              product_id: item.product_id
+          }
+      });
+      
+      setCart(updatedCart);
+      setSelectedItems(selectedItems.filter(selItem => selItem.product_id !== item.product_id));
+  } catch (err) {
+      console.log(err);
+  }
+};
+
+
 
   const handleCheckOut = () => {
     console.log("Checking out all selected items");
@@ -118,11 +132,12 @@ const computeTotalPrice = () => {
               <p className="itemprice">PHP {item.price}</p>
               <p className="deliv">Cash on delivery Only</p>
             </div>
-            <div className='buttons'>
-              <button className='remove' onClick={() => handleRemove(item)}>
-                <i className="fa fa-trash"></i>
-              </button>
+            <div className="buttons">
+            <button className='remove' onClick={() => handleRemove(item)}>
+             <i className="fa fa-trash"></i>
+            </button>
             </div>
+
             
           </div>
         ))}

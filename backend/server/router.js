@@ -63,7 +63,7 @@ router.get("/api/populate-transactions", populateTransactionHistoryAPI);
 
 // PRODUCT API
 router.post("/api/create-product", createProductAPI);
-router.get("/api/get-all-products", getAllProductsAPI);
+router.get("/api/get-all-products", authenticateTokenMiddleware, getAllProductsAPI);
 router.put("/api/update-product-details", updateProductAPI);
 
 
