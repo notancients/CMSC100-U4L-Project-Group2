@@ -35,20 +35,6 @@ function UserProductsPage({ cart, setCart }) {
         const existingItem = cart.find(item => item._id === productToAdd._id);
         console.log(productToAdd);
 
-        try {
-            console.log("Adding product to cart database.");
-            const response = await axios.post('http://localhost:3001/api/add-to-cart', {
-              user_id : "66443306653ccde666260bfb",
-                product_id : productToAdd._id,
-                product_quantity : 1
-            });
-            console.log(response);
-            
-          } catch (err) {
-            console.log(err);
-          }
-
-
         if (existingItem) {
             const updatedCart = cart.map( async (item) => {
                 if (item._id === productToAdd._id) {
@@ -57,7 +43,7 @@ function UserProductsPage({ cart, setCart }) {
                         const response = await axios.post('http://localhost:3001/api/add-to-cart', {
                           user_id : "66443306653ccde666260bfb",
                             product_id : item._id,
-                            product_quantity : item.quantity
+                            quantity : item.quantity + 1
                         });
                         console.log(response);
                         
@@ -72,6 +58,18 @@ function UserProductsPage({ cart, setCart }) {
             setCart(updatedCart);
         } else {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
+            try {
+                console.log("Adding product to cart database.");
+                const response = await axios.post('http://localhost:3001/api/add-to-cart', {
+                  user_id : "66443306653ccde666260bfb",
+                    product_id : productToAdd._id,
+                    quantity : productToAdd.quantity
+                });
+                console.log(response);
+                
+              } catch (err) {
+                console.log(err);
+              }
         }
     
         setNotification({ message: `${productToAdd.product_name} added to cart!`, visible: true });
@@ -162,7 +160,7 @@ function UserProductsPage({ cart, setCart }) {
                     <button className="sort" onClick={() => handleSort('product_name')}>NAME {renderSortIndicator('product_name')}</button>
                     <button className="sort" onClick={() => handleSort('product_type')}>TYPE {renderSortIndicator('product_type')}</button>
                     <button className="sort" onClick={() => handleSort('price')}>PRICE {renderSortIndicator('price')}</button>
-                    <button className="sort" onClick={() => handleSort('product_quantity')}>QUANTITY {renderSortIndicator('product_quantity')}</button>
+                    <button className="sort" onClick={() => handleSort('quantity')}>QUANTITY {renderSortIndicator('quantity')}</button>
                 </div>
                 <div className="type-filter">
                     <p className="filter">FILTER:  {renderProductTypesDropdown()}</p>
@@ -180,7 +178,7 @@ function UserProductsPage({ cart, setCart }) {
                         <div className="details">
                             <div className='price-and-stock'>
                             <p className="user-price">₱ {item.price}</p>
-                            <p className="cur_stock">Stock: {item.product_quantity}</p>
+                            <p className="cur_stock">Stock: {item.quantity}</p>
                             </div>
                             <button className='addtocart' onClick={() => handleAddToCart(item)}>Add to cart</button>
                         </div>

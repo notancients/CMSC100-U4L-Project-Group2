@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const shoppingCartSubSchema = new mongoose.Schema({
     "product_id": {type: mongoose.Schema.ObjectId, required:true},
-    "product_quantity": {type: Number, required: true}
+    "quantity": {type: Number, required: true}
 })
 
 
@@ -15,7 +15,7 @@ const shoppingCartSchema = new mongoose.Schema({
 
 shoppingCartSchema.pre('save', function (next) {
     // Remove items with quantity zero
-    this.cart = this.cart.filter(item => item.product_quantity > 0);
+    this.cart = this.cart.filter(item => item.quantity > 0);
     next();
 });
 
