@@ -15,6 +15,7 @@ function UserProductsPage({ cart, setCart }) {
     const [notification, setNotification] = useState({ message: '', visible: false });
 
     useEffect( () => {
+        console.log("Fetching products data.");
         const fetch_data = async () => {
             try {
                 const response = await axios.get("http://localhost:3001/api/get-all-products");
@@ -31,7 +32,7 @@ function UserProductsPage({ cart, setCart }) {
 
 
     const handleAddToCart = async (productToAdd) => {
-        console.log("First handle Add to Cart");
+        console.log("Handling add to cart.");
         const existingItem = cart.find(item => item._id === productToAdd._id);
 
         if (existingItem) {
@@ -52,7 +53,7 @@ function UserProductsPage({ cart, setCart }) {
             const response = await axios.post('http://localhost:3001/api/add-to-cart', {
               "user_id" : "66443306653ccde666260bfb",
                 "product_id" : productToAdd._id,
-                "quantity" : productToAdd.quantity
+                "quantity" : 1
             });
             console.log(response);
             
