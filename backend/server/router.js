@@ -54,7 +54,6 @@ router.get("/api/populate-user-database", populateUserDataAPI);
 router.get("/api/populate-product-database", populateProductAPI);
 
 
-
 // PRODUCT API
 router.post("/api/create-product", createProductAPI);
 router.get("/api/get-all-products", getAllProductsAPI);
