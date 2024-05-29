@@ -21,14 +21,13 @@ function OrderFulfillment() {
   useEffect(() => {
     const fetch_data = async () => {
       try {
-        const response = await axios.get("http://192.168.1.116:3001/api/get-all-transactions");
+        const response = await axios.get("http://localhost:3001/api/get-all-transactions");
         const allOrders = [
           ...response.data.data.pending,
           ...response.data.data.completed,
           ...response.data.data.cancelled
         ];
         setOrders(allOrders);
-        console.log(response);
       } catch (err) {
         console.log(err);
         setOrders([]);
@@ -38,20 +37,42 @@ function OrderFulfillment() {
     fetch_data();
   }, []);
 
-  const handleConfirm = (_id) => {
-    setOrders(prevOrders =>
-      prevOrders.map(order =>
-        order._id === _id ? { ...order, order_status: "Completed" } : order
-      )
-    );
+  const handleConfirm = async (_id) => {
+    try {
+      const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
+        order_id: _id,
+        order_status: "Completed"
+      });
+
+      if (response.data.success) {
+        setOrders(prevOrders =>
+          prevOrders.map(order =>
+            order._id === _id ? { ...order, order_status: "Completed" } : order
+          )
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const handleCancel = (_id) => {
-    setOrders(prevOrders =>
-      prevOrders.map(order =>
-        order._id === _id ? { ...order, order_status: "Cancelled" } : order
-      )
-    );
+  const handleCancel = async (_id) => {
+    try {
+      const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
+        order_id: _id,
+        order_status: "Cancelled"
+      });
+
+      if (response.data.success) {
+        setOrders(prevOrders =>
+          prevOrders.map(order =>
+            order._id === _id ? { ...order, order_status: "Cancelled" } : order
+          )
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const filteredOrders = orders.filter(order =>
