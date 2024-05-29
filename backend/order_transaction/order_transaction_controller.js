@@ -1,5 +1,8 @@
 import OrderTransaction from "./order_transaction_model.js";
 import TransactionHistory from "./transaction_history_model.js";
+import ProductModel from "../product/product_model.js";
+
+import { sumArray } from "./transaction_utility.js";
 
 async function getAllUserTransaction({user_id}) {
     console.log("Getting all transactions for the user.");
@@ -56,6 +59,12 @@ async function adminGetAllTransaction() {
         const cancelled_orders = await OrderTransaction.find(
             { "order_status" : "Cancelled" }
         );
+
+        // pending = pending.map( async (element) => {
+        //     element["order"].forEach(async product => {
+        //         product["product_name"] = (await ProductModel.find({product_id: product["product_id"]})).product_name;
+        //     });
+        // })
         
         return {
             "success": true,
@@ -149,7 +158,7 @@ async function adminValidateOrder({order_id, order_status}) {
 }
 
 // returns the weekly sales report for products for the last 52 weeks
-async function salesReport({time_period}) {
+async function salesReport({product_id, time_period}) {
     console.log("Retrieving the sales report.");
 
     let time_limiter;
@@ -161,8 +170,11 @@ async function salesReport({time_period}) {
         case "5Minutes" : time_limiter = new Date(new Date() - 5 * 60 * 1000); break;
     }
 
+    console.log(product_id);
     const sales_report = await TransactionHistory.aggregate([
-        { $match: {date_sold: { $gte: time_limiter }} },
+        { $match: {
+            date_sold: { $gte: time_limiter },
+        } },
         { $group: 
             {
                 _id: {
@@ -174,18 +186,42 @@ async function salesReport({time_period}) {
         },
         {
             $project: {
-                _id: 0,
-                product_id: '$_id',
+                _id: 1,
+                // product_id: '$_id',
                 totalQuantitySold: 1
             }
         }
     ]);
 
+    console.log(product_id);
+    let process_data = sales_report.filter((element) => {
+        console.log(["Product id in array:", element["_id"].product_id].toString());
+        if(element["_id"]["product_id"].toString() == product_id) {
+            return element["totalQuantitySold"];
+        }
+    });
 
+    let total = process_data.map( (element) => {
+        return element["totalQuantitySold"];
+    })
 
-      return {
+    total = sumArray(total);
+    console.log(total);
+
+    let product = await ProductModel.findOne( { _id: product_id } );
+    let price = product.price;
+
+    let report_for_product = {
+        "product_id" : product_id,
+        "total_sold" : total,
+        "total_sales": total*price,
+        "price": price,
+        "time_period": time_period
+    }
+
+    return {
         "success": true,
-        "data": sales_report,
+        "data": report_for_product,
         "message": "Successfully returned the sale report."
     }
 

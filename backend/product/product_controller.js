@@ -4,7 +4,8 @@ async function getAllProducts() {
     console.log("Retrieving all products.");
 
     try {
-        const all_products = ProductModel.find();
+        const all_products =  await ProductModel.find();
+
         return({
             "success":true,
             "data": all_products,
