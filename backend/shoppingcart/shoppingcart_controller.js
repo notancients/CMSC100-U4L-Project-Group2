@@ -45,7 +45,7 @@ async function addProductToCart({user_id, product_id, quantity}) {
         } else { // if it exists
             // console.log(shoppingcart.cart[productIndex]);
             shoppingcart.cart[productIndex]["product_quantity"] += quantity;
-            shoppingcart.save();
+            await shoppingcart.save();
         }
 
         shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });

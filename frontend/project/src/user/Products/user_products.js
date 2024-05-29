@@ -14,6 +14,8 @@ function UserProductsPage({ cart, setCart }) {
     const [selectedType, setSelectedType] = useState('All'); 
     const [notification, setNotification] = useState({ message: '', visible: false });
 
+    let user_id = localStorage.getItem("user_id");
+
     useEffect( () => {
         console.log("Fetching products data.");
         const fetch_data = async () => {
@@ -59,7 +61,7 @@ function UserProductsPage({ cart, setCart }) {
         try {
             console.log("Adding product to cart database.");
             const response = await axios.post('http://localhost:3001/api/add-to-cart', {
-                "user_id" : "66443306653ccde666260bfb",
+                "user_id" : user_id,
                 "product_id" : productToAdd._id,
                 "quantity" : 1
             });
