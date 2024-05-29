@@ -33,6 +33,7 @@ async function addProduct({product_name, product_description, product_type, prod
                 "product_description": product_description,
                 "product_type": product_type,
                 "product_quantity": product_quantity,
+                "product_image": product_image,
                 "price": price
             }
         )

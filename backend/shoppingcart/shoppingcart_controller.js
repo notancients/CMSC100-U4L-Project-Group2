@@ -23,7 +23,7 @@ async function addProductToCart({user_id, product_id, quantity}) {
             const productIndex = shoppingcart.cart.findIndex((item) => item.product_id === product_id);
             
             if (productIndex !== -1) { // when the product exists in the cart
-                shoppingcart.cart[productIndex].product_quantity += quantity;
+                shoppingcart.cart[productIndex].quantity += quantity;
             } else { // if the product doesn't exist in the cart yet
                 shoppingcart.cart.push({"product_id": product_id, "product_quantity": quantity});
             }
@@ -82,9 +82,9 @@ async function checkout({user_id, products}) {
         let cart = user_shoppingcart.cart;
         cart = cart.map( (element) => {
             // reduce the product's quantity if
-            element.product_quantity -= (products[element.product_id] ? products[element.product_id] : 0);
+            element.quantity -= (products[element.product_id] ? products[element.product_id] : 0);
             return element;
-        })
+        });
 
         // update the shoppping cart with the new modified cart
         user_shoppingcart.cart = cart;
@@ -100,7 +100,7 @@ async function checkout({user_id, products}) {
         Object.keys(products).forEach(element => {
             let transaction_order = {};
             transaction_order["product_id"] = element;
-            transaction_order["product_quantity"] = products[element];
+            transaction_order["quantity"] = products[element];
             transaction_array.push(transaction_order);
         });
 

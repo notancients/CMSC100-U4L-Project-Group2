@@ -125,6 +125,7 @@ async function logIn({email, password}) {
         return {
             "success": true,
             "data": {
+                "user_id": existing_user._id,
                 "user_type": existing_user.user_type,
                 "token": token
             },

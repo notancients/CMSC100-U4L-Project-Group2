@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema({
     product_description: {type: String, required: true},
     product_type: {type: String, required: true, enum: PRODUCT_TYPES},
     product_quantity: {type: Number, required: true},
-    product_image: {type: mongoose.SchemaTypes.Url, required: true},
+    product_image: {type: String, required: true},
     price: {type: Number, required: true}
 });
 
