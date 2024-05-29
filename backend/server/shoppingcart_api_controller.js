@@ -2,7 +2,8 @@ import {
     getAllProductsInCart,
     addProductToCart,
     checkout,
-    updateCartQuantity
+    updateCartQuantity,
+    removeProductFromCart
 } from "../shoppingcart/shoppingcart_controller.js";
 
 
@@ -55,9 +56,23 @@ async function updateCartQuantityAPI(req, res) {
     }
 }
 
-export {
-    getAllProductsInCartAPI,
-    addProductToCartAPI,
-    checkoutAPI,
-    updateCartQuantityAPI
+
+async function removeProductFromCartAPI(req, res) {
+    const { user_id, product_id } = req.body;
+
+    const result = await removeProductFromCart({ user_id, product_id });
+
+    if (result.success) {
+        res.status(200).json(result);
+    } else {
+        res.status(500).json(result);
+    }
 }
+
+export {
+    addProductToCartAPI,
+    getAllProductsInCartAPI,
+    checkoutAPI,
+    updateCartQuantityAPI,
+    removeProductFromCartAPI
+};

@@ -134,9 +134,10 @@ async function reduceProductQuantity({product_id, amount_consumed}) {
     }
 }
 
+
 export {
     getAllProducts,
     addProduct,
     updateProduct,
-    reduceProductQuantity
+    reduceProductQuantity, 
 }
