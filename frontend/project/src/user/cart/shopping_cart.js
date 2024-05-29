@@ -9,21 +9,22 @@ import axios from 'axios';
 function ShoppingCart({ }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [cart, setCart] = useState([]);
-  let user_id = "66443306653ccde666260bfb" // NOTICE: CHANGE ME LATER
+  let user_id = localStorage.getItem("user_id");
 
+  console.log(user_id);
   useEffect( () => {
     console.log("Fetching cart data.");
     const fetch_data = async () => {
         try {
             const response = await axios.get(`http://localhost:3001/api/get-all-products-in-cart?user_id=${user_id}`);
-            console.log(response.data.data);
+            // console.log(response);
             
             let response_cart = response.data.data;
-            console.log(response_cart);
+            // console.log(response_cart);
 
             setCart(response_cart);
         } catch (err) {
-            console.log(err);
+            console.log(err.response);
             setCart([]);
         }
     }
