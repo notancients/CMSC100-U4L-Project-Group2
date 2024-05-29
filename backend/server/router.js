@@ -8,7 +8,7 @@ import {
 
 import { authenticateTokenMiddleware, authorizeAdminMiddleware } from "../user/authentication.js";
 
-import { populateUserDataAPI, populateProductAPI } from "../sample_data/populate_database.js";
+import { populateUserDataAPI, populateProductAPI, populateTransactionHistoryAPI } from "../sample_data/populate_database.js";
 
 import { 
     createProductAPI, 
@@ -58,6 +58,7 @@ router.post("/api/login", loginAPI);
 // POPULATE API
 router.get("/api/populate-user-database", populateUserDataAPI);
 router.get("/api/populate-product-database", populateProductAPI);
+router.get("/api/populate-transactions", populateTransactionHistoryAPI);
 
 
 // PRODUCT API
