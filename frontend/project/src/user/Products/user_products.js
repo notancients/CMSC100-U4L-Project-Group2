@@ -5,6 +5,7 @@ import logo from '../../images/Logo.png';
 import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 import axios from "axios";
+import { LogoutPrompt } from '../../frontend_network/authentication';
 
 
 function UserProductsPage({ cart, setCart }) {
@@ -14,7 +15,9 @@ function UserProductsPage({ cart, setCart }) {
     const [selectedType, setSelectedType] = useState('All'); 
     const [notification, setNotification] = useState({ message: '', visible: false });
 
-    useEffect(() => {
+    let user_id = localStorage.getItem("user_id");
+
+    useEffect( () => {
         console.log("Fetching products data.");
         const fetchProducts = async () => {
             try {
@@ -70,9 +73,9 @@ function UserProductsPage({ cart, setCart }) {
         try {
             console.log("Adding product to cart database.");
             const response = await axios.post('http://localhost:3001/api/add-to-cart', {
-                user_id: localStorage.getItem("user_id"),
-                product_id: productToAdd._id,
-                quantity: 1
+                "user_id" : user_id,
+                "product_id" : productToAdd._id,
+                "quantity" : 1
             });
             console.log(response);
         } catch (err) {
@@ -157,6 +160,7 @@ function UserProductsPage({ cart, setCart }) {
                 <Link to="/profile" className="user-profile">
                     <img src={userIcon} alt="Icon" className="user-icon"/>
                 </Link>
+                <LogoutPrompt/>
             </div>
             <div className="title-container">
                 <h1>Our Products</h1>
