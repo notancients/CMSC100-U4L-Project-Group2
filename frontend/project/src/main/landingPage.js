@@ -32,7 +32,7 @@ function LandingPage() {
           <Link to="/login/user">
             <img src={userLoginImage} alt="User Login" className="user-button" />
           </Link>
-          <Link to="/admin">
+          <Link to="/login/admin">
             <img src={adminLoginImage} alt="Admin Login" className="admin-button" />
           </Link>
         </div>

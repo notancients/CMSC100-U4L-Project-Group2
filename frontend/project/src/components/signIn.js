@@ -10,28 +10,39 @@ function LoginPage({ userType }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:3001/api/login', { email, password });
       const { success, data, message } = response.data;
-
+  
       if (success) {
         localStorage.setItem('token', data.token);
-
-        if (data.user_type === 'admin') {
+  
+        if (userType === 'Admin' && data.user_type !== 'Admin') {
+          setModalMessage('Sorry, you are not an admin.');
+          setShowModal(true);
+        } else if (userType === 'User' && data.user_type === 'Admin') {
+          setModalMessage('Hi, admin! Please go back and log in as an admin.');
+          setShowModal(true);
+        } else if (userType === 'Admin') {
           navigate('/admin');
         } else {
           navigate('/loginlanding');
         }
       } else {
-        alert(message);
+        setModalMessage(message);
+        setShowModal(true);
       }
     } catch (error) {
       console.error('Error logging in:', error);
-      alert('An error occurred while logging in.');
+      setModalMessage('An error occurred while logging in.');
+      setShowModal(true);
     }
   };
+  
 
 
   const [cursorImage, setCursorImage] = useState(customCursorImage);
@@ -84,6 +95,16 @@ function LoginPage({ userType }) {
 
   return (
     <div className="login-page">
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-alert">
+          <div className="modal-content-alert">
+            <span className="close-alert" onClick={() => setShowModal(false)}>&times;</span>
+            <h1>UH OH!</h1>
+            <p>{modalMessage}</p>
+          </div>
+        </div>
+      )}
       <div className="custom-cursor" style={{ cursor: 'none' }}>
         <img src={customCursorImage} alt="Custom Cursor" />
       </div>
@@ -129,8 +150,14 @@ function LoginPage({ userType }) {
         </div>
         <div className="signup-link">
           <p className="text-center">
-            Don't have an account? <Link to="/signup" className="signup-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{ fontStyle: 'italic' }}>Sign Up</Link>
-          </p>
+          {userType !== 'Admin' && ( 
+            <>
+              Don't have an account?{' '}
+              <Link to="/signup" className="signup-link" style={{ fontStyle: 'italic' }}>
+                Sign Up
+              </Link>
+            </>
+          )}          </p>
         </div>
       </div>
     </div>

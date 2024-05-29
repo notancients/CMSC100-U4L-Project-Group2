@@ -25,8 +25,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login/user" element={<LoginPage userType="user" />} />
-        <Route path="/login/admin" element={<LoginPage userType="admin" />} />
+        <Route path="/login/user" element={<LoginPage userType="User" />} />
+        <Route path="/login/admin" element={<LoginPage userType="Admin" />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/admin" element={<AdminLandingPage />} /> 
         <Route path="/loginlanding" element={<UserLandingPage cart={cart} />} /> 

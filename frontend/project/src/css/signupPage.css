@@ -123,13 +123,15 @@
     display: block;
     text-align: center;
     font-family: 'Montserrat';
+    margin-bottom: 0px;
+
 
   }
   
   .box-signup {
     position: absolute;
     left: 76.5%;
-    top: 45%;
+    top: 46%;
     transform: translate(-50%, -50%);
     border-radius: 3px;
     padding: 20px 20px;
@@ -139,7 +141,7 @@
   
   .input-container-signup {
     position: relative;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
     display: flex; 
     cursor: none;
 
@@ -150,7 +152,7 @@
   border: 0;
   border-bottom: 1px solid #E5F2AD;
   background: transparent;
-  padding: 8px 0 5px 0; 
+  padding: 7px 0 5px 0; 
   font-size: 13px;
   font-family: 'Montserrat';
   color: #fff;
@@ -164,7 +166,7 @@
     cursor: pointer;
     align-self: center; 
     position: absolute; 
-    top: 50%; 
+    top: 10%; 
     right: 0;
     transform: translateY(-50%); 
     margin-right: 10px;}
@@ -207,7 +209,7 @@
     border: 0;
     padding: 10px 20px;
     text-transform: uppercase;
-    margin-top: 10px;
+    margin-top: 1px;
     border-radius: 20px;
     cursor: none;
     position: relative;

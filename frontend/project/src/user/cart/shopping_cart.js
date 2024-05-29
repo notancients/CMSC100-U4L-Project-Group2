@@ -70,7 +70,7 @@ const computeTotalPrice = () => {
             <div className='justify1'>
               <img className= "prod-img" src={item.img} alt={item.productName}/>
               <div className='name-qty'>
-              <p className="itemname">{item.productName}</p>
+              <p className="itemname">{item.product_name}</p>
               <p className='qty'>Quantity: {item.quantity}</p>
               </div>
             </div>
