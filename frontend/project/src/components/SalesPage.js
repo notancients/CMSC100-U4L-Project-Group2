@@ -34,7 +34,7 @@ const SalesPage = () => {
               <h1>Sales Report</h1>
             </div>
             <div className='sales-container'>
-            <SalesReport salesData={sampleSalesData} showQuantity={false} className="per-sales"/>
+            <SalesReport showQuantity={false} className="per-sales"/>
             </div>
             </div>
   );

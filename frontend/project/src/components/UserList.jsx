@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import UserCard from './UserCard';
-import userSampleData from './userSampleData';
 import '../css/UserList.css';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
 import { Link } from 'react-router-dom';
 import CustomCursor from './customCursor';
-
+import axios from 'axios';
 
 const UserList = () => {
-
-  const initialUsers = userSampleData().sort((a, b) => a.first_name.localeCompare(b.first_name));
-
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState([]);
   const [sortCriteria, setSortCriteria] = useState('');
-  const [userCount, setUserCount] = useState(initialUsers.length);
+  const [userCount, setUserCount] = useState(0);
 
-  useEffect(() => {
-    setUserCount(users.length);
-  }, [users]);
+  useEffect( () => {
+    const fetch_data = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/api/get-all-users");
+            console.log(response.data.data);
+            setUsers(response.data.data);
+            console.log(response);
+            setUserCount(response.data.data.length)
+        } catch (err) {
+            console.log(err);
+            setUsers(null);
+        }
+    }
+    fetch_data();
+}, []);
 
   const sortUsers = (criteria) => {
     let sortedUsers = [...users];

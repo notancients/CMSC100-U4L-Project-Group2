@@ -1,13 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/loginPage.css';
 import logo from '../images/Logo.png';
 import customCursorImage from '../images/corn_cursor.png'; 
 import customCursorHoverImage from '../images/corn_cursor_hover.png';
 
 function LoginPage({ userType }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const [cursorImage, setCursorImage] = useState(customCursorImage);
+
+  const handleLogin = async () => {
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      localStorage.setItem('token', data.data.token);
+      navigate('/loginlanding');
+    } else {
+      alert(data.message);
+    }
+  };
+
 
   useEffect(() => {
     const updateCursor = (e) => {
@@ -56,40 +79,55 @@ function LoginPage({ userType }) {
 
 
   return (
-    <div className="login-page"> 
-    <div className="custom-cursor" style={{ cursor: 'none' }}>
-        <img src={cursorImage} alt="Custom Cursor" />
+    <div className="login-page">
+      <div className="custom-cursor" style={{ cursor: 'none' }}>
+        <img src={customCursorImage} alt="Custom Cursor" />
       </div>
-    <div className="bokeh-overlay">
+      <div className="bokeh-overlay">
         <div className="bokeh"></div>
         <div className="bokeh"></div>
         <div className="bokeh"></div>
       </div>
       <div className="logo">
-      <Link to="/"> 
+        <Link to="/">
           <img src={logo} alt="Logo Here" className="logo-img" />
         </Link>
-      </div> 
-      <div className="box">        <div className="input-container">
-          <input type="email" id="email" name="email" required />
+      </div>
+      <div className="box">
+        <div className="input-container">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <label>Email</label>
           <i className="fas fa-envelope input-icon"></i>
         </div>
         <div className="input-container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <input type="password" id="password" name="password" required/>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <label htmlFor="password">Password</label>
           <i className="fas fa-lock input-icon"></i>
         </div>
-        <div className="btn-container"  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <Link to="/loginlanding">
-          <button type="submit" className="btn" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Login</button>
-        </Link>
-        </div>    
+        <div className="btn-container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <button type="submit" className="btn" onClick={handleLogin}>
+            Login
+          </button>
+        </div>
         <div className="signup-link">
-        <p className="text-center">
+          <p className="text-center">
             Don't have an account? <Link to="/signup" className="signup-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{ fontStyle: 'italic' }}>Sign Up</Link>
           </p>
-    </div>
+        </div>
       </div>
     </div>
   );
