@@ -22,7 +22,7 @@ async function getAllProducts() {
 
 }
 
-async function addProduct({product_name, product_description, product_type, product_quantity, price}) {
+async function addProduct({product_name, product_description, product_type, product_image, product_quantity, price}) {
     console.log("Adding a new product.");
 
     try{
@@ -56,7 +56,7 @@ async function addProduct({product_name, product_description, product_type, prod
 
 }
 
-async function updateProduct({product_id, product_name, product_description, product_type, product_quantity, price}) {
+async function updateProduct({product_id, product_name, product_description, product_type, product_image, product_quantity, price}) {
     console.log("A product is being updated.");
 
     try {
@@ -76,6 +76,7 @@ async function updateProduct({product_id, product_name, product_description, pro
                 "product_name": product_name,
                 "product_description": product_description,
                 "product_type": product_type,
+                "product_image": product_image,
                 "product_quantity": product_quantity,
                 "price": price
             }
