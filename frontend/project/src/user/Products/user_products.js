@@ -43,21 +43,21 @@ function UserProductsPage({ cart, setCart }) {
 
     const handleAddToCart = async (productToAdd) => {
         console.log("Handling add to cart.");
-        const existingItem = cart.find(item => item._id === productToAdd._id);
-
+        const existingItem = cart.find(item => item.product_id === productToAdd._id);
+    
         if (existingItem) {
-            const updatedCart = cart.map( async (item) => {
-                if (item._id === productToAdd._id) {
-                    return { ...item, quantity: item.quantity + 1 };
+            const updatedCart = cart.map(item => {
+                if (item.product_id === productToAdd._id) {
+                    return { ...item, product_quantity: item.product_quantity + 1 };
                 } else {
                     return item;
                 }
             });
             setCart(updatedCart);
         } else {
-            setCart([...cart, { ...productToAdd, quantity: 1 }]);
+            setCart([...cart, { ...productToAdd, product_id: productToAdd._id, product_quantity: 1 }]);
         }
-
+    
         try {
             console.log("Adding product to cart database.");
             const response = await axios.post('http://localhost:3001/api/add-to-cart', {
@@ -66,7 +66,6 @@ function UserProductsPage({ cart, setCart }) {
                 "quantity" : 1
             });
             console.log(response);
-            
         } catch (err) {
             console.log(err);
         }
@@ -170,7 +169,7 @@ function UserProductsPage({ cart, setCart }) {
             {filteredProducts.map((item) => (
                     <div key={item._id} className="item">
                         <div className="content">
-                            <img src={item.img} alt={item.product_name} className='product-img'/>
+                            <img src={item.product_image} alt={item.product_name} className='product-img'/>
                             <p className="name">{item.product_name}</p>
                             <p className="desc">{item.product_description}</p>
                         </div>
