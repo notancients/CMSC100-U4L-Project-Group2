@@ -1,101 +1,134 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../css/signupPage.css';
 import logo from '../images/Logo.png';
-import customCursorImage from '../images/corn_cursor.png'; 
-import customCursorHoverImage from '../images/corn_cursor_hover.png';
+import CustomCursor from '../components/customCursor';
 
 
 function SignUpPage() {
-  const [cursorImage, setCursorImage] = useState(customCursorImage);
+  const [firstName, setFirstName] = useState('');
+  const [middleName, setMiddleName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const updateCursor = (e) => {
-      const cursor = document.querySelector('.custom-cursor');
-      cursor.style.top = e.clientY + 'px';
-      cursor.style.left = e.clientX + 'px';
-    };
+  const handleSignUp = async () => {
+    try {
+      const response = await axios.post('/api/create-user', {
+        first_name: firstName,
+        middle_name: middleName,
+        last_name: lastName,
+        email,
+        password,
+      });
+      const { success, message } = response.data;
 
-    document.addEventListener('mousemove', updateCursor);
-
-    return () => {
-      document.removeEventListener('mousemove', updateCursor);
-    };
-  }, []);
-
-  const handleMouseEnter = () => {
-    setCursorImage(customCursorHoverImage);
+      if (success) {
+        navigate('/login/user');
+      } else {
+        alert(message);
+      }
+    } catch (error) {
+      console.error('Error signing up:', error);
+      alert('An error occurred while signing up.');
+    }
   };
 
-  const handleMouseLeave = () => {
-    setCursorImage(customCursorImage);
-  };
-
-  useEffect(() => {
-    const updateCursor = (e) => {
-      const cursor = document.querySelector('.custom-cursor');
-      cursor.style.top = e.clientY + 'px';
-      cursor.style.left = e.clientX + 'px';
   
-      const ripple = document.createElement('div');
-      ripple.className = 'ripple';
-      ripple.style.top = e.clientY - 10 + 'px'; 
-      ripple.style.left = e.clientX - 10 + 'px'; 
-      document.body.appendChild(ripple);
-      setTimeout(() => {
-        ripple.remove();
-      }, 1000); 
-    };
-  
-    document.addEventListener('mousemove', updateCursor);
-  
-    return () => {
-      document.removeEventListener('mousemove', updateCursor);
-    };
-  }, []);
 
   return (
     <div className="signup-page">
-    <div className="custom-cursor" style={{ cursor: 'none' }}>
-        <img src={cursorImage} alt="Custom Cursor" />
-      </div>
-    <div className="bokeh-overlay">
+                        <CustomCursor />
+
+      <div className="bokeh-overlay">
         <div className="bokeh"></div>
         <div className="bokeh"></div>
         <div className="bokeh"></div>
       </div>
       <div className="logo">
-      <Link to="/"> 
+        <Link to="/">
           <img src={logo} alt="Logo Here" className="logo-img" />
         </Link>
-      </div> 
+      </div>
       <div className="box-signup">
-      <div className="input-container-signup"onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <input type="name" id="name" name="name" required />
-          <label>Name</label>
+        <div className="input-container-signup">
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+          <label>First Name</label>
           <i className="fas fa-user input-icon"></i>
         </div>
-        <div className="input-container-signup"onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <input type="email" id="email" name="email" required />
+        <div className="input-container-signup">
+          <input
+            type="text"
+            id="middleName"
+            name="middleName"
+            value={middleName}
+            onChange={(e) => setMiddleName(e.target.value)}
+          />
+          <label>Middle Name</label>
+          <i className="fas fa-user input-icon"></i>
+        </div>
+        <div className="input-container-signup">
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+          <label>Last Name</label>
+          <i className="fas fa-user input-icon"></i>
+        </div>
+        <div className="input-container-signup">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
           <label>Email</label>
           <i className="fas fa-envelope input-icon"></i>
         </div>
-        <div className="input-container-signup"onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <input type="password" id="password" name="password" required/>
+        <div className="input-container-signup">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
           <label htmlFor="password">Password</label>
           <i className="fas fa-lock input-icon"></i>
         </div>
-        <div className="btn-container-signup"  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <Link to="/loginlanding">
-          <button type="submit" className="btn">Sign Up</button>
-        </Link>
-        </div>    
-        
+        <div className="btn-container-signup">
+          <button type="submit" className="btn" onClick={handleSignUp}>
+            Sign Up
+          </button>
+        </div>
         <div className="signin-link">
-        <p className="text-center-signup">
-            Already have an account? <Link to="/login/user" className="signin-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} style={{ fontStyle: 'italic' }}>Sign In</Link>
+          <p className="text-center-signup">
+            Already have an account?{' '}
+            <Link
+              to="/login/user"
+              className="signin-link"
+              style={{ fontStyle: 'italic' }}
+            >
+              Sign In
+            </Link>
           </p>
-    </div>
+        </div>
       </div>
     </div>
   );

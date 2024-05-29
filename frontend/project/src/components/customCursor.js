@@ -16,8 +16,19 @@ function CustomCursor() {
   useEffect(() => {
     const updateCursor = (e) => {
       const cursor = document.querySelector('.custom-cursor');
-      cursor.style.top = e.clientY + 'px';
-      cursor.style.left = e.clientX + 'px';
+      if (cursor) {
+        cursor.style.top = `${e.clientY}px`;
+        cursor.style.left = `${e.clientX}px`;
+      }
+
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      ripple.style.top = `${e.clientY - 20}px`; // Adjusting to center ripple with cursor
+      ripple.style.left = `${e.clientX - 20}px`; // Adjusting to center ripple with cursor
+      document.body.appendChild(ripple);
+      setTimeout(() => {
+        ripple.remove();
+      }, 1000); // Removing ripple after 1 second
     };
 
     document.addEventListener('mousemove', updateCursor);
@@ -29,7 +40,12 @@ function CustomCursor() {
 
   return (
     <div className="custom-cursor" style={{ cursor: 'none' }}>
-      <img src={cursorImage} alt="Custom Cursor" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+      <img
+        src={cursorImage}
+        alt="Custom Cursor"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      />
     </div>
   );
 }
