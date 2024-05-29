@@ -42,17 +42,21 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post("/auth-test", authenticateTokenMiddleware, (req, res) => {
+    console.log("You have managed to pass the authentication test.");
+    console.log(req.user);
+})
+
 
 // USER API
 
-router.get("/api/get-all-users", authenticateTokenMiddleware, getAllUsersAPI);
+router.get("/api/get-all-users", getAllUsersAPI);
 router.post("/api/create-user", createNewUserAPI);
 router.post("/api/login", loginAPI);
 
 // POPULATE API
 router.get("/api/populate-user-database", populateUserDataAPI);
 router.get("/api/populate-product-database", populateProductAPI);
-
 
 
 // PRODUCT API

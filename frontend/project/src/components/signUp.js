@@ -6,8 +6,6 @@ import customCursorImage from '../images/corn_cursor.png';
 import customCursorHoverImage from '../images/corn_cursor_hover.png';
 
 
-
-
 function SignUpPage() {
   const [cursorImage, setCursorImage] = useState(customCursorImage);
 

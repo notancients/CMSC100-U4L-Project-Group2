@@ -1,13 +1,12 @@
 import React from 'react';
 import '../css/SalesPage.css'; 
 
-const MonthlySalesModal = ({ product, salesData, onClose }) => {
-  if (!product || !salesData) {
-    return <p>Product not found</p>;
-  }
-
-  const totalQuantitySold = salesData.reduce((total, quantity) => total + quantity, 0);
-  const totalGrossIncome = totalQuantitySold * product.price;
+const MonthlySalesModal = ({  data, onClose }) => {
+  if (!data) return null;    
+  
+  const { product, sales } = data;
+  const totalQuantitySold = data.total_sold;
+  const totalGrossIncome = data.total_sales;
 
   return (
     <div className="modal-overlay">

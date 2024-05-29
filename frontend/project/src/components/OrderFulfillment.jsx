@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Menu from './Menu';
 import OrderList from './OrderList';
 import '../css/OrderFulfillment.css';
@@ -7,73 +8,105 @@ import userIcon from '../images/user_icon.png';
 import { Link } from 'react-router-dom';
 import CustomCursor from './customCursor';
 
-
 const menus = [
   { name: "Pending", url: "#pending", id: 1 },
-  { name: "Confirmed", url: "#confirmed", id: 2 },
+  { name: "Completed", url: "#completed", id: 2 },
   { name: "Cancelled", url: "#cancelled", id: 3 },
 ];
 
-const sampleOrders = [
-  { transactionId: "TXN12345", productId: "PRD001", orderQuantity: 2, orderStatus: 0, email: "user1@example.com", dateOrdered: "2024-05-10", time: "14:30:00" },
-  { transactionId: "TXN12346", productId: "PRD002", orderQuantity: 1, orderStatus: 1, email: "user2@example.com", dateOrdered: "2024-05-11", time: "09:15:00" },
-  { transactionId: "TXN12347", productId: "PRD003", orderQuantity: 5, orderStatus: 2, email: "user3@example.com", dateOrdered: "2024-05-12", time: "16:45:00" },
-  { transactionId: "TXN12348", productId: "PRD004", orderQuantity: 3, orderStatus: 0, email: "user4@example.com", dateOrdered: "2024-05-13", time: "12:00:00" },
-];
-
 function OrderFulfillment() {
-  const [orders, setOrders] = useState(sampleOrders);
+  const [orders, setOrders] = useState([]);
   const [currentTab, setCurrentTab] = useState(1);
 
-  const handleConfirm = (transactionId) => {
-    setOrders(prevOrders =>
-      prevOrders.map(order =>
-        order.transactionId === transactionId ? { ...order, orderStatus: 1 } : order
-      )
-    );
+  useEffect(() => {
+    const fetch_data = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/api/get-all-transactions");
+        const allOrders = [
+          ...response.data.data.pending,
+          ...response.data.data.completed,
+          ...response.data.data.cancelled
+        ];
+        setOrders(allOrders);
+      } catch (err) {
+        console.log(err);
+        setOrders([]);
+      }
+    };
+
+    fetch_data();
+  }, []);
+
+  const handleConfirm = async (_id) => {
+    try {
+      const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
+        order_id: _id,
+        order_status: "Completed"
+      });
+
+      if (response.data.success) {
+        setOrders(prevOrders =>
+          prevOrders.map(order =>
+            order._id === _id ? { ...order, order_status: "Completed" } : order
+          )
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const handleCancel = (transactionId) => {
-    setOrders(prevOrders =>
-      prevOrders.map(order =>
-        order.transactionId === transactionId ? { ...order, orderStatus: 2 } : order
-      )
-    );
+  const handleCancel = async (_id) => {
+    try {
+      const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
+        order_id: _id,
+        order_status: "Cancelled"
+      });
+
+      if (response.data.success) {
+        setOrders(prevOrders =>
+          prevOrders.map(order =>
+            order._id === _id ? { ...order, order_status: "Cancelled" } : order
+          )
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const filteredOrders = orders.filter(order => 
-    (currentTab === 1 && order.orderStatus === 0) || 
-    (currentTab === 2 && order.orderStatus === 1) || 
-    (currentTab === 3 && order.orderStatus === 2)
+  const filteredOrders = orders.filter(order =>
+    (currentTab === 1 && order.order_status === "Pending") ||
+    (currentTab === 2 && order.order_status === "Completed") ||
+    (currentTab === 3 && order.order_status === "Cancelled")
   );
 
   return (
     <div className="order-fulfillment-page">
-             <CustomCursor />
-
-       <div className="logo">
-                <Link to="/"> 
-                    <img src={logo} alt="Logo Here" className="logo-img" />
-                </Link>
-            </div> 
-            <div className="nav-bar">
-                <Link to="/userList" className="nav-link">USERS</Link>
-                <Link to="/productlisting" className="nav-link">PRODUCTS</Link>
-                <Link to="/orderfulfillment" className="nav-link">ORDERS</Link>
-                <Link to="/sales" className="nav-link">SALES</Link>
-                <Link to="/profile" className="user-profile">
-                    <img src={userIcon} alt="Icon" className="user-icon"/>
-                </Link>
-            </div>
-            <div className="title-container">
-              <h1>Order Fulfillment</h1>
-            </div>
-            <div className="menu-container">
-            <Menu menus={menus} setCurrentTab={setCurrentTab} currentTab={currentTab} />
-            </div>
-            <div className="content-container">
-              <OrderList orders={filteredOrders} handleConfirm={handleConfirm} handleCancel={handleCancel} className="orders" />
-            </div>
+      <CustomCursor />
+      <div className="logo">
+        <Link to="/">
+          <img src={logo} alt="Logo Here" className="logo-img" />
+        </Link>
+      </div>
+      <div className="nav-bar">
+        <Link to="/userList" className="nav-link">USERS</Link>
+        <Link to="/productlisting" className="nav-link">PRODUCTS</Link>
+        <Link to="/orderfulfillment" className="nav-link">ORDERS</Link>
+        <Link to="/sales" className="nav-link">SALES</Link>
+        <Link to="/profile" className="user-profile">
+          <img src={userIcon} alt="Icon" className="user-icon" />
+        </Link>
+      </div>
+      <div className="title-container">
+        <h1>Order Fulfillment</h1>
+      </div>
+      <div className="menu-container">
+        <Menu menus={menus} setCurrentTab={setCurrentTab} currentTab={currentTab} />
+      </div>
+      <div className="content-container">
+        <OrderList orders={filteredOrders} handleConfirm={handleConfirm} handleCancel={handleCancel} />
+      </div>
     </div>
   );
 }
