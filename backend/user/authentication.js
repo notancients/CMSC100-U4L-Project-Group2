@@ -9,19 +9,27 @@ function authenticateTokenMiddleware(req, res, next) {
     console.log("Auth Header: ", authHeader);
     // Check if authorization header is present
     if (!authHeader) {
-        return res.status(401).json({ message: 'Unauthorized access' });
+        return res.status(401).json({ 
+                success: false,
+                data: null,
+                message: 'Unauthorized access' 
+            });
     }
 
     // Extract token from header (format: 'Bearer <token>')
-    // const token = authHeader.split(' ')[1];
+    const token = authHeader.split(' ')[1];
 
     // Verify token using secret key
     try {
-    const decoded = jwt.verify(authHeader, process.env.SECRET_KEY);
-    req.user = decoded; // Attach decoded user data to request object
-    next(); // Allow request to proceed
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        req.user = decoded; // Attach decoded user data to request object
+        next(); // Allow request to proceed
     } catch (error) {
-        return res.status(403).json({ message: 'Invalid token' });
+        return res.status(403).json({
+            success: false,
+            data: null,
+            message: 'Invalid token' 
+        });
     }
 
     next();
@@ -29,6 +37,41 @@ function authenticateTokenMiddleware(req, res, next) {
 
 function authorizeAdminMiddleware(req, res, next) {
     console.log("Authorizing user as administrator.")
+
+    const authHeader = req.headers.authorization;
+    console.log("Auth Header: ", authHeader);
+    // Check if authorization header is present
+    if (!authHeader) {
+        return res.status(401).json({ 
+                success: false,
+                data: null,
+                message: 'Unauthorized access' 
+            });
+    }
+
+    // Extract token from header (format: 'Bearer <token>')
+    const token = authHeader.split(' ')[1];
+
+    // Verify token using secret key
+    try {
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        if (decoded.user_type === "User") {
+            return res.status(400).json({
+                success: false,
+                data: null,
+                message: "Not an administrator"
+            });
+        }
+        req.user = decoded; // Attach decoded user data to request object
+        next(); // Allow request to proceed
+    } catch (error) {
+        return res.status(403).json({
+            success: false,
+            data: null,
+            message: 'Invalid token' 
+        });
+    }
+
     next();
 }
 

@@ -6,7 +6,7 @@ import {
     loginAPI 
 } from "./user_api_controller.js";
 
-import { authenticateTokenMiddleware } from "../user/authentication.js";
+import { authenticateTokenMiddleware, authorizeAdminMiddleware } from "../user/authentication.js";
 
 import { populateUserDataAPI, populateProductAPI } from "../sample_data/populate_database.js";
 
@@ -42,9 +42,10 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/auth-test", authenticateTokenMiddleware, (req, res) => {
+router.post("/auth-test", authenticateTokenMiddleware, authorizeAdminMiddleware, (req, res) => {
     console.log("You have managed to pass the authentication test.");
     console.log(req.user);
+    res.status(200).json(req.user);
 })
 
 
