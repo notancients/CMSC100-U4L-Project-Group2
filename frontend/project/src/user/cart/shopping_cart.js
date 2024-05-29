@@ -44,11 +44,26 @@ function ShoppingCart({ }) {
   };
 
   const handleCheckboxChange = (item) => {
+    console.log("Adding to selected items: ", item);
     if (selectedItems.includes(item)) {
       setSelectedItems(selectedItems.filter((selItem) => selItem.product_id !== item.product_id));
     } else {
       setSelectedItems([...selectedItems, item]);
     }
+    // console.log(selectedItems);
+    // let addFlag = true;
+    // let updatedList = selectedItems.map( (checked_item) => {
+    //   if (item.product_id != checked_item.product_id) {
+    //     return (checked_item);
+    //   } else if (item.product_id == checked_item.product_id) {
+    //     addFlag = false;
+    //   };
+
+    //   if(addFlag) updatedList.push(item);
+
+    //   setSelectedItems(updatedList);
+    // });
+
   };
   const computeTotalCartQuantity = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
