@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/user_products.css';
+import '../Styles/user_products.css';
 import { PRODUCT_SAMPLE_DATA } from './ProductSample';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
-import CustomCursor from './customCursor';
+import logo from '../../images/Logo.png';
+import userIcon from '../../images/user_icon.png';
+import CustomCursor from '../../components/customCursor';
 
 
 function UserProductsPage({ cart, setCart, cartQuantity }) {

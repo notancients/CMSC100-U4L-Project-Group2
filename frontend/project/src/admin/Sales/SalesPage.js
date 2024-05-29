@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import Menu from './Menu';
+import React from 'react';
 import SalesReport from './SalesReport';
-import { sampleSalesData } from './SampleSales';
-import '../css/SalesPage.css';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
+import '../Styles/SalesPage.css';
+import logo from '../../images/Logo.png';
+import userIcon from '../../images/user_icon.png';
 import { Link } from 'react-router-dom';
-import CustomCursor from './customCursor';
+import CustomCursor from '../../components/customCursor';
 
 
 

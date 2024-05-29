@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import UserProductsPage from './user_products';
-import '../css/shoppingCart.css';
+import '../Styles/shoppingCart.css';
 import { Link } from 'react-router-dom';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
-import CustomCursor from './customCursor';
-
-
+import logo from '../../images/Logo.png';
+import userIcon from '../../images/user_icon.png';
+import CustomCursor from '../../components/customCursor';
 
 
 function ShoppingCart({ cart, setCart }) {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/ProductListing.css';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
-import CustomCursor from './customCursor';
+import logo from '../../images/Logo.png';
+import '../Styles/ProductListing.css'
+import userIcon from '../../images/user_icon.png';
+import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
 
 function ProductListing() {
@@ -124,7 +124,7 @@ function ProductListing() {
                 {filteredProducts.map((item) => (
                     <div key={item._id} className="item">
                         <div className="content">
-                            <img src={item.img} alt={item.product_name} className='product-img'/>
+                            <img src={item.product_image} alt={item.product_name} className='product-img'/>
                             <p className="name">{item.product_name}</p>
                             <p className="desc">{item.product_description}</p>
                         </div>

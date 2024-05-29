@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './components/landingPage';
+import LandingPage from './main/landingPage';
 import LoginPage from './components/signIn';
 import SignUpPage from './components/signUp'; 
-import AdminLandingPage from './components/AdminLandingPage'; 
-import UserLandingPage from './components/user_landing'; 
-import UserProductsPage from './components/user_products'; 
-import UserOrdersPage from './components/UserOrders'; 
-import ShoppingCart from './components/shopping_cart'; 
-import ProductListing from './components/ProductListing';
-import UserList from './components/UserList';
-import OrderFulfillment from './components/OrderFulfillment';
-import SalesPage from './components/SalesPage';
-import WeeklySales from './components/WeeklySales';
-import MonthlySales from './components/MonthlySales';
-import AnnualSales from './components/AnnualSales';
-
+import UserLandingPage from './user/Home/user_landing'; 
+import UserOrdersPage from './user/Orders/UserOrders'; 
+import ProductListing from './admin/Products/ProductListing';
+import UserList from './admin/RegisteredAccounts/UserList';
+import OrderFulfillment from './admin/Transactions/OrderFulfillment';
+import SalesPage from './admin/Sales/SalesPage';
+import WeeklySales from './admin/Sales/WeeklySales';
+import MonthlySales from './admin/Sales/MonthlySales';
+import AnnualSales from './admin/Sales/AnnualSales';
+import UserProductsPage from './user/Products/user_products';
+import ShoppingCart from './user/cart/shopping_cart';
+import AdminLandingPage from './admin/Home/AdminLandingPage';
 
 function App() {
 

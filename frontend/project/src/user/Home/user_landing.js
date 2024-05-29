@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../images/Logo.png';
-import customCursorImage from '../images/corn_cursor.png'; 
-import customCursorHoverImage from '../images/corn_cursor_hover.png';
-import userIcon from '../images/user_icon.png';
-import '../css/userlanding.css';
-import img1 from '../images/img1.jpg';
-import img2 from '../images/img2.jpg';
-import img3 from '../images/img3.jpg';
-import img4 from '../images/img4.jpg';
-import img5 from '../images/img5.jpg';
+import logo from '../../images/Logo.png';
+import customCursorImage from '../../images/corn_cursor.png'; 
+import customCursorHoverImage from '../../images/corn_cursor_hover.png';
+import userIcon from '../../images/user_icon.png';
+import '../Styles/userlanding.css';
+import img1 from '../../images/img1.jpg';
+import img2 from '../../images/img2.jpg';
+import img3 from '../../images/img3.jpg';
+import img4 from '../../images/img4.jpg';
+import img5 from '../../images/img5.jpg';
 
 
 function UserLandingPage({ cart}) {

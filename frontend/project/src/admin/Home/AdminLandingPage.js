@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../css/adminlanding.css';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
-import listingMenu from '../images/listing.png';
-import accountsMenu from '../images/accounts.png';
-import pendingMenu from '../images/pending.png';
-import salesMenu from '../images/sales.png';
-import CustomCursor from './customCursor';
+import '../Styles/adminlanding.css';
+import logo from '../../images/Logo.png';
+import userIcon from '../../images/user_icon.png';
+import listingMenu from '../../images/listing.png';
+import accountsMenu from '../../images/accounts.png';
+import pendingMenu from '../../images/pending.png';
+import salesMenu from '../../images/sales.png';
+import CustomCursor from '../../components/customCursor';
 
 
 function AdminLandingPage() {

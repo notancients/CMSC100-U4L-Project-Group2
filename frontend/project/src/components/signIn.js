@@ -4,33 +4,37 @@ import '../css/loginPage.css';
 import logo from '../images/Logo.png';
 import customCursorImage from '../images/corn_cursor.png'; 
 import customCursorHoverImage from '../images/corn_cursor_hover.png';
+import axios from 'axios'; // Import Axios
 
 function LoginPage({ userType }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const [cursorImage, setCursorImage] = useState(customCursorImage);
-
   const handleLogin = async () => {
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      const response = await axios.post('http://localhost:3001/api/login', { email, password });
+      const { success, data, message } = response.data;
 
-    const data = await response.json();
+      if (success) {
+        localStorage.setItem('token', data.token);
 
-    if (data.success) {
-      localStorage.setItem('token', data.data.token);
-      navigate('/loginlanding');
-    } else {
-      alert(data.message);
+        if (data.user_type === 'admin') {
+          navigate('/admin');
+        } else {
+          navigate('/loginlanding');
+        }
+      } else {
+        alert(message);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred while logging in.');
     }
   };
 
+
+  const [cursorImage, setCursorImage] = useState(customCursorImage);
 
   useEffect(() => {
     const updateCursor = (e) => {

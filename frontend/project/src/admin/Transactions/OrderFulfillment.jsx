@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Menu from './Menu';
 import OrderList from './OrderList';
-import '../css/OrderFulfillment.css';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
+import '../Styles/OrderFulfillment.css';
+import logo from '../../images/Logo.png';
+import userIcon from '../../images/user_icon.png';
 import { Link } from 'react-router-dom';
-import CustomCursor from './customCursor';
+import CustomCursor from '../../components/customCursor';
 
 const menus = [
   { name: "Pending", url: "#pending", id: 1 },

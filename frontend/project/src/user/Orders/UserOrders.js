@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Menu from './Menu';
+import Menu from '../../admin/Transactions/Menu';
 import UserOrdersList from './UserOrdersList';
-import { sampleOrders } from './SampleOrders';
-import '../css/user_orders.css';
+import { sampleOrders } from '../../components/SampleOrders';
+import '../Styles/user_orders.css';
 import { Link } from 'react-router-dom';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
-import CustomCursor from './customCursor';
+import logo from '../../images/Logo.png';
+import userIcon from '../../images/user_icon.png';
+import CustomCursor from '../../components/customCursor';
 
 
 

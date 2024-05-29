@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import UserCard from './UserCard';
-import '../css/UserList.css';
-import logo from '../images/Logo.png';
-import userIcon from '../images/user_icon.png';
+import '../Styles/UserList.css';
+import logo from '../../images/Logo.png';
+import userIcon from '../../images/user_icon.png';
 import { Link } from 'react-router-dom';
-import CustomCursor from './customCursor';
+import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
 
 const UserList = () => {

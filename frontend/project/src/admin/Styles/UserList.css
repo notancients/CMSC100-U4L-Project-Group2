@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
 .user-list-page {
-    background-image: url('../images/admin_pf_bg.png');
+    background-image: url('../../images/admin_pf_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
