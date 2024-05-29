@@ -15,7 +15,7 @@ async function addProductToCart({user_id, product_id, quantity}) {
                 "cart" : [
                     {
                         "product_id" : product_id,
-                        "quantity" : quantity
+                        "product_quantity" : quantity
                     }
                 ]
             });
@@ -25,7 +25,7 @@ async function addProductToCart({user_id, product_id, quantity}) {
             if (productIndex !== -1) { // when the product exists in the cart
                 shoppingcart.cart[productIndex].quantity += quantity;
             } else { // if the product doesn't exist in the cart yet
-                shoppingcart.cart.push({"product_id": product_id, "quantity": quantity});
+                shoppingcart.cart.push({"product_id": product_id, "product_quantity": quantity});
             }
         }
         

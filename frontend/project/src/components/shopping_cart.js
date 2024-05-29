@@ -22,7 +22,7 @@ function ShoppingCart({cart, setCart}) {
     }
 
     fetch_data();
-}, []);
+  }, []);
 
   const handleRemove = (item) => {
     const removeItem = cart.filter((remItem) => remItem._id !== item._id);

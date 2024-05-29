@@ -33,23 +33,10 @@ function UserProductsPage({ cart, setCart }) {
     const handleAddToCart = async (productToAdd) => {
         console.log("First handle Add to Cart");
         const existingItem = cart.find(item => item._id === productToAdd._id);
-        console.log(productToAdd);
 
         if (existingItem) {
             const updatedCart = cart.map( async (item) => {
                 if (item._id === productToAdd._id) {
-                    try {
-                        console.log("Adding product to cart database.");
-                        const response = await axios.post('http://localhost:3001/api/add-to-cart', {
-                          user_id : "66443306653ccde666260bfb",
-                            product_id : item._id,
-                            quantity : item.quantity + 1
-                        });
-                        console.log(response);
-                        
-                      } catch (err) {
-                        console.log(err);
-                      }
                     return { ...item, quantity: item.quantity + 1 };
                 } else {
                     return item;
@@ -58,19 +45,20 @@ function UserProductsPage({ cart, setCart }) {
             setCart(updatedCart);
         } else {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
-            try {
-                console.log("Adding product to cart database.");
-                const response = await axios.post('http://localhost:3001/api/add-to-cart', {
-                  user_id : "66443306653ccde666260bfb",
-                    product_id : productToAdd._id,
-                    quantity : productToAdd.quantity
-                });
-                console.log(response);
-                
-              } catch (err) {
-                console.log(err);
-              }
         }
+
+        try {
+            console.log("Adding product to cart database.");
+            const response = await axios.post('http://localhost:3001/api/add-to-cart', {
+              "user_id" : "66443306653ccde666260bfb",
+                "product_id" : productToAdd._id,
+                "quantity" : productToAdd.quantity
+            });
+            console.log(response);
+            
+          } catch (err) {
+            console.log(err);
+          }
     
         setNotification({ message: `${productToAdd.product_name} added to cart!`, visible: true });
     
