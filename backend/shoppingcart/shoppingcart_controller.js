@@ -1,36 +1,54 @@
 import ShoppingCart from "./shoppingcart_model.js";
+import ProductModel from "../product/product_model.js";
 import OrderTransaction from "../order_transaction/order_transaction_model.js";
+import mongoose from "mongoose";
 
 
 async function addProductToCart({user_id, product_id, quantity}) {
     console.log("Adding products to a user's cart.");
 
     let shoppingcart;
+    let add_to_cart_result;
     try {
         shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
 
         if (!shoppingcart) {
+            console.log("User doesn't have a shopping cart yet. Creating a shopping cart.");
             shoppingcart = await ShoppingCart.create({
                 "user_id" : user_id,
-                "cart" : [
-                    {
-                        "product_id" : product_id,
-                        "product_quantity" : quantity
-                    }
-                ]
+                "cart" : []
             });
-        } else { // This is for when the shopping cart exists
-            const productIndex = shoppingcart.cart.findIndex((item) => item.product_id === product_id);
-            
-            if (productIndex !== -1) { // when the product exists in the cart
-                shoppingcart.cart[productIndex].quantity += quantity;
-            } else { // if the product doesn't exist in the cart yet
-                shoppingcart.cart.push({"product_id": product_id, "product_quantity": quantity});
-            }
         }
-        
-        // save the local changes to the database
-        shoppingcart.save();
+
+        // console.log("Shopping cart:", shoppingcart);
+
+        let productIndex = shoppingcart["cart"].length == 0 ? -1 : null;
+
+        shoppingcart["cart"].forEach( (element, index) => {
+            if (element["product_id"] == product_id) {
+                productIndex = index;
+                return;
+            }
+            productIndex = -1;
+            return;
+        });
+
+        // console.log("Product index:", productIndex);
+
+        if (productIndex === -1) { // if it doesnt exist
+            console.log("Product does not exist in cart.");
+            const response = await ShoppingCart.findOneAndUpdate(
+                { "user_id": user_id }, // matching criteria
+                { $addToSet: { cart: { "product_id": product_id, "product_quantity": quantity } } },
+                { upsert: true }
+            )
+        } else { // if it exists
+            // console.log(shoppingcart.cart[productIndex]);
+            shoppingcart.cart[productIndex]["product_quantity"] += quantity;
+            shoppingcart.save();
+        }
+
+        shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
 
         return {
             "success" : true,
@@ -53,10 +71,51 @@ async function getAllProductsInCart({user_id}) {
 
     try {
         const user_shoppingcart = await ShoppingCart.find({ "user_id":user_id });
+        let cart = user_shoppingcart[0].cart;
+
+        // console.log(user_shoppingcart);
+        let modified_cart = [];
+
+        // console.log(cart);
+        modified_cart =  await Promise.all(
+            cart.map(async (product) => {
+                try {
+                    let product_details = await ProductModel.findOne({ _id: product["product_id"] });
+                    // console.log(product_details);
+                    let {product_quantity} = product;
+                    let {product_image, price, product_name} = product_details;
+                    // console.log(product_image, price, product_name, product_quantity);
+        
+                    let new_product = {
+                        "product_id": product_details["_id"],
+                        "product_image": product_image, 
+                        "price": price, 
+                        "product_name": product_name, 
+                        "product_quantity":product_quantity
+                    }
+        
+                    // console.log(new_product);
+        
+                    return(new_product);
+                } catch (err) {
+                    console.log(["There was an error", err]);
+                }
+            })
+        );
+
+        // for(var element in cart) {
+        //     console.log(cart[element]);
+        //     let product = cart[element];
+        //     let product_details = await ProductModel.findOne({ _id: product["product_id"] });
+        //     // console.log("DETAILS: ", product_details);
+        // }
+
+        // console.log(modified_cart);
+
 
         return {
             "success": true,
-            "data": user_shoppingcart,
+            "data": modified_cart,
             "message": "Successfully retrieved a user's shopping cart."
         };
 

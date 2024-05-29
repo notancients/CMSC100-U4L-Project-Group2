@@ -51,15 +51,15 @@ function UserProductsPage({ cart, setCart }) {
         try {
             console.log("Adding product to cart database.");
             const response = await axios.post('http://localhost:3001/api/add-to-cart', {
-              "user_id" : "66443306653ccde666260bfb",
+                "user_id" : "66443306653ccde666260bfb",
                 "product_id" : productToAdd._id,
                 "quantity" : 1
             });
             console.log(response);
             
-          } catch (err) {
+        } catch (err) {
             console.log(err);
-          }
+        }
     
         setNotification({ message: `${productToAdd.product_name} added to cart!`, visible: true });
     
@@ -119,11 +119,11 @@ function UserProductsPage({ cart, setCart }) {
         <div className="user-products-page">
             <CustomCursor />
             {notification.visible && (
-           <div className="notification">
-           <i className="fas fa-check notification-icon"></i>
-           <span className="notification-message">{notification.message}</span>
-       </div>
-       
+            <div className="notification">
+            <i className="fas fa-check notification-icon"></i>
+            <span className="notification-message">{notification.message}</span>
+        </div>
+        
         
         )}
             <div className="logo">
@@ -141,7 +141,7 @@ function UserProductsPage({ cart, setCart }) {
                 </Link>
             </div>
             <div className="title-container">
-              <h1>Our Products</h1>
+                <h1>Our Products</h1>
             </div>
             <div className="sort-and-filter-container">
                 <div className="sort-by-group">
