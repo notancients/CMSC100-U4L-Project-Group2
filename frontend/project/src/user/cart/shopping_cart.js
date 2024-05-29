@@ -53,6 +53,8 @@ const handleRemove = async (item) => {
 
 
 
+
+
   const handleCheckOut = () => {
     console.log("Checking out all selected items");
     console.log(selectedItems);
@@ -81,11 +83,11 @@ const handleRemove = async (item) => {
 
   };
   const computeTotalCartQuantity = () => {
-    return cart.reduce((total, item) => total + item.quantity, 0);
+    return cart.reduce((total, item) => total + item.product_quantity, 0);
 };
 
 const computeTotalPrice = () => {
-  return selectedItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  return selectedItems.reduce((total, item) => total + (item.price * item.product_quantity), 0);
 };
 
 
