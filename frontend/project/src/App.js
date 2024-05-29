@@ -39,8 +39,8 @@ function App() {
         <Route path="/userList" element={<UserList />} />
         <Route path="/sales" element={<SalesPage />} />
         <Route path="/sales/:id/weekly" element={<WeeklySales />} />
-          <Route path="/sales/:id/monthly" element={<MonthlySales />} />
-          <Route path="/sales/:id/annual" element={<AnnualSales />} />
+        <Route path="/sales/:id/monthly" element={<MonthlySales />} />
+        <Route path="/sales/:id/annual" element={<AnnualSales />} />
       </Routes>
     </Router>
   );
