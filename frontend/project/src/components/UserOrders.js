@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import Menu from './Menu';
 import UserOrdersList from './UserOrdersList';
-import { sampleOrders } from './SampleOrders';
 import '../css/user_orders.css';
 import { Link } from 'react-router-dom';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
 import CustomCursor from './customCursor';
-
+import axios from "axios";
 
 
 const menus = [
@@ -17,12 +16,40 @@ const menus = [
 ];
 
 function UserOrdersPage({ cart}) {
-  const [orders, setOrders] = useState(sampleOrders);
+  const [orders, setOrders] = useState([]);
   const [currentTab, setCurrentTab] = useState(1);
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
+//   useEffect( () => {
+//     const fetch_data = async () => {
+//         try {
+//             const response = await axios.get("http://192.168.1.116:3001/api/get-all-user-transactions");
+//             console.log(response.data.data);
+//             setOrders(response.data.data);
+//         } catch (err) {
+//             console.log(err);
+//             setOrders([]);
+//         }
+//     }
+
+//     fetch_data();
+// }, []);
+
 
   const handleCancel = (transactionId) => {
+    // try {
+    //   const response = axios.patch('http://192.168.1.116:3001/api/user-cancel-order', {
+    //     order_id : transactionId
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    // } catch (err) {
+    //   console.log(err);
+    // }
     setOrders(prevOrders =>
       prevOrders.map(order =>
         order.transactionId === transactionId ? { ...order, orderStatus: "Cancelled" } : order

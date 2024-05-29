@@ -1,30 +1,57 @@
-import React, { useState } from 'react';
-import UserProductsPage from './user_products';
+import React, { useState, useEffect } from 'react';
 import '../css/shoppingCart.css';
 import { Link } from 'react-router-dom';
 import logo from '../images/Logo.png';
 import userIcon from '../images/user_icon.png';
 import CustomCursor from './customCursor';
+import axios from "axios";
 
-
-
-
-function ShoppingCart({ cart, setCart }) {
+function ShoppingCart({cart, setCart}) {
   const [selectedItems, setSelectedItems] = useState([]);
 
+  useEffect( () => {
+    const fetch_data = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/api/get-all-products-in-cart");
+            console.log(response.data.data);
+            setCart(response.data.data);
+        } catch (err) {
+            console.log(err);
+            setCart([]);
+        }
+    }
+
+    fetch_data();
+  }, []);
+
   const handleRemove = (item) => {
-    const removeItem = cart.filter((remItem) => remItem.productId !== item.productId);
+    const removeItem = cart.filter((remItem) => remItem._id !== item._id);
     setCart(removeItem);
-    setSelectedItems(selectedItems.filter((selItem) => selItem.productId !== item.productId));
+    setSelectedItems(selectedItems.filter((selItem) => selItem._id !== item._id));
   };
 
-  const handleCheckOut = () => {
+  const handleCheckOut = async () => {
+    const selectedItems = cart.filter((item) => selectedItems.includes(item));
+    // try {
+    //   const response = axios.post('http://192.168.1.116:3001/api/checkout', {
+    //     user_id : "66443306653ccde666260bfb",
+    //       products : 
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+    // } catch (err) {
+    //   console.log(err);
+    // }
     console.log("Checking out all selected items");
   };
 
   const handleCheckboxChange = (item) => {
     if (selectedItems.includes(item)) {
-      setSelectedItems(selectedItems.filter((selItem) => selItem.productId !== item.productId));
+      setSelectedItems(selectedItems.filter((selItem) => selItem._id !== item._id));
     } else {
       setSelectedItems([...selectedItems, item]);
     }
@@ -61,19 +88,19 @@ const computeTotalPrice = () => {
       </div>
       <div className="item-list">
         {cart.map((item) => (
-          <div key={item.productId} className="cart-item">
+          <div key={item._id} className="cart-item">
             <input
               type="checkbox"
               className="checkbox"
-              id={`checkbox-${item.productId}`}
+              id={`checkbox-${item._id}`}
               checked={selectedItems.includes(item)}
               onChange={() => handleCheckboxChange(item)}
             />
-            <label htmlFor={`checkbox-${item.productId}`} className="checkbox-label"></label>
+            <label htmlFor={`checkbox-${item._id}`} className="checkbox-label"></label>
             <div className='justify1'>
-              <img className= "prod-img" src={item.img} alt={item.productName}/>
+              <img className= "prod-img" src={item.img} alt={item.product_name}/>
               <div className='name-qty'>
-              <p className="itemname">{item.productName}</p>
+              <p className="itemname">{item.product_name}</p>
               <p className='qty'>Quantity: {item.quantity}</p>
               </div>
             </div>
