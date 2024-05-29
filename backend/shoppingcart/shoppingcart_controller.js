@@ -1,4 +1,5 @@
 import ShoppingCart from "./shoppingcart_model.js";
+import ProductModel from "../product/product_model.js";
 import OrderTransaction from "../order_transaction/order_transaction_model.js";
 
 
@@ -53,10 +54,41 @@ async function getAllProductsInCart({user_id}) {
 
     try {
         const user_shoppingcart = await ShoppingCart.find({ "user_id":user_id });
+        let cart = user_shoppingcart[0].cart;
+        
+        let modified_cart =  await Promise.all(
+            cart.map(async (product) => {
+                let product_details = await ProductModel.findOne({ _id: product["product_id"] });
+    
+                let {product_quantity} = product;
+                let {product_image, price, product_name} = product_details["_doc"];
+                // console.log(product_image, price, product_name, product_quantity);
+    
+                let new_product = {
+                    "product_image": product_image, 
+                    "price": price, 
+                    "product_name": product_name, 
+                    "product_quantity":product_quantity
+                }
+    
+                console.log(new_product);
+                
+                return(new_product);
+            })
+        );
+
+
+        console.log(modified_cart);
+        // user_shoppingcart.cart = user_shoppingcart.cart.map( async (product) => {
+        //     let details = await ProductModel.findOne({ _id: product["product_id"] });
+        //     console.log("PRODUCT IN CART:" , product);
+        //     // product["price"] = details.price;
+        //     // product["product_name"] = details.product_name;
+        // })
 
         return {
             "success": true,
-            "data": user_shoppingcart,
+            "data": modified_cart,
             "message": "Successfully retrieved a user's shopping cart."
         };
 
