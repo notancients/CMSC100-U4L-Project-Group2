@@ -1,5 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
+import logoutbutton from '../images/logout.png';
+
 
 function LogoutPrompt() {
     const navigate = useNavigate();
@@ -16,14 +18,14 @@ function LogoutPrompt() {
         navigate("/");
     }
 
-
     return (
         <div>
-            <buttton id="logoutButton" onClick={logout}>Logout</buttton>
+            <img id="logoutButton" src={logoutbutton} alt="Logout" onClick={logout} style={{ width: '32px', height: '35px', marginTop: '11px' }} />
         </div>
-    )
+        
+    );
 }
 
 export {
     LogoutPrompt
-}
+};

@@ -10,6 +10,8 @@ import img2 from '../../images/img2.jpg';
 import img3 from '../../images/img3.jpg';
 import img4 from '../../images/img4.jpg';
 import img5 from '../../images/img5.jpg';
+import { LogoutPrompt } from '../../frontend_network/authentication';
+
 
 
 function UserLandingPage({ cart}) {
@@ -78,10 +80,11 @@ function UserLandingPage({ cart}) {
       <Link to="/userorders" className="nav-link">ORDERS</Link>
       <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
       <Link to="/cart" className="nav-link">CART ({cartItemCount})</Link>
-      <Link to="/about" className="nav-link">ABOUT US</Link>
       <Link to="/user-profile" className="user-profile">
         <img src={userIcon} alt="User icon" className="user-icon" />
       </Link>
+      <LogoutPrompt/>
+
     </div>
     <div className='userlp-images'>
       <img src = {img1} alt="" className='img1'/>

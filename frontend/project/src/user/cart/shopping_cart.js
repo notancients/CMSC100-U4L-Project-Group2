@@ -5,6 +5,8 @@ import logo from '../../images/Logo.png';
 import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
+import { LogoutPrompt } from '../../frontend_network/authentication';
+
 
 const SERVER = "localhost:3001"
 
@@ -172,10 +174,11 @@ const computeTotalPrice = () => {
       <Link to="/userorders" className="nav-link">ORDERS</Link>
         <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
         <Link to="/cart" className="nav-link">CART ({computeTotalCartQuantity()})</Link>
-        <Link to="/about-us" className="nav-link">ABOUT US</Link>
         <Link to="/profile" className="user-profile">
           <img src={userIcon} alt="User icon" className="user-icon" />
         </Link>
+        <LogoutPrompt/>
+
       </div>
       <div className="title-container">
         <h1>Shopping Cart</h1>

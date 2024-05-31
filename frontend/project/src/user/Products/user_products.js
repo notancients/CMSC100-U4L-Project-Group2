@@ -156,7 +156,6 @@ function UserProductsPage({ cart, setCart }) {
                 <Link to="/userorders" className="nav-link">ORDERS</Link>
                 <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
                 <Link to="/cart" className="nav-link">CART ({computeTotalCartQuantity()})</Link>
-                <Link to="/about-us" className="nav-link">ABOUT US</Link>
                 <Link to="/profile" className="user-profile">
                     <img src={userIcon} alt="Icon" className="user-icon"/>
                 </Link>

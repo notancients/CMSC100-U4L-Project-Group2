@@ -7,6 +7,8 @@ import '../Styles/user_orders.css';
 import logo from '../../images/Logo.png';
 import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
+import { LogoutPrompt } from '../../frontend_network/authentication';
+
 
 const menus = [
   { name: "Pending", url: "#pending", id: 1 },
@@ -75,10 +77,11 @@ function UserOrdersPage({ cart }) {
         <Link to="/userorders" className="nav-link">ORDERS</Link>
         <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
         <Link to="/cart" className="nav-link">CART ({cartItemCount})</Link>
-        <Link to="/about" className="nav-link">ABOUT US</Link>
         <Link to="/user-profile" className="user-profile">
           <img src={userIcon} alt="User icon" className="user-icon" />
         </Link>
+        <LogoutPrompt/>
+
       </div>
       <div className="title-container">
         <h1>Your Orders</h1>

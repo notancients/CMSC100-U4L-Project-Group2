@@ -190,3 +190,8 @@
 .notification-message {
     flex: 1;
 }
+
+fas fa-sign-out-alt{
+    background-color: aquamarine;
+    width: 140px;
+}
