@@ -73,6 +73,10 @@ const handleRemove = async (item) => {
         "products": {}
       };
 
+      if(selectedItems.length === 0) {
+        alert("You don't have any products in your cart to checkout.");
+        return;
+      }
       console.log(selectedItems);
 
       // prepare the request body
@@ -99,6 +103,22 @@ const handleRemove = async (item) => {
 
       // handle the deletion of all items in the shopping cart that has been selected if
       // the response succeeds
+      if(response.data.success == true) {
+        alert("Successfully checked out your products.");
+        console.log("Successful checkout. Clearing all selected items.");
+
+        let updated_cart = cart.filter( (item) => {
+          if(products_to_checkout[item.product_id] == null) {
+            return item;
+          }
+        });
+
+        console.log(updated_cart);
+        setCart(updated_cart);
+        setSelectedItems([]);
+      }
+
+
 
     } catch (err) {
       alert("There was an error with checking out your products.");
