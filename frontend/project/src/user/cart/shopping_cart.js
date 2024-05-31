@@ -5,11 +5,14 @@ import logo from '../../images/Logo.png';
 import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
+import CheckoutModal from './CheckoutModal';
 
 function ShoppingCart({ }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [cart, setCart] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   let user_id = localStorage.getItem("user_id");
+
 
   console.log(user_id);
   useEffect( () => {
@@ -52,13 +55,35 @@ const handleRemove = async (item) => {
 };
 
 
+const handleCheckOut = () => {
+  console.log("Checking out all selected items");
+  console.log(selectedItems);
+  setIsModalOpen(true);
+};
+ const handleConfirmCheckout = async () => {
+    const selectedProductIds = selectedItems.map(item => item.product_id);
+    const selectedProductQuantities = selectedItems.reduce((acc, item) => {
+      acc[item.product_id] = item.product_quantity;
+      return acc;
+    }, {});
 
-
-
-  const handleCheckOut = () => {
-    console.log("Checking out all selected items");
-    console.log(selectedItems);
+    try {
+      const response = await axios.post('http://localhost:3001/api/checkout', {
+        user_id,
+        products: selectedProductQuantities
+      });
+      if (response.data.success) {
+        // Clear the selected items and cart
+        setSelectedItems([]);
+        setCart(cart.filter(item => !selectedProductIds.includes(item.product_id)));
+        setIsModalOpen(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
+
+
 
   const handleCheckboxChange = (item) => {
     console.log("Adding to selected items: ", item);
@@ -67,19 +92,6 @@ const handleRemove = async (item) => {
     } else {
       setSelectedItems([...selectedItems, item]);
     }
-    // console.log(selectedItems);
-    // let addFlag = true;
-    // let updatedList = selectedItems.map( (checked_item) => {
-    //   if (item.product_id != checked_item.product_id) {
-    //     return (checked_item);
-    //   } else if (item.product_id == checked_item.product_id) {
-    //     addFlag = false;
-    //   };
-
-    //   if(addFlag) updatedList.push(item);
-
-    //   setSelectedItems(updatedList);
-    // });
 
   };
   const computeTotalCartQuantity = () => {
@@ -150,6 +162,12 @@ const computeTotalPrice = () => {
           <button className='checkout' onClick={handleCheckOut}>Check Out</button>
         </div>
       </div>
+      <CheckoutModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleConfirmCheckout}
+        totalPrice={computeTotalPrice()}
+      />
     </div>
   );
 }
