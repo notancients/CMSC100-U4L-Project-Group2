@@ -21,7 +21,7 @@ async function getAllUserTransactionAPI(req, res) {
 async function adminGetAllTransactionAPI(req, res) {
     console.log("Get all (admin) user transaction API has been called.");
 
-    const adminGetAllTransaction_result = await adminGetAllTransaction(req.query);
+    const adminGetAllTransaction_result = await adminGetAllTransaction();
 
     if(adminGetAllTransaction_result.success) {
         res.status(200).json(adminGetAllTransaction_result);
