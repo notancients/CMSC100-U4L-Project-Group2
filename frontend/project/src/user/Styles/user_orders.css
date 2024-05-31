@@ -14,76 +14,86 @@
     align-items: center;
     overflow-y: auto;
     cursor: none;
+
 }
 
-.user-order-list{
-   display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
-    margin-left: 230px;
-    margin-right: 230px;
-}
-.order-info p {
-  flex-grow: 1;
-  font-weight: 300;
-  margin-left: 30px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  width: 200px;
+.user-order-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .user-order-card {
-  background-color: #939d6a4f;
-  backdrop-filter: blur(7px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.4);
-  border-radius: 150px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  padding: 15px;
-  display: flex;
-  align-items:center;
-  color: #E5F2AD;
-  font-weight: 100;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  font-family: Montserrat;
-  gap: 50px;
-
+    background-color: #939d6a4f;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 90%;
+    max-width: 600px;
+    color: #E5F2AD;
+    font-weight: 100;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .user-order-card:hover {
-  background-color: #e5f2ad52;
-  transform: scale(1.05); 
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1); 
+    background-color: #e5f2ad52;
+    transform: scale(1.05); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.order-info {
+    width: 100%;
+}
+
+.order-info div {
+    margin-bottom: 10px;
 }
 
 .user-action-button {
-  display: flex;
-  flex-direction: column; 
-  gap: 10px;
-  align-items: center;
-  justify-content: center; 
-  border-radius: 70px;
-  border: none;
-  font-family: Montserrat;
-  font-weight: 600;
-  color:#f2fb9d;
-  height: 70px;
-  width: 70px;
-  text-transform: uppercase;
-  background-color: #1f2603c6;
-  font-size: 12px;
-
-
+    border-radius: 20px;
+    border: none;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    color: #f2fb9d;
+    height: 40px;
+    width: 100px;
+    text-transform: uppercase;
+    background-color: #1f2603c6;
+    font-size: 12px;
+    margin-top: 10px;
+    align-self: flex-end;
 }
 
 .user-action-button:hover {
-  cursor: none;
-  background-color: #D4E157;
-  color:#1F2603;
+    cursor: pointer;
+    background-color: #D4E157;
+    color: #1F2603;
+}
 
+.order-details {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.show-button button{
+  padding: 8px 17px;
+  border: none;
+  border-radius: 20px;
+  cursor: none;
+  background-color: #34391d;
+  color: #E5F2AD;
+  font-family: Montserrat;
+  font-weight: 800;
 
 }
 
