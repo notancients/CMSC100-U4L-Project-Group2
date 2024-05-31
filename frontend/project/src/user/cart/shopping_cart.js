@@ -6,12 +6,21 @@ import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
 
+const SERVER = "localhost:3001"
+
+let HEADER = {
+  headers: {
+    'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+  
+
 function ShoppingCart({ }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [cart, setCart] = useState([]);
   let user_id = localStorage.getItem("user_id");
 
-  console.log(user_id);
+  // console.log(user_id);
   useEffect( () => {
     console.log("Fetching cart data.");
     const fetch_data = async () => {
@@ -55,9 +64,48 @@ const handleRemove = async (item) => {
 
 
 
-  const handleCheckOut = () => {
+  const handleCheckOut = async () => {
     console.log("Checking out all selected items");
-    console.log(selectedItems);
+    try {
+      const API_ADDRESS = `http://${SERVER}/api/checkout`;
+      let request_body = {
+        "user_id": localStorage.getItem("user_id"),
+        "products": {}
+      };
+
+      console.log(selectedItems);
+
+      // prepare the request body
+      let products_to_checkout = {};
+      selectedItems.forEach( (item) => {
+        let product_id_as_key = item.product_id;
+        let product_quantity_as_value = item.product_quantity;
+
+        products_to_checkout[product_id_as_key] = product_quantity_as_value;
+      } );
+      
+      request_body["products"] = {...products_to_checkout};
+      console.log(request_body);
+
+      // send the request to the server
+      let response = await axios.post(
+        API_ADDRESS,
+        request_body,
+        HEADER
+      );
+
+      console.log(response);
+
+
+      // handle the deletion of all items in the shopping cart that has been selected if
+      // the response succeeds
+
+    } catch (err) {
+      alert("There was an error with checking out your products.");
+      console.log(["Checkout error", err]);
+    }
+
+
   };
 
   const handleCheckboxChange = (item) => {
