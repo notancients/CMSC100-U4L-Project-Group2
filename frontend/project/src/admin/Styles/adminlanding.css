@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.admin-page {
+    background-image: url('../../images/adminlp_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    overflow: hidden; 
+    cursor: none;
+
+}
+  .logo {
+    position: absolute; 
+    top: 2px;;
+    left: 10px; 
+  }
+  .logo img {
+    width: 350px; 
+  height: auto;
+  }
+
+  .text-center {
+    color: #E5F2AD;
+    font-size: 13px;
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+    z-index: 2;
+    cursor: none;
+
+  }
+
+  
+  .menu1, .menu2{
+  display: flex;
+  flex-direction: column;
+  cursor: none;
+}
+
+.product-listing{
+  cursor: none;
+
+}
+
+.menu1 img{
+    margin-left: 600px;
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+   
+}
+
+.menu1 img:hover{
+    box-shadow: 0 0 10px #E5F2AD; 
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.08);
+
+}
+
+
+.menu2 img{
+    width: 200px;
+    margin-bottom: 20px;
+    cursor: none;
+
+}
+
+.menu2 img:hover{
+    box-shadow: 0 0 10px #E5F2AD; 
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.08);
+    cursor: none;
+}
+  .listing{
+    width: 80%;
+    margin-top: 100px;
+    cursor: none;
+
+  }
+  .pending{
+    width: 80%;
+    margin-top: 20px;
+    cursor: none;
+
+  }
+
+  .sales, .accounts{
+    cursor: none;
+  }
+
+  

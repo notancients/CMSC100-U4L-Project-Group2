@@ -1,0 +1,70 @@
+.what-we-do-page {
+    background-image: url('../images/admin_pf_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .activities {
+    margin-top: 20px;
+    color: #E5F2AD;
+    font-size: 15px;
+    padding-right: 60px;
+  }
+  
+  .activities h3 {
+    margin-top: 30px;
+    color: #E5F2AD;
+    background-color: #0a2e0d;
+    padding: 5px 10px; 
+    display: inline-block; 
+    border-radius: 20px;
+  }
+  
+  .activities p {
+    margin-bottom: 20px;
+    color: #E5F2AD;
+    padding-left: 40px;
+  }
+  
+  .content-container-whatwd p {
+    margin-bottom: 20px;
+    color: #E5F2AD;
+    text-align: center; /* Added to center-align text */
+  }
+  
+  .content-container-whatwd {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 120px;
+    margin-right: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 120px); /* Adjust the height as needed */
+    overflow-y: auto;
+  }
+  
+  .statement {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Adjusted to center-align items */
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  .prof-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #E5F2AD;
+    margin-top: 80px;
+  }
+  

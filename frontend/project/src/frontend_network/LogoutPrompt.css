@@ -1,0 +1,7 @@
+.logout-icon {
+    background-color: transparent; /* or background-color: inherit; */
+}
+fas fa-sign-out-alt{
+    background-color: rgb(0, 105, 70);
+    width: 140px;
+}

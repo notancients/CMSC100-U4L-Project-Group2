@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+.product-listing-page {
+    background-image: url('../../images/admin_pf_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    cursor: none;
+}
+
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto; 
+    max-height: calc(100vh - 160px);
+    padding-top: 20px; 
+} 
+
+.sort-and-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding-top: 70px;
+    cursor: none;
+
+}
+
+
+.sort-by-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: none;
+
+}
+
+.type-filter{
+    margin-right: 95px;
+    color: #E5F2AD;
+    font-size: 14px;
+    font-family: Montserrat;
+    background: none; 
+    border: none; 
+    outline: none; 
+    cursor: none;
+
+}
+
+.custom-dropdown {
+    margin-left: 10px;
+    appearance: none; 
+    padding: 8px 10px; 
+    border-radius: 5px; 
+    background-color:  #E5F2AD; 
+    font-size: 14px; 
+    color: #5A5302;
+    border: none;
+    font-family: Montserrat;
+    font-weight: 700;
+    cursor: none;
+
+}
+
+.custom-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent; 
+    border-right: 6px solid transparent; 
+    border-bottom: 6px solid #5A5302; 
+}
+
+select.custom-dropdown::after {
+    margin-top: -3px; 
+}
+
+
+.custom-dropdown option {
+    padding: 8px 10px; 
+    font-size: 14px; 
+    background-color: #E5F2AD; 
+    color: #5A5302;
+    font-family: Montserrat;
+}
+
+.sort {
+    padding-left: 80px;
+    color: #E5F2AD;
+    font-size: 14px;
+    font-family: Montserrat;
+    background: none; 
+    border: none; 
+    outline: none; 
+    cursor: none;
+    transition: all 0.3s ease;
+}
+
+.sort:hover{
+    color:aliceblue
+
+}
+
+
+.item {
+    margin: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.137);
+    backdrop-filter: blur(7px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.product-img {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    object-fit:cover; 
+    border-radius: 10px;
+
+}
+
+.product-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: all 0.3s ease; 
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.25); 
+    transform: scale(1.05); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+.content {
+    flex: 1;
+}
+
+.name {
+    margin-top: 8px;
+    color: #E5F2AD;
+    font-size: 18px;
+    opacity: 1;
+    font-family: Montserrat;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1;
+  }
+
+.desc {
+    margin-top: 0px;
+    padding: 0px;
+    color: #E5F2AD;
+    font-size: 13px;
+    font-family: Montserrat;
+    font-weight: 150;
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+.price {
+    display: flex;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: #E5F2AD;
+    color: #5A5302;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: Montserrat;
+    width: 90px;
+    margin-right: 40px;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.stock {
+    display: flex;
+    align-items: center;
+    cursor: none;
+
+}
+
+.stock-controls {
+    border: 1px solid #E5F2AD; 
+    border-radius: 20px; 
+    padding: 5px; 
+    display: flex;
+    align-items: center;
+    cursor: none;
+
+}
+
+.quantity {
+    margin: 0 10px; 
+    color: #E5F2AD;
+}
+
+.stock-upd {
+    display: flex;
+    justify-content: center;
+    background-color: #E5F2AD;
+    color: #5A5302;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: Montserrat;
+    height: 20px;
+    width: 20px; 
+    margin: 0 5px; 
+    padding: 0; 
+    cursor: none;
+}
+
+.stock-upd:hover{
+    background-color: #5A5302;;
+    color: #E5F2AD;
+
+}
+

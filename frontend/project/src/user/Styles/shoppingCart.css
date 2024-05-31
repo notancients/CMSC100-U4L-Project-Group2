@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+.shopping-cart-page {
+  background-image: url('../../images/user_bg.png');
+  background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    cursor: none;
+}
+
+.item-list {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding-top: 10px;
+  height: 400px;
+
+}
+
+.cart-item:hover{
+  background-color: #e5f2ad52;
+  transform: scale(1.05); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.cart-item {
+  margin: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  width: 610px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  background-color: #939d6a4f;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.justify1{
+  border: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content:flex-start;
+  width: 350px; 
+  margin-bottom: 0px;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  align-items: center;
+
+
+}
+
+.buttons button{
+  display: flex;
+  flex-direction: row;
+  padding: 10;
+  background-color: transparent;
+  border:none;
+}
+.remove {
+  font-size: 30px;
+  color: #D1E599;
+  cursor: none;
+
+}
+
+.buy {
+
+}
+
+.remove:before {
+  margin-right: 5px;
+}
+
+.remove:hover {
+  color:#121506
+}
+
+.prod-img {
+  width: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  object-fit:cover;
+}
+
+.prod-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.name-qty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  width: 180px;
+  margin-top: 10px;
+}
+
+.itemname {
+  color: #E5F2AD;
+  font-size: 23px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  margin-top: 0;
+
+}
+
+.qty {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0px;
+  color: #E5F2AD;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+
+.itemprice {
+  color: #E5F2AD;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0px;
+
+}
+
+.title-container {
+  margin-bottom: 20px;
+}
+
+.price-deliv{
+  margin-right: 30px;
+}
+
+.deliv{
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 5px;
+  background-color:#1f2603a9;
+  border: 0.3px#E5F2AD solid;
+  border-radius: 30px;
+  padding: 8px;
+  color: #D1E599;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+
+.total-checkout-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%; 
+  padding-right: 120px; 
+  box-sizing: border-box;
+  position: fixed;
+  top: 90%;
+  cursor: none;
+
+ }
+
+
+.total-checkout {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #E5F2AD;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.checkout {
+  padding: 10px 20px; 
+  background-color: #96a851;
+  border: none;
+  border-radius: 30px;
+  cursor: none;
+  color:#E5F2AD;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+
+}
+
+.checkout button {
+  padding: 0px;
+}
+
+.checkout:hover{
+  background-color: #1f2603;
+}
+
+.total-p{
+  font-weight: 500;
+
+}
+
+
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: none;
+  justify-content: left;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: none;
+  position: relative;
+  user-select: none;
+  margin-top: 29px;
+  margin-right: 30px;
+
+}
+
+.checkbox-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #D1E599;
+  border-radius: 5px; 
+  background-color: #1f260354;
+}
+
+.checkbox:checked + .checkbox-label::before {
+  background-color: #1f2603ee;
+  border-color: #96a851;
+}
+
+.checkbox-label::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #E5F2AD;
+  border-width: 0 3px 3px 0;
+  opacity: 0;
+  transform: rotate(45deg);
+}
+
+.checkbox:checked + .checkbox-label::after {
+  opacity: 1;
+}
+
+
+.modal-co {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content-co {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content-co h2 {
+  color: #1f2603ee;
+  font-weight:900;
+
+}
+
+.modal-buttons-co {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-button-co {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1f2603ee;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-button-co:hover {
+  background-color: #D1E599;
+  color: #1f2603ee;
+
+}
+
