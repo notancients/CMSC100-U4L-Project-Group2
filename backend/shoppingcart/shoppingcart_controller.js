@@ -119,25 +119,36 @@ async function checkout({user_id, products}) {
     console.log("Confirming prodcuts in user's cart.");
 
     try {
-        const user_shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
-        console.log(user_shoppingcart)
-        let cart = user_shoppingcart.cart;
-        cart = cart.map( (element) => {
-            // reduce the product's quantity if
-            element.quantity -= (products[element.product_id] ? products[element.product_id] : 0);
-            return element;
-        });
+        // const user_shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
+        // console.log(user_shoppingcart)
+        // let cart = user_shoppingcart.cart;
+        // cart = cart.map( (element) => {
+        //     // reduce the product's quantity if
+        //     element.quantity -= (products[element.product_id] ? products[element.product_id] : 0);
+        //     return element;
+        // });
 
-        // update the shoppping cart with the new modified cart
-        user_shoppingcart.cart = cart;
 
-        // send the changes to the database
-        await user_shoppingcart.save();
+        let products_to_delete = Object.keys(products);
+        const delete_from_user_cart = await ShoppingCart.updateOne(
+            {"user_id": user_id},
+            { $pull: {
+                cart : { product_id: { $in: products_to_delete } }
+            } }
+        )
+
+        // // update the shoppping cart with the new modified cart
+        // user_shoppingcart.cart = cart;
+        
+        // console.log(user_shoppingcart.cart);
+
+        // // send the changes to the database
+        // await user_shoppingcart.save();
 
         //////////////////////////////////////////////////////////////////////////////
         // This part is for sending the order into the order transaction collection //
         //////////////////////////////////////////////////////////////////////////////
-        console.log(typeof products);
+        // console.log(typeof products);
         let transaction_array = []
         Object.keys(products).forEach(element => {
             let transaction_order = {};
@@ -155,7 +166,7 @@ async function checkout({user_id, products}) {
 
         return {
             "success": true,
-            "data": [user_shoppingcart, order],
+            "data": [delete_from_user_cart, order],
             "message": "Successfully confirmed a user's order."
         };
 
