@@ -50,6 +50,7 @@ async function addProductToCart({ user_id, product_id, quantity }) {
 async function getAllProductsInCart({user_id}) {
     console.log("Getting all products in user's cart.");
 
+    console.log(user_id);
     try {
         const user_shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
 
@@ -189,22 +190,16 @@ async function removeProductFromCart({ user_id, product_id }) {
     console.log("Removing product from user's cart.");
 
     try {
-        let shoppingcart = await ShoppingCart.findOne({ user_id });
-
-        if (!shoppingcart) {
-            return {
-                success: false,
-                message: "User does not have a shopping cart."
-            };
-        }
-
-        shoppingcart.cart = shoppingcart.cart.filter(item => item.product_id != product_id);
-
-        await shoppingcart.save();
+        const delete_from_user_cart = await ShoppingCart.updateOne(
+            {"user_id": user_id},
+            { $pull: {
+                cart : { product_id: { $in: [product_id] } }
+            } }
+        )
 
         return {
             success: true,
-            data: shoppingcart,
+            data: delete_from_user_cart,
             message: "The product has been successfully removed from the cart."
         };
 

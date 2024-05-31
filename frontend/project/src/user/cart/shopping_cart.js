@@ -41,12 +41,8 @@ function ShoppingCart() {
     const updatedCart = cart.filter(cartItem => cartItem.product_id !== item.product_id);
 
     try {
-      await axios.delete(`http://localhost:3001/api/remove-from-cart`, {
-        data: {
-          user_id: localStorage.getItem("user_id"),
-          product_id: item.product_id
-        },
-      }, HEADER);
+      let response = await axios.delete(`http://localhost:3001/api/remove-from-cart?user_id=${user_id}&product_id=${item.product_id}`,
+        HEADER);
 
       setCart(updatedCart);
       setSelectedItems(selectedItems.filter(selItem => selItem.product_id !== item.product_id));
