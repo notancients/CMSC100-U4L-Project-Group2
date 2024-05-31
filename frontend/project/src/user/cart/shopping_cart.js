@@ -7,6 +7,15 @@ import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
 import CheckoutModal from './CheckoutModal';
 
+const SERVER = "localhost:3001"
+
+let HEADER = {
+  headers: {
+    'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+  
+
 function ShoppingCart({ }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [cart, setCart] = useState([]);
@@ -14,7 +23,7 @@ function ShoppingCart({ }) {
   let user_id = localStorage.getItem("user_id");
 
 
-  console.log(user_id);
+  // console.log(user_id);
   useEffect( () => {
     console.log("Fetching cart data.");
     const fetch_data = async () => {
@@ -55,35 +64,10 @@ const handleRemove = async (item) => {
 };
 
 
-const handleCheckOut = () => {
-  console.log("Checking out all selected items");
-  console.log(selectedItems);
-  setIsModalOpen(true);
-};
- const handleConfirmCheckout = async () => {
-    const selectedProductIds = selectedItems.map(item => item.product_id);
-    const selectedProductQuantities = selectedItems.reduce((acc, item) => {
-      acc[item.product_id] = item.product_quantity;
-      return acc;
-    }, {});
-
-    try {
-      const response = await axios.post('http://localhost:3001/api/checkout', {
-        user_id,
-        products: selectedProductQuantities
-      });
-      if (response.data.success) {
-        // Clear the selected items and cart
-        setSelectedItems([]);
-        setCart(cart.filter(item => !selectedProductIds.includes(item.product_id)));
-        setIsModalOpen(false);
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  const handleCheckOut = () => {
+    console.log("Checking out all selected items");
+    console.log(selectedItems);
   };
-
-
 
   const handleCheckboxChange = (item) => {
     console.log("Adding to selected items: ", item);

@@ -142,7 +142,7 @@ async function checkout({user_id, products}) {
         Object.keys(products).forEach(element => {
             let transaction_order = {};
             transaction_order["product_id"] = element;
-            transaction_order["quantity"] = products[element];
+            transaction_order["product_quantity"] = products[element];
             transaction_array.push(transaction_order);
         });
 
