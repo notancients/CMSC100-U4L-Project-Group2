@@ -41,6 +41,7 @@ function authorizeAdminMiddleware(req, res, next) {
     console.log("Auth Header: ", authHeader);
     // Check if authorization header is present
     if (!authHeader) {
+        console.log("The auth header is undefined.");
         return res.status(401).json({ 
                 success: false,
                 data: null,
@@ -54,15 +55,16 @@ function authorizeAdminMiddleware(req, res, next) {
     // Verify token using secret key
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
-        if (decoded.user_type === "User") {
+        console.log(decoded);
+        if (decoded.user_type != "Admin") {
+            console.log("The user type is not an admin: ", decoded.user_type);
             return res.status(400).json({
                 success: false,
                 data: null,
                 message: "Not an administrator"
             });
         }
-        req.user = decoded; // Attach decoded user data to request object
-        next(); // Allow request to proceed
+        // req.user = decoded; // Attach decoded user data to request object
     } catch (error) {
         return res.status(403).json({
             success: false,
@@ -71,6 +73,7 @@ function authorizeAdminMiddleware(req, res, next) {
         });
     }
 
+    console.log("The user has been validated as an administrator.");
     next();
 }
 

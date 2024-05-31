@@ -26,6 +26,7 @@ function OrderFulfillment() {
 
   useEffect(() => {
     const fetch_data = async () => {
+      console.log("Fetching all data.");
       try {
         const response = await axios.get("http://localhost:3001/api/get-all-transactions", HEADER);
         const allOrders = [
@@ -45,6 +46,7 @@ function OrderFulfillment() {
 
   const handleConfirm = async (_id) => {
     try {
+      console.log("Handling confirm data.");
       const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
         order_id: _id,
         order_status: "Completed"
@@ -63,6 +65,7 @@ function OrderFulfillment() {
   };
 
   const handleCancel = async (_id) => {
+    console.log("Handling cancel.");
     try {
       const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
         order_id: _id,
