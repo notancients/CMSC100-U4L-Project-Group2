@@ -58,14 +58,13 @@ async function updateCartQuantityAPI(req, res) {
 
 
 async function removeProductFromCartAPI(req, res) {
-    const { user_id, product_id } = req.body;
 
-    const result = await removeProductFromCart({ user_id, product_id });
+    const removeFromCart_result = await removeProductFromCart(req.query);
 
-    if (result.success) {
-        res.status(200).json(result);
+    if (removeFromCart_result.success) {
+        res.status(200).json(removeFromCart_result);
     } else {
-        res.status(500).json(result);
+        res.status(500).json(removeFromCart_result);
     }
 }
 
