@@ -10,9 +10,11 @@ import CustomCursor from '../../components/customCursor';
 
 let HEADER = {
   headers: {
-      'authorization': `Bearer ${localStorage.getItem("token")}`
+    'authorization': `Bearer ${localStorage.getItem("token")}`
   }
 }
+
+let user_id = localStorage.getItem("user_id");
 
 const menus = [
   { name: "Pending", url: "#pending", id: 1 },
@@ -30,7 +32,8 @@ function UserOrdersPage({ cart }) {
     if (user_id) {
       const fetch_data = async () => {
         try {
-          const response = await axios.get("http://localhost:3001/api/get-all-user-transactions", { params: { user_id } }, HEADER);
+          console.log(HEADER)
+          const response = await axios.get(`http://localhost:3001/api/get-all-user-transactions?user_id=${user_id}`, HEADER);
           const allOrders = [
             ...response.data.data.pending,
             ...response.data.data.completed,
