@@ -31,12 +31,7 @@ const SalesReport = () => {
     console.log(`Opening ${timePeriod} modal data.`);
 
     try {
-      const modalResponse = await axios.get("http://localhost:3001/api/sales-report", {
-        params: {
-          product_id: productId,
-          time_period: timePeriod
-        }
-      },
+      const modalResponse = await axios.get(`http://localhost:3001/api/sales-report?product_id=${productId}&time_period=${timePeriod}`,
       HEADER);
 
       let data = modalResponse.data.data;
