@@ -171,7 +171,7 @@ function UserProductsPage({ cart, setCart }) {
                     <button className="sort" onClick={() => handleSort('product_name')}>NAME {renderSortIndicator('product_name')}</button>
                     <button className="sort" onClick={() => handleSort('product_type')}>TYPE {renderSortIndicator('product_type')}</button>
                     <button className="sort" onClick={() => handleSort('price')}>PRICE {renderSortIndicator('price')}</button>
-                    <button className="sort" onClick={() => handleSort('quantity')}>QUANTITY {renderSortIndicator('quantity')}</button>
+                    <button className="sort" onClick={() => handleSort('product_quantity')}>QUANTITY {renderSortIndicator('product_quantity')}</button>
                 </div>
                 <div className="type-filter">
                     <p className="filter">FILTER:  {renderProductTypesDropdown()}</p>

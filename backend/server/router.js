@@ -57,34 +57,34 @@ router.post("/api/create-user", createNewUserAPI);
 router.post("/api/login", loginAPI);
 
 // POPULATE API
-router.get("/api/populate-user-database", populateUserDataAPI);
-router.get("/api/populate-product-database", populateProductAPI);
-router.get("/api/populate-transactions", populateTransactionHistoryAPI);
+router.get("/api/populate-user-database", authenticateTokenMiddleware, authorizeAdminMiddleware, populateUserDataAPI);
+router.get("/api/populate-product-database", authenticateTokenMiddleware, authorizeAdminMiddleware, populateProductAPI);
+router.get("/api/populate-transactions", authenticateTokenMiddleware, authorizeAdminMiddleware, populateTransactionHistoryAPI);
 
 
 // PRODUCT API
-router.post("/api/create-product", createProductAPI);
+router.post("/api/create-product", authenticateTokenMiddleware, authorizeAdminMiddleware, createProductAPI);
 router.get("/api/get-all-products", authenticateTokenMiddleware, getAllProductsAPI);
-router.put("/api/update-product-details", updateProductAPI);
+router.put("/api/update-product-details", authenticateTokenMiddleware, authorizeAdminMiddleware, updateProductAPI);
 
 
 
 // SHOPPING CART API
-router.post("/api/add-to-cart", addProductToCartAPI);
-router.get("/api/get-all-products-in-cart", getAllProductsInCartAPI);
-router.post("/api/checkout", checkoutAPI);
-router.patch("/api/update-cart-product", updateCartQuantityAPI);
-router.delete("/api/remove-from-cart", removeProductFromCartAPI);
+router.post("/api/add-to-cart", authenticateTokenMiddleware, addProductToCartAPI);
+router.get("/api/get-all-products-in-cart", authenticateTokenMiddleware, getAllProductsInCartAPI);
+router.post("/api/checkout", authenticateTokenMiddleware, checkoutAPI);
+router.patch("/api/update-cart-product", authenticateTokenMiddleware, updateCartQuantityAPI);
+router.delete("/api/remove-from-cart", authenticateTokenMiddleware, removeProductFromCartAPI);
 
 
 
 
 // TRANSACTION API
-router.get("/api/get-all-user-transactions", getAllUserTransactionAPI);
-router.get("/api/get-all-transactions", adminGetAllTransactionAPI);
-router.patch("/api/user-cancel-order", userCancelOrderAPI);
-router.patch("/api/admin-validate-order", adminValidateOrderAPI);
-router.get("/api/sales-report", salesReportAPI);
+router.get("/api/get-all-user-transactions", authenticateTokenMiddleware, getAllUserTransactionAPI);
+router.get("/api/get-all-transactions", authenticateTokenMiddleware, authorizeAdminMiddleware, adminGetAllTransactionAPI);
+router.patch("/api/user-cancel-order", authenticateTokenMiddleware, userCancelOrderAPI);
+router.patch("/api/admin-validate-order", authenticateTokenMiddleware, authorizeAdminMiddleware, adminValidateOrderAPI);
+router.get("/api/sales-report", authenticateTokenMiddleware, authorizeAdminMiddleware, salesReportAPI);
 
 export {
     router

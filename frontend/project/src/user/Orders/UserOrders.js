@@ -18,26 +18,28 @@ function UserOrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
   const [currentTab, setCurrentTab] = useState(1);
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const user_id = localStorage.getItem("user_id");
 
   useEffect(() => {
-    const fetch_data = async () => {
-      try {
-        const userId = orders.user_id;
-        const response = await axios.get("http://localhost:3001/api/get-all-user-transactions", { params: { user_id: userId } });
-        const allOrders = [
-          ...response.data.data.pending,
-          ...response.data.data.completed,
-          ...response.data.data.cancelled
-        ];
-        setOrders(allOrders);
-      } catch (err) {
-        console.log(err);
-        setOrders([]);
-      }
-    };
+    if (user_id) {
+      const fetch_data = async () => {
+        try {
+          const response = await axios.get("http://localhost:3001/api/get-all-user-transactions", { params: { user_id } });
+          const allOrders = [
+            ...response.data.data.pending,
+            ...response.data.data.completed,
+            ...response.data.data.cancelled
+          ];
+          setOrders(allOrders);
+        } catch (err) {
+          console.log(err);
+          setOrders([]);
+        }
+      };
 
-    fetch_data();
-  }, []);
+      fetch_data();
+    }
+  }, [user_id]);
 
   const handleCancel = async (transactionId) => {
     try {
