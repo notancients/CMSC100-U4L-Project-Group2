@@ -59,4 +59,12 @@
     font-size: 15px;
     font-style: italic;
   }
+
+  .prof-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #E5F2AD;
+    margin-top: 80px;
+  }
   

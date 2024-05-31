@@ -18,6 +18,7 @@ import AdminLandingPage from './admin/Home/AdminLandingPage';
 import DevelopersScreen from './main/DevelopersScreen';
 import WhatWeDo from './main/whatwedo';
 import AboutPage from './main/about';
+import ProfilePage from './main/userprofile';
 
 function App() {
 
@@ -46,6 +47,8 @@ function App() {
         <Route path="/devs" element={<DevelopersScreen />} />
         <Route path="/whatwedo" element={<WhatWeDo />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/user-profile" element={<ProfilePage />} />
+
 
       
       </Routes>
