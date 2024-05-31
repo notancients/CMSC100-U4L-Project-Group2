@@ -6,6 +6,13 @@ import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
 
+let HEADER = {
+    headers: {
+        'authorization': `Bearer ${localStorage.getItem("token")}`
+    }
+}
+let SERVER = 'localhost:3001'
+
 function ProductListing() {
     const [products, setProducts] = useState([]);
     const [sortCriteria, setSortCriteria] = useState('');
@@ -14,8 +21,12 @@ function ProductListing() {
 
     useEffect(() => {
         const fetchData = async () => {
+            let API_ADDRESS = `http://${SERVER}/api/get-all-products`;
             try {
-                const response = await axios.get('http://localhost:3001/api/get-all-products');
+                const response = await axios.get(
+                    API_ADDRESS,
+                    HEADER
+                );
                 setProducts(response.data.data);
             } catch (error) {
                 console.error('Error fetching products:', error);
