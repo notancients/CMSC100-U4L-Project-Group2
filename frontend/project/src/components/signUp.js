@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../css/signupPage.css';
 import logo from '../images/Logo.png';
 import CustomCursor from '../components/customCursor';
+import ErrorModal from '../components/ErrorModal';
 
 
 let HEADER = {
@@ -18,9 +19,18 @@ function SignUpPage() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showModal, setShowModal] = useState(false); 
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
+
+    if (!email.includes('@')) {
+      setErrorMessage('Please enter a valid email address.');
+      setShowModal(true); // Show the modal
+      return;
+    }
+    
     try {
       const response = await axios.post('http://localhost:3001/api/create-user', {
         first_name: firstName,
@@ -136,6 +146,9 @@ function SignUpPage() {
           </p>
         </div>
       </div>
+      {showModal && (
+        <ErrorModal message={errorMessage} onClose={() => setShowModal(false)} />
+      )}
     </div>
   );
 }
