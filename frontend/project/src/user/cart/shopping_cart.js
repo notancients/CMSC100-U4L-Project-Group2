@@ -5,7 +5,6 @@ import logo from '../../images/Logo.png';
 import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
-import CheckoutModal from './CheckoutModal';
 
 const SERVER = "localhost:3001"
 
@@ -19,9 +18,7 @@ let HEADER = {
 function ShoppingCart({ }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [cart, setCart] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   let user_id = localStorage.getItem("user_id");
-
 
   // console.log(user_id);
   useEffect( () => {
@@ -64,9 +61,51 @@ const handleRemove = async (item) => {
 };
 
 
-  const handleCheckOut = () => {
+
+
+
+  const handleCheckOut = async () => {
     console.log("Checking out all selected items");
-    console.log(selectedItems);
+    try {
+      const API_ADDRESS = `http://${SERVER}/api/checkout`;
+      let request_body = {
+        "user_id": localStorage.getItem("user_id"),
+        "products": {}
+      };
+
+      console.log(selectedItems);
+
+      // prepare the request body
+      let products_to_checkout = {};
+      selectedItems.forEach( (item) => {
+        let product_id_as_key = item.product_id;
+        let product_quantity_as_value = item.product_quantity;
+
+        products_to_checkout[product_id_as_key] = product_quantity_as_value;
+      } );
+      
+      request_body["products"] = {...products_to_checkout};
+      console.log(request_body);
+
+      // send the request to the server
+      let response = await axios.post(
+        API_ADDRESS,
+        request_body,
+        HEADER
+      );
+
+      console.log(response);
+
+
+      // handle the deletion of all items in the shopping cart that has been selected if
+      // the response succeeds
+
+    } catch (err) {
+      alert("There was an error with checking out your products.");
+      console.log(["Checkout error", err]);
+    }
+
+
   };
 
   const handleCheckboxChange = (item) => {
@@ -76,6 +115,19 @@ const handleRemove = async (item) => {
     } else {
       setSelectedItems([...selectedItems, item]);
     }
+    // console.log(selectedItems);
+    // let addFlag = true;
+    // let updatedList = selectedItems.map( (checked_item) => {
+    //   if (item.product_id != checked_item.product_id) {
+    //     return (checked_item);
+    //   } else if (item.product_id == checked_item.product_id) {
+    //     addFlag = false;
+    //   };
+
+    //   if(addFlag) updatedList.push(item);
+
+    //   setSelectedItems(updatedList);
+    // });
 
   };
   const computeTotalCartQuantity = () => {
@@ -146,12 +198,6 @@ const computeTotalPrice = () => {
           <button className='checkout' onClick={handleCheckOut}>Check Out</button>
         </div>
       </div>
-      <CheckoutModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onConfirm={handleConfirmCheckout}
-        totalPrice={computeTotalPrice()}
-      />
     </div>
   );
 }
