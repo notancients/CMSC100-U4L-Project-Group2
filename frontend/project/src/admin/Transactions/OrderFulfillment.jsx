@@ -8,6 +8,12 @@ import userIcon from '../../images/user_icon.png';
 import { Link } from 'react-router-dom';
 import CustomCursor from '../../components/customCursor';
 
+let HEADER = {
+  headers: {
+      'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+
 const menus = [
   { name: "Pending", url: "#pending", id: 1 },
   { name: "Completed", url: "#completed", id: 2 },
@@ -21,7 +27,7 @@ function OrderFulfillment() {
   useEffect(() => {
     const fetch_data = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/get-all-transactions");
+        const response = await axios.get("http://localhost:3001/api/get-all-transactions", HEADER);
         const allOrders = [
           ...response.data.data.pending,
           ...response.data.data.completed,
@@ -42,7 +48,7 @@ function OrderFulfillment() {
       const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
         order_id: _id,
         order_status: "Completed"
-      });
+      }, HEADER);
 
       if (response.data.success) {
         setOrders(prevOrders =>
@@ -61,7 +67,7 @@ function OrderFulfillment() {
       const response = await axios.patch("http://localhost:3001/api/admin-validate-order", {
         order_id: _id,
         order_status: "Cancelled"
-      });
+      }, HEADER);
 
       if (response.data.success) {
         setOrders(prevOrders =>

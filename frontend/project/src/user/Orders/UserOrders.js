@@ -8,6 +8,12 @@ import logo from '../../images/Logo.png';
 import userIcon from '../../images/user_icon.png';
 import CustomCursor from '../../components/customCursor';
 
+let HEADER = {
+  headers: {
+      'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+
 const menus = [
   { name: "Pending", url: "#pending", id: 1 },
   { name: "Completed", url: "#completed", id: 2 },
@@ -24,7 +30,7 @@ function UserOrdersPage({ cart }) {
     if (user_id) {
       const fetch_data = async () => {
         try {
-          const response = await axios.get("http://localhost:3001/api/get-all-user-transactions", { params: { user_id } });
+          const response = await axios.get("http://localhost:3001/api/get-all-user-transactions", { params: { user_id } }, HEADER);
           const allOrders = [
             ...response.data.data.pending,
             ...response.data.data.completed,
@@ -43,7 +49,7 @@ function UserOrdersPage({ cart }) {
 
   const handleCancel = async (transactionId) => {
     try {
-      const response = await axios.patch("http://localhost:3001/api/user-cancel-order", { order_id: transactionId });
+      const response = await axios.patch("http://localhost:3001/api/user-cancel-order", { order_id: transactionId }, HEADER);
 
       if (response.data.success) {
         setOrders(prevOrders =>

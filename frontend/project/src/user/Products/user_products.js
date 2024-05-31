@@ -7,7 +7,11 @@ import CustomCursor from '../../components/customCursor';
 import axios from "axios";
 import { LogoutPrompt } from '../../frontend_network/authentication';
 
-
+let HEADER = {
+    headers: {
+        'authorization': `Bearer ${localStorage.getItem("token")}`
+    }
+}
 function UserProductsPage({ cart, setCart }) {
     const [products, setProducts] = useState([]);
     const [sortCriteria, setSortCriteria] = useState('');
@@ -39,7 +43,10 @@ function UserProductsPage({ cart, setCart }) {
         const fetchCart = async () => {
             console.log("Fetching cart data.");
             try {
-                const response = await axios.get(`http://localhost:3001/api/get-all-products-in-cart?user_id=${localStorage.getItem("user_id")}`);
+                const response = await axios.get(
+                    `http://localhost:3001/api/get-all-products-in-cart?user_id=${localStorage.getItem("user_id")}`,
+                    HEADER
+                );
                 console.log(response.data.data);
                 setCart(response.data.data);
             } catch (err) {
@@ -76,7 +83,9 @@ function UserProductsPage({ cart, setCart }) {
                 "user_id" : user_id,
                 "product_id" : productToAdd._id,
                 "quantity" : 1
-            });
+            },
+            HEADER
+        );
             console.log(response);
         } catch (err) {
             console.log(err);
