@@ -4,67 +4,48 @@ import OrderTransaction from "../order_transaction/order_transaction_model.js";
 import mongoose from "mongoose";
 
 
-async function addProductToCart({user_id, product_id, quantity}) {
+async function addProductToCart({ user_id, product_id, quantity }) {
     console.log("Adding products to a user's cart.");
 
-    let shoppingcart;
-    let add_to_cart_result;
     try {
-        shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
+        let shoppingcart = await ShoppingCart.findOne({ user_id });
 
         if (!shoppingcart) {
             console.log("User doesn't have a shopping cart yet. Creating a shopping cart.");
             shoppingcart = await ShoppingCart.create({
-                "user_id" : user_id,
-                "cart" : []
+                user_id,
+                cart: []
             });
         }
 
-        // console.log("Shopping cart:", shoppingcart);
+        let productIndex = shoppingcart.cart.findIndex(item => item.product_id == product_id);
 
-        let productIndex = shoppingcart["cart"].length == 0 ? -1 : null;
-
-        shoppingcart["cart"].forEach( (element, index) => {
-            if (element["product_id"] == product_id) {
-                productIndex = index;
-                return;
-            }
-            productIndex = -1;
-            return;
-        });
-
-        // console.log("Product index:", productIndex);
-
-        if (productIndex === -1) { // if it doesnt exist
+        if (productIndex === -1) { // if it doesn't exist
             console.log("Product does not exist in cart.");
-            const response = await ShoppingCart.findOneAndUpdate(
-                { "user_id": user_id }, // matching criteria
-                { $addToSet: { cart: { "product_id": product_id, "product_quantity": quantity } } },
-                { upsert: true }
-            )
+            shoppingcart.cart.push({ product_id, product_quantity: quantity });
         } else { // if it exists
-            // console.log(shoppingcart.cart[productIndex]);
-            shoppingcart.cart[productIndex]["product_quantity"] += quantity;
-            await shoppingcart.save();
+            console.log("Product exists in cart. Updating quantity.");
+            shoppingcart.cart[productIndex].product_quantity += quantity;
         }
 
-        shoppingcart = await ShoppingCart.findOne({ "user_id":user_id });
+        await shoppingcart.save();
 
         return {
-            "success" : true,
-            "data": shoppingcart,
-            "message": "The product has been successfully added to the cart."
+            success: true,
+            data: shoppingcart,
+            message: "The product has been successfully added to the cart."
         };
 
     } catch (err) {
         console.log(["There was an error: ", err]);
         return {
-            "success": false,
-            "data": err,
-            "message": "There was an error in adding products to the cart."
+            success: false,
+            data: err,
+            message: "There was an error in adding products to the cart."
         };
     }
 }
+
 
 async function getAllProductsInCart({user_id}) {
     console.log("Getting all products in user's cart.");
@@ -193,9 +174,44 @@ async function updateCartQuantity({user_id, product_id, quantity}) {
 
 }
 
+async function removeProductFromCart({ user_id, product_id }) {
+    console.log("Removing product from user's cart.");
+
+    try {
+        let shoppingcart = await ShoppingCart.findOne({ user_id });
+
+        if (!shoppingcart) {
+            return {
+                success: false,
+                message: "User does not have a shopping cart."
+            };
+        }
+
+        shoppingcart.cart = shoppingcart.cart.filter(item => item.product_id != product_id);
+
+        await shoppingcart.save();
+
+        return {
+            success: true,
+            data: shoppingcart,
+            message: "The product has been successfully removed from the cart."
+        };
+
+    } catch (err) {
+        console.log(["There was an error: ", err]);
+        return {
+            success: false,
+            data: err,
+            message: "There was an error in removing the product from the cart."
+        };
+    }
+}
+
+
 export {
     addProductToCart,
     getAllProductsInCart,
     checkout,
-    updateCartQuantity
+    updateCartQuantity, 
+    removeProductFromCart
 }

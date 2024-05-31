@@ -20,7 +20,8 @@ import {
     addProductToCartAPI,
     getAllProductsInCartAPI,
     checkoutAPI,
-    updateCartQuantityAPI
+    updateCartQuantityAPI,
+    removeProductFromCartAPI
 } from "./shoppingcart_api_controller.js"
 
 import {
@@ -73,6 +74,7 @@ router.post("/api/add-to-cart", addProductToCartAPI);
 router.get("/api/get-all-products-in-cart", getAllProductsInCartAPI);
 router.post("/api/checkout", checkoutAPI);
 router.patch("/api/update-cart-product", updateCartQuantityAPI);
+router.delete("/api/remove-from-cart", removeProductFromCartAPI);
 
 
 

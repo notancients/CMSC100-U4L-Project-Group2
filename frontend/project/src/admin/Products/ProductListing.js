@@ -25,7 +25,7 @@ function ProductListing() {
         fetchData();
     }, []);
 
-    const handleDecreaseStock = (productId) => {
+    const handleDecreaseStock = async (productId) => {
         setProducts(prevProducts =>
             prevProducts.map(product =>
                 product._id === productId && product.product_quantity > 0
@@ -33,9 +33,25 @@ function ProductListing() {
                     : product
             )
         );
+        const productToUpdate = products.find((product) => product._id === productId);
+        try {
+            console.log("Updating product quantity.");
+            const response = await axios.put('http://localhost:3001/api/update-product-details', {
+                "product_id" : productToUpdate._id,
+                "product_name" : productToUpdate.product_name,
+                "product_description" : productToUpdate.product_description,
+                "product_type" : productToUpdate.product_type,
+                "product_image" : productToUpdate.product_image,
+                "product_quantity" : productToUpdate.product_quantity - 1,
+                "price" : productToUpdate.price
+            });
+            console.log(response);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
-    const handleIncreaseStock = (productId) => {
+    const handleIncreaseStock = async (productId) => {
         setProducts(prevProducts =>
             prevProducts.map(product =>
                 product._id === productId
@@ -43,6 +59,22 @@ function ProductListing() {
                     : product
             )
         );
+        const productToUpdate = products.find((product) => product._id === productId);
+        try {
+            console.log("Updating product quantity.");
+            const response = await axios.put('http://localhost:3001/api/update-product-details', {
+                "product_id" : productToUpdate._id,
+                "product_name" : productToUpdate.product_name,
+                "product_description" : productToUpdate.product_description,
+                "product_type" : productToUpdate.product_type,
+                "product_image" : productToUpdate.product_image,
+                "product_quantity" : productToUpdate.product_quantity + 1,
+                "price" : productToUpdate.price
+            });
+            console.log(response);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const handleSort = (criteria) => {

@@ -19,7 +19,7 @@ const menus = [
 function UserOrdersPage({ cart}) {
   const [orders, setOrders] = useState(sampleOrders);
   const [currentTab, setCurrentTab] = useState(1);
-  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const cartItemCount = cart.reduce((total, item) => total + item.product_quantity, 0);
 
 
   const handleCancel = (transactionId) => {

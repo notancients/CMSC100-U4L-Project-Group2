@@ -19,7 +19,7 @@ function UserProductsPage({ cart, setCart }) {
 
     useEffect( () => {
         console.log("Fetching products data.");
-        const fetch_data = async () => {
+        const fetchProducts = async () => {
             try {
                 const response = await axios.get(
                     "http://localhost:3001/api/get-all-products", {
@@ -28,8 +28,6 @@ function UserProductsPage({ cart, setCart }) {
                         }
                     }
                 );
-                
-                console.log(response);
                 console.log(response.data.data);
                 setProducts(response.data.data);
             } catch (err) {
@@ -37,8 +35,21 @@ function UserProductsPage({ cart, setCart }) {
                 setProducts([]);
             }
         }
-    
-        fetch_data();
+
+        const fetchCart = async () => {
+            console.log("Fetching cart data.");
+            try {
+                const response = await axios.get(`http://localhost:3001/api/get-all-products-in-cart?user_id=${localStorage.getItem("user_id")}`);
+                console.log(response.data.data);
+                setCart(response.data.data);
+            } catch (err) {
+                console.log(err);
+                setCart([]);
+            }
+        }
+
+        fetchProducts();
+        fetchCart();
     }, []);
 
 
@@ -101,7 +112,7 @@ function UserProductsPage({ cart, setCart }) {
     };
 
     const computeTotalCartQuantity = () => {
-        return cart.reduce((total, item) => total + item.quantity, 0);
+        return cart.reduce((total, item) => total + item.product_quantity, 0);
     };
     
 
