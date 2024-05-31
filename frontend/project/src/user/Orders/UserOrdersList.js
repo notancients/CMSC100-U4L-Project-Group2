@@ -6,13 +6,20 @@ const UserOrdersList = ({ orders, handleCancel, currentTab }) => {
       {orders.map(order => (
         <div className="user-order-card" key={order._id}>
           <div className="order-info">
-            <p>{order.product_name}</p>
-            <p>Product ID: {order.product_id}</p>
-            <p>Order Quantity: {order.order_quantity}</p>
-            <p>Date Ordered: {order.date_ordered}</p>
+            <div><span className="label">Transaction ID:</span> {order._id}</div>
+            {order.order && order.order.map((item, index) => (
+              <div key={index}>
+                <div><span className="label">Product ID:</span> {item.product_id}</div>
+                <div><span className="label">Order Quantity:</span> {item.product_quantity}</div>
+              </div>
+            ))}
+            <div><span className="label">Date Ordered:</span> {new Date(order.createdAt).toLocaleDateString()}</div>
+            <div><span className="label">Time:</span> {new Date(order.createdAt).toLocaleTimeString()}</div>
           </div>
-          {currentTab !== 3 && handleCancel && ( // Check if not on Cancelled tab
-            <button className="user-action-button" onClick={() => handleCancel(order._id)}>Cancel</button>
+          {currentTab === 1 && handleCancel && ( // Only display the cancel button for the Pending tab
+            <div className="action-buttons">
+              <button className='user-action-button' onClick={() => handleCancel(order._id)}>Cancel</button>
+            </div>
           )}
         </div>
       ))}
