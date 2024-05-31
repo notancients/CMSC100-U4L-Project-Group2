@@ -7,6 +7,12 @@ import { Link } from 'react-router-dom';
 import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
 
+let HEADER = {
+  headers: {
+      'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [sortCriteria, setSortCriteria] = useState('');
@@ -15,7 +21,9 @@ const UserList = () => {
   useEffect( () => {
     const fetch_data = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/api/get-all-users");
+            const response = await axios.get("http://localhost:3001/api/get-all-users",
+            HEADER
+            );
             console.log(response.data.data);
             setUsers(response.data.data);
             console.log(response);

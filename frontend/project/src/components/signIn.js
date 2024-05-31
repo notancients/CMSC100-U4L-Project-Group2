@@ -6,6 +6,12 @@ import customCursorImage from '../images/corn_cursor.png';
 import customCursorHoverImage from '../images/corn_cursor_hover.png';
 import axios from 'axios'; // Import Axios
 
+let HEADER = {
+  headers: {
+      'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+
 function LoginPage({ userType }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +21,7 @@ function LoginPage({ userType }) {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/login', { email, password });
+      const response = await axios.post('http://localhost:3001/api/login', { email, password }, HEADER);
       const { success, data, message } = response.data;
 
       if (success) {

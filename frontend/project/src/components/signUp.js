@@ -6,6 +6,12 @@ import logo from '../images/Logo.png';
 import CustomCursor from '../components/customCursor';
 
 
+let HEADER = {
+  headers: {
+      'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+
 function SignUpPage() {
   const [firstName, setFirstName] = useState('');
   const [middleName, setMiddleName] = useState('');
@@ -22,7 +28,7 @@ function SignUpPage() {
         last_name: lastName,
         email,
         password,
-      });
+      }, HEADER);
       const { success, message } = response.data;
 
       if (success) {

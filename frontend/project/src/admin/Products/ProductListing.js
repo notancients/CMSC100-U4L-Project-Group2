@@ -55,7 +55,9 @@ function ProductListing() {
                 "product_image" : productToUpdate.product_image,
                 "product_quantity" : productToUpdate.product_quantity - 1,
                 "price" : productToUpdate.price
-            });
+            },
+                HEADER
+            );
             console.log(response);
         } catch (err) {
             console.log(err);
@@ -81,7 +83,7 @@ function ProductListing() {
                 "product_image" : productToUpdate.product_image,
                 "product_quantity" : productToUpdate.product_quantity + 1,
                 "price" : productToUpdate.price
-            });
+            },HEADER);
             console.log(response);
         } catch (err) {
             console.log(err);

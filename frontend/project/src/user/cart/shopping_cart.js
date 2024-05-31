@@ -27,7 +27,7 @@ function ShoppingCart({ }) {
     console.log("Fetching cart data.");
     const fetch_data = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/api/get-all-products-in-cart?user_id=${user_id}`);
+            const response = await axios.get(`http://localhost:3001/api/get-all-products-in-cart?user_id=${user_id}`, HEADER);
             // console.log(response);
             
             let response_cart = response.data.data;
@@ -52,8 +52,9 @@ const handleRemove = async (item) => {
           data: {
               user_id: localStorage.getItem("user_id"),
               product_id: item.product_id
-          }
-      });
+          },
+          
+      }, HEADER);
       
       setCart(updatedCart);
       setSelectedItems(selectedItems.filter(selItem => selItem.product_id !== item.product_id));

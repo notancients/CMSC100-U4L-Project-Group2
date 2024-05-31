@@ -4,6 +4,12 @@ import AnnualSales from './AnnualSales';
 import MonthlySalesModal from './MonthlySales';
 import WeeklySalesModal from './WeeklySales';
 
+let HEADER = {
+  headers: {
+      'authorization': `Bearer ${localStorage.getItem("token")}`
+  }
+}
+
 const SalesReport = () => {
   const [isAnnualModalOpen, setAnnualModalOpen] = useState(false);
   const [isMonthlyModalOpen, setMonthlyModalOpen] = useState(false);
@@ -12,7 +18,7 @@ const SalesReport = () => {
   const [salesData, setSalesData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/get-all-products')
+    axios.get('http://localhost:3001/api/get-all-products', HEADER)
       .then(response => {
         setSalesData(response.data.data);
       })
@@ -30,7 +36,8 @@ const SalesReport = () => {
           product_id: productId,
           time_period: timePeriod
         }
-      });
+      },
+      HEADER);
 
       let data = modalResponse.data.data;
 
