@@ -15,6 +15,9 @@ import AnnualSales from './admin/Sales/AnnualSales';
 import UserProductsPage from './user/Products/user_products';
 import ShoppingCart from './user/cart/shopping_cart';
 import AdminLandingPage from './admin/Home/AdminLandingPage';
+import DevelopersScreen from './main/DevelopersScreen';
+import WhatWeDo from './main/whatwedo';
+import AboutPage from './main/about';
 
 function App() {
 
@@ -40,6 +43,11 @@ function App() {
         <Route path="/sales/:id/weekly" element={<WeeklySales />} />
         <Route path="/sales/:id/monthly" element={<MonthlySales />} />
         <Route path="/sales/:id/annual" element={<AnnualSales />} />
+        <Route path="/devs" element={<DevelopersScreen />} />
+        <Route path="/whatwedo" element={<WhatWeDo />} />
+        <Route path="/about" element={<AboutPage />} />
+
+      
       </Routes>
     </Router>
   );

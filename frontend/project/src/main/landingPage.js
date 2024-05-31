@@ -6,10 +6,14 @@ import lpLogo from '../images/lp_logo.png';
 import userLoginImage from '../images/iamcustomer_button.png';
 import adminLoginImage from '../images/imadmin_button.png';
 import userIcon from '../images/user_icon.png';
+import CustomCursor from '../components/customCursor';
+
 
 function LandingPage() {
   return (
     <div className="gradient-background">
+                         <CustomCursor />
+
       <div className="lp-container">
         <div className="bokeh-overlay-lp">
           <div className="bokeh-lp"></div>
