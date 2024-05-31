@@ -279,3 +279,55 @@
 .checkbox:checked + .checkbox-label::after {
   opacity: 1;
 }
+
+
+.modal-co {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content-co {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content-co h2 {
+  color: #1f2603ee;
+  font-weight:900;
+
+}
+
+.modal-buttons-co {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-button-co {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1f2603ee;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-button-co:hover {
+  background-color: #D1E599;
+  color: #1f2603ee;
+
+}
+

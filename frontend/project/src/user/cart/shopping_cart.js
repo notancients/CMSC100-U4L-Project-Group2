@@ -7,65 +7,53 @@ import CustomCursor from '../../components/customCursor';
 import axios from 'axios';
 import { LogoutPrompt } from '../../frontend_network/authentication';
 
-
-const SERVER = "localhost:3001"
+const SERVER = "localhost:3001";
 
 let HEADER = {
   headers: {
     'authorization': `Bearer ${localStorage.getItem("token")}`
   }
 }
-  
 
-function ShoppingCart({ }) {
+function ShoppingCart() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [cart, setCart] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   let user_id = localStorage.getItem("user_id");
 
-  // console.log(user_id);
-  useEffect( () => {
+  useEffect(() => {
     console.log("Fetching cart data.");
     const fetch_data = async () => {
-        try {
-            const response = await axios.get(`http://localhost:3001/api/get-all-products-in-cart?user_id=${user_id}`, HEADER);
-            // console.log(response);
-            
-            let response_cart = response.data.data;
-            // console.log(response_cart);
-
-            setCart(response_cart);
-        } catch (err) {
-            console.log(err.response);
-            setCart([]);
-        }
+      try {
+        const response = await axios.get(`http://localhost:3001/api/get-all-products-in-cart?user_id=${user_id}`, HEADER);
+        let response_cart = response.data.data;
+        setCart(response_cart);
+      } catch (err) {
+        console.log(err.response);
+        setCart([]);
+      }
     }
 
     fetch_data();
-}, []);
+  }, []);
 
+  const handleRemove = async (item) => {
+    const updatedCart = cart.filter(cartItem => cartItem.product_id !== item.product_id);
 
-const handleRemove = async (item) => {
-  const updatedCart = cart.filter(cartItem => cartItem.product_id !== item.product_id);
-
-  try {
+    try {
       await axios.delete(`http://localhost:3001/api/remove-from-cart`, {
-          data: {
-              user_id: localStorage.getItem("user_id"),
-              product_id: item.product_id
-          },
-          
+        data: {
+          user_id: localStorage.getItem("user_id"),
+          product_id: item.product_id
+        },
       }, HEADER);
-      
+
       setCart(updatedCart);
       setSelectedItems(selectedItems.filter(selItem => selItem.product_id !== item.product_id));
-  } catch (err) {
+    } catch (err) {
       console.log(err);
-  }
-};
-
-
-
-
+    }
+  };
 
   const handleCheckOut = async () => {
     console.log("Checking out all selected items");
@@ -76,25 +64,22 @@ const handleRemove = async (item) => {
         "products": {}
       };
 
-      if(selectedItems.length === 0) {
-        alert("You don't have any products in your cart to checkout.");
+      if (selectedItems.length === 0) {
         return;
       }
       console.log(selectedItems);
 
-      // prepare the request body
       let products_to_checkout = {};
-      selectedItems.forEach( (item) => {
+      selectedItems.forEach((item) => {
         let product_id_as_key = item.product_id;
         let product_quantity_as_value = item.product_quantity;
 
         products_to_checkout[product_id_as_key] = product_quantity_as_value;
-      } );
-      
-      request_body["products"] = {...products_to_checkout};
+      });
+
+      request_body["products"] = { ...products_to_checkout };
       console.log(request_body);
 
-      // send the request to the server
       let response = await axios.post(
         API_ADDRESS,
         request_body,
@@ -103,15 +88,11 @@ const handleRemove = async (item) => {
 
       console.log(response);
 
-
-      // handle the deletion of all items in the shopping cart that has been selected if
-      // the response succeeds
-      if(response.data.success == true) {
-        alert("Successfully checked out your products.");
+      if (response.data.success === true) {
         console.log("Successful checkout. Clearing all selected items.");
 
-        let updated_cart = cart.filter( (item) => {
-          if(products_to_checkout[item.product_id] == null) {
+        let updated_cart = cart.filter((item) => {
+          if (products_to_checkout[item.product_id] == null) {
             return item;
           }
         });
@@ -121,14 +102,9 @@ const handleRemove = async (item) => {
         setSelectedItems([]);
       }
 
-
-
     } catch (err) {
-      alert("There was an error with checking out your products.");
       console.log(["Checkout error", err]);
     }
-
-
   };
 
   const handleCheckboxChange = (item) => {
@@ -138,33 +114,32 @@ const handleRemove = async (item) => {
     } else {
       setSelectedItems([...selectedItems, item]);
     }
-    // console.log(selectedItems);
-    // let addFlag = true;
-    // let updatedList = selectedItems.map( (checked_item) => {
-    //   if (item.product_id != checked_item.product_id) {
-    //     return (checked_item);
-    //   } else if (item.product_id == checked_item.product_id) {
-    //     addFlag = false;
-    //   };
-
-    //   if(addFlag) updatedList.push(item);
-
-    //   setSelectedItems(updatedList);
-    // });
-
   };
+
   const computeTotalCartQuantity = () => {
     return cart.reduce((total, item) => total + item.product_quantity, 0);
-};
+  };
 
-const computeTotalPrice = () => {
-  return selectedItems.reduce((total, item) => total + (item.price * item.product_quantity), 0);
-};
+  const computeTotalPrice = () => {
+    return selectedItems.reduce((total, item) => total + (item.price * item.product_quantity), 0);
+  };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const confirmCheckout = () => {
+    handleCheckOut();
+    closeModal();
+  };
 
   return (
     <div className="shopping-cart-page">
-                  <CustomCursor />
+      <CustomCursor />
 
       <div className="logo">
         <Link to="/">
@@ -172,14 +147,13 @@ const computeTotalPrice = () => {
         </Link>
       </div>
       <div className="nav-bar">
-      <Link to="/userorders" className="nav-link">ORDERS</Link>
+        <Link to="/userorders" className="nav-link">ORDERS</Link>
         <Link to="/userproducts" className="nav-link">PRODUCTS</Link>
         <Link to="/cart" className="nav-link">CART ({computeTotalCartQuantity()})</Link>
         <Link to="/profile" className="user-profile">
           <img src={userIcon} alt="User icon" className="user-icon" />
         </Link>
-        <LogoutPrompt/>
-
+        <LogoutPrompt />
       </div>
       <div className="title-container">
         <h1>Shopping Cart</h1>
@@ -196,10 +170,10 @@ const computeTotalPrice = () => {
             />
             <label htmlFor={`checkbox-${item.product_id}`} className="checkbox-label"></label>
             <div className='justify1'>
-              <img className= "prod-img" src={item.product_image} alt={item.product_name}/>
+              <img className="prod-img" src={item.product_image} alt={item.product_name} />
               <div className='name-qty'>
-              <p className="itemname">{item.product_name}</p>
-              <p className='qty'>Quantity: {item.product_quantity}</p>
+                <p className="itemname">{item.product_name}</p>
+                <p className='qty'>Quantity: {item.product_quantity}</p>
               </div>
             </div>
             <div className='price-deliv'>
@@ -207,21 +181,32 @@ const computeTotalPrice = () => {
               <p className="deliv">Cash on delivery Only</p>
             </div>
             <div className="buttons">
-            <button className='remove' onClick={() => handleRemove(item)}>
-             <i className="fa fa-trash"></i>
-            </button>
+              <button className='remove' onClick={() => handleRemove(item)}>
+                <i className="fa fa-trash"></i>
+              </button>
             </div>
-
-            
           </div>
         ))}
       </div>
       <div className="total-checkout-container">
         <div className="total-checkout">
           <p className='total-p'> Total Price: PHP {computeTotalPrice()}.00</p>
-          <button className='checkout' onClick={handleCheckOut}>Check Out</button>
+          <button className='checkout' onClick={openModal}>Check Out</button>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="modal-co">
+          <div className="modal-content-co">
+            <h2>Confirm Checkout</h2>
+            <p>Are you sure you want to checkout the selected items?</p>
+            <div className="modal-buttons-co">
+              <button className="modal-button-co" onClick={confirmCheckout}>Yes</button>
+              <button className="modal-button-co" onClick={closeModal}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
